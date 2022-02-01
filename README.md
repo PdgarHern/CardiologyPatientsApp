@@ -19,4 +19,4 @@ You need to have the app installed in order to open the <a href="documentation/E
 
 ###
 The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.io</a>.<br/>
-Just enter their page, select "Open Existing Diagran" and select the file.
+Just enter their page, select "Open Existing Diagran" and select the <a href="documentation/CasosDeUsoUsabi.drawio">file</a>.

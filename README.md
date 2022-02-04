@@ -15,8 +15,12 @@ We currently have two documents: an *ER Diagram* and a *Use Case*.
 
 ###
 The *ER Diagram* has been done with an App called <a href="http://dia-installer.de/index.html.es">Dia</a>.<br/>
-You need to have the app installed in order to open the file "ER_Usabi.dia".
+You need to have the app installed in order to open the file "ER_Usabi.dia".<br/>
+
+<img src="documentation/images/er.png" alt="er" />
 
 ###
 The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.io</a>.<br/>
-Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".
+Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".<br/>
+
+<img src="documentation/images/useCase.png" alt="useCase" />

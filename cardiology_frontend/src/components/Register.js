@@ -7,6 +7,7 @@ import API from "../API";
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [rol, setRol] = useState('');
 
   const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const Register = () => {
 
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
+    if (name === 'rol') setRol(value);
 
   }
 
@@ -25,6 +27,7 @@ const Register = () => {
 
       formData.append('user[email]', email);
       formData.append('user[password]', password);
+      formData.append('user[rol]', rol);
 
       await API.createUser(formData);
       await API.login(formData);
@@ -54,6 +57,12 @@ const Register = () => {
         onClick={handleSubmit}
         value='Sign Up'
       />
+      <label>Rol</label>
+      <select name='rol' onChange={handleInput}>
+        <option value="null"></option>
+        <option value="doctor">Doctor</option>
+        <option value="patient">Patient</option>
+      </select>
     </>
   )
 

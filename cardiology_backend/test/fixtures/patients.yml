@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  clinicRecord: MyString
+  gender: MyString
+  birthDate: MyString
+  phoneNumber: 1
+  consentRGPD: true
+
+two:
+  name: MyString
+  clinicRecord: MyString
+  gender: MyString
+  birthDate: MyString
+  phoneNumber: 1
+  consentRGPD: true

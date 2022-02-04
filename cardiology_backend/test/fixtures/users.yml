@@ -6,6 +6,10 @@
 #
 # one: {}
 # column: value
+one:
+  email: MyString
+  encrypted_password: MyPassword
+  rol: doctor
 #
 # two: {}
 # column: value

@@ -13,10 +13,10 @@ export const usePatientFetch = patientId => {
         setLoading(true);
         setError(false);
 
-        const patient = await API.getPatient(patientId);
+        const patient = await API.getPatients(patientId);
 
         setState({
-          ...state
+          ...patient
         });
 
         setLoading(false);

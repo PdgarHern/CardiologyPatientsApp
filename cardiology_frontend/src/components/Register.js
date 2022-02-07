@@ -34,7 +34,7 @@ const Register = () => {
       await API.createUser(formData);
       await API.login(formData);
       
-      if (localStorage.getItem('userRol') === 'doctor') {
+      if (localStorage.userRol === 'doctor') {
         const formData = new FormData();
 
         formData.append('doctor[name]', name);
@@ -44,7 +44,7 @@ const Register = () => {
 
         navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
 
-      } else if (localStorage.getItem('userRol') === 'patient') {
+      } else if (localStorage.userRol === 'patient') {
         const formData = new FormData();
 
         formData.append('patient[name]', name);

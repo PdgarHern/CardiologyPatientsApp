@@ -3,7 +3,9 @@ class DoctorsController < ApplicationController
 
   # GET /doctors
   def index
-    @doctors = Doctor.all
+    @q = Doctor.ransack(user_id_eq: params[:id]);
+
+    @doctors = @q.result(distinct: true).all
 
     render json: @doctors
   end

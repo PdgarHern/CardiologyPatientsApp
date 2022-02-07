@@ -13,10 +13,10 @@ export const useDoctorFetch = doctorId => {
         setLoading(true);
         setError(false);
 
-        const doctor = await API.getDoctor(doctorId);
+        const doctor = await API.getDoctors(doctorId);
 
         setState({
-          ...state
+          ...doctor
         });
 
         setLoading(false);

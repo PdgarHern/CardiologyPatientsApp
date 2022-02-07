@@ -36,8 +36,8 @@ const apiSettings = {
   },
 
   // Doctor
-  getDoctors: async () => {
-    const endpoint = `${DOCTORS}`;
+  getDoctors: async doctorId => {
+    const endpoint = `${DOCTORS}?id=${doctorId}`;
     return await (await fetch(endpoint)).json();
   },
   getDoctor: async doctorId => {
@@ -58,8 +58,8 @@ const apiSettings = {
   },
 
   // Patient
-  getPatients: async () => {
-    const endpoint = `${PATIENTS}`;
+  getPatients: async patientId => {
+    const endpoint = `${PATIENTS}?id=${patientId}`;
     return await (await fetch(endpoint)).json();
   },
   getPatient: async patientId => {

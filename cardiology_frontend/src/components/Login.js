@@ -26,10 +26,10 @@ const Login = () => {
 
     await API.login(formData);
 
-    if (localStorage.getItem('userRol') === 'doctor') {
+    if (localStorage.userRol === 'doctor') {
       navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
 
-    } else if (localStorage.getItem('userRol') === 'patient') {
+    } else if (localStorage.userRol === 'patient') {
       navigate(`/patient-profile/${localStorage.getItem('userId')}`);
 
     }

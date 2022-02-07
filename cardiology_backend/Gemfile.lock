@@ -152,6 +152,10 @@ GEM
       rake (>= 0.13)
       thor (~> 1.0)
     rake (13.0.6)
+    ransack (2.5.0)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -193,6 +197,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 6.1.4, >= 6.1.4.4)
+  ransack
   tzinfo-data
 
 RUBY VERSION

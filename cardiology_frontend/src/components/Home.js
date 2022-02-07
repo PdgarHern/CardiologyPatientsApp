@@ -14,16 +14,6 @@ const Home = () => {
     navigate('/login');
   }
 
-  const handleLogout = async () => {
-    await API.logout();
-
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('userRol');
-
-    window.location.reload();
-  }
-
   return (
     <>
       <p>Home Component</p>
@@ -36,11 +26,6 @@ const Home = () => {
         type='button'
         onClick={handleLogin}
         value='Login'
-      />
-      <input
-        type='button'
-        onClick={handleLogout}
-        value='Logout'
       />
       {localStorage.userId ? (
         <p>Logged in</p>

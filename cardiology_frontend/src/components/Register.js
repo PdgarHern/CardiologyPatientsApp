@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import validator from "validator";
 // API
 import API from "../API";
+// Components
+import ButtonDark from "./ButtonDark";
+// Styles
+import { Wrapper } from "./Forms.styles";
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -60,7 +64,7 @@ const Register = () => {
   }
 
   return (
-    <>
+    <Wrapper>
       <label>Name</label>
       <input
         type='text'
@@ -82,18 +86,14 @@ const Register = () => {
         name='password'
         onChange={handleInput}
       />
-      <input
-        type='button'
-        onClick={handleSubmit}
-        value='Sign Up'
-      />
       <label>Rol</label>
       <select name='rol' onChange={handleInput}>
         <option value="null"></option>
         <option value="doctor">Doctor</option>
         <option value="patient">Patient</option>
       </select>
-    </>
+      <ButtonDark text="Submit" callback={handleSubmit} />
+    </Wrapper>
   )
 
 }

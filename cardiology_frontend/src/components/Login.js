@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // API
 import API from "../API";
+// Components
+import ButtonDark from "./ButtonDark";
+// Styles
+import { Wrapper } from "./Forms.styles";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -37,7 +41,7 @@ const Login = () => {
   }
 
   return (
-    <>
+    <Wrapper>
       <label>Email</label>
       <input
         type='text'
@@ -52,12 +56,8 @@ const Login = () => {
         name='password'
         onChange={handleInput}
       />
-      <input
-        type='button'
-        onClick={handleSubmit}
-        value='Sign In'
-      />
-    </>
+      <ButtonDark text='Sign In' callback={handleSubmit} />
+    </Wrapper>
   )
 
 }

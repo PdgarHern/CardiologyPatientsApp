@@ -10,16 +10,6 @@ const Patient = () => {
 
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    await API.logout();
-
-    localStorage.removeItem('userId');
-    localStorage.removeItem('userToken');
-    localStorage.removeItem('userRol');
-
-    navigate('/');
-  }
-
   const handleAuth = () => {
     navigate('/login');
   }
@@ -30,11 +20,6 @@ const Patient = () => {
         handleAuth()
       )}
       <h1>Patient</h1>
-      <input
-        type='button'
-        onClick={handleLogout}
-        value='Logout'
-      />
       {localStorage.userId ? (
         <p>Logged in</p>
       ) : (

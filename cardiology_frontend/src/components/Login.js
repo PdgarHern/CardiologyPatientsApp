@@ -26,7 +26,13 @@ const Login = () => {
 
     await API.login(formData);
 
-    navigate('/');
+    if (localStorage.getItem('userRol') === 'doctor') {
+      navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+
+    } else if (localStorage.getItem('userRol') === 'patient') {
+      navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+
+    }
 
   }
 

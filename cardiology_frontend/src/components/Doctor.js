@@ -3,16 +3,8 @@ import { useNavigate } from "react-router-dom";
 // API
 import API from "../API";
 
-const Home = () => {
+const Doctor = () => {
   const navigate = useNavigate();
-
-  const handleRegister = () => {
-    navigate('/register');
-  }
-
-  const handleLogin = () => {
-    navigate('/login');
-  }
 
   const handleLogout = async () => {
     await API.logout();
@@ -21,22 +13,12 @@ const Home = () => {
     localStorage.removeItem('userToken');
     localStorage.removeItem('userRol');
 
-    window.location.reload();
+    navigate('/');
   }
 
   return (
     <>
-      <p>Home Component</p>
-      <input
-        type='button'
-        onClick={handleRegister}
-        value='Register'
-      />
-      <input
-        type='button'
-        onClick={handleLogin}
-        value='Login'
-      />
+      <h1>Doctor</h1>
       <input
         type='button'
         onClick={handleLogout}
@@ -48,8 +30,7 @@ const Home = () => {
         <p>Not logged in</p>
       )}
     </>
-    
   )
 }
 
-export default Home;
+export default Doctor;

@@ -11,6 +11,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [loading, setLoading] = useState('');
+  const [error, setError] = useState('');
+
+  const [emailError, setEmailError] = useState(false);
+  const [passError, setPassError] = useState(false);
+
   const navigate = useNavigate();
 
   const handleInput = async (e) => {
@@ -25,16 +31,35 @@ const Login = () => {
   const handleSubmit = async () => {
     const formData = new FormData();
 
-    formData.append('user[email]', email);
-    formData.append('user[password]', password);
+    if (email != '') {
 
-    await API.login(formData);
+      if (password != '') {
 
-    if (localStorage.userRol === 'doctor') {
-      navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+        formData.append('user[email]', email);
+        formData.append('user[password]', password);
+    
+        await API.login(formData);
+    
+        if (localStorage.userRol === 'doctor') {
+          navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+    
+        } else if (localStorage.userRol === 'patient') {
+          navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+    
+        }
 
-    } else if (localStorage.userRol === 'patient') {
-      navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+      } else {
+        setPassError(true);
+        setTimeout(() => {
+          setPassError(false)
+        }, 3500);
+      }
+
+    } else {
+      setEmailError(true);
+      setTimeout(() => {
+        setEmailError(false)
+      }, 3500);
 
     }
 
@@ -49,6 +74,7 @@ const Login = () => {
         name='email'
         onChange={handleInput}
       />
+      {emailError && <div className="formError">*Write your email</div>}
       <label>Password</label>
       <input
         type='password'
@@ -56,6 +82,7 @@ const Login = () => {
         name='password'
         onChange={handleInput}
       />
+      {passError && <div className="formError">*Write your password</div>}
       <ButtonDark text='Sign In' callback={handleSubmit} />
     </Wrapper>
   )

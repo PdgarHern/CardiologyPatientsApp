@@ -5,6 +5,7 @@ import validator from "validator";
 import API from "../API";
 // Components
 import ButtonDark from "./ButtonDark";
+import Spinner from "./Spinner";
 // Styles
 import { Wrapper } from "./Forms.styles";
 
@@ -41,153 +42,186 @@ const Register = () => {
   }
 
   const handleSubmit = async (e) => {
-    if (name != '') {
+    try {
+      if (name != '') {
 
-      if (email != '') {
-
-        if (validator.isEmail(email)) {
+        if (email != '') {
   
-          if (password != '') {
-  
-            if (passConfirm != '') {
-  
-              if (password == passConfirm) {
-  
-                if (rol != 'null') {
-  
-                  const formData = new FormData();
+          if (validator.isEmail(email)) {
     
-                  formData.append('user[email]', email);
-                  formData.append('user[password]', password);
-                  formData.append('user[rol]', rol);
-            
-                  await API.createUser(formData);
-                  await API.login(formData);
-                  
-                  if (localStorage.userRol === 'doctor') {
+            if (password != '') {
+    
+              if (passConfirm != '') {
+    
+                if (password == passConfirm) {
+    
+                  if (rol != 'null') {
+                    setLoading(true);
+    
                     const formData = new FormData();
-            
-                    formData.append('doctor[name]', name);
-                    formData.append('doctor[user_id]', localStorage.getItem('userId'));
-            
-                    await API.createDoctor(formData);
-            
-                    navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
-            
-                  } else if (localStorage.userRol === 'patient') {
-                    const formData = new FormData();
-            
-                    formData.append('patient[name]', name);
-                    formData.append('patient[user_id]', localStorage.getItem('userId'));
-            
-                    await API.createPatient(formData);
-            
-                    navigate(`/patient-profile/${localStorage.getItem('userId')}`);
-            
+      
+                    formData.append('user[email]', email);
+                    formData.append('user[password]', password);
+                    formData.append('user[rol]', rol);
+              
+                    await API.createUser(formData);
+                    await API.login(formData);
+                    
+                    if (localStorage.userRol === 'doctor') {
+                      const formData = new FormData();
+              
+                      formData.append('doctor[name]', name);
+                      formData.append('doctor[user_id]', localStorage.getItem('userId'));
+              
+                      await API.createDoctor(formData);
+
+                      setLoading(false);
+              
+                      navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+              
+                    } else if (localStorage.userRol === 'patient') {
+                      const formData = new FormData();
+              
+                      formData.append('patient[name]', name);
+                      formData.append('patient[user_id]', localStorage.getItem('userId'));
+              
+                      await API.createPatient(formData);
+
+                      setLoading(false);
+              
+                      navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+              
+                    }
+    
+                  } else {
+                    setRolError(true);
+                    setTimeout(() => {
+                      setRolError(false)
+                    }, 3500);
+    
                   }
-  
+    
                 } else {
-                  setRolError(true);
+                  setNotPassConfirm(true);
                   setTimeout(() => {
-                    setRolError(false)
+                    setNotPassConfirm(false)
                   }, 3500);
-  
+    
                 }
-  
+    
               } else {
-                setNotPassConfirm(true);
+                setPassConfirmError(true);
                 setTimeout(() => {
-                  setNotPassConfirm(false)
+                  setPassConfirmError(false)
                 }, 3500);
-  
+    
               }
-  
+    
             } else {
-              setPassConfirmError(true);
+              setPassError(true);
               setTimeout(() => {
-                setPassConfirmError(false)
+                setPassError(false)
               }, 3500);
-  
+    
             }
-  
+      
           } else {
-            setPassError(true);
+            setNotEmail(true);
             setTimeout(() => {
-              setPassError(false)
+              setNotEmail(false)
             }, 3500);
-  
           }
     
         } else {
-          setNotEmail(true);
+          setEmailError(true);
           setTimeout(() => {
-            setNotEmail(false)
+            setEmailError(false)
           }, 3500);
+    
         }
   
       } else {
-        setEmailError(true);
+        setNameError(true);
         setTimeout(() => {
-          setEmailError(false)
+          setNameError(false)
         }, 3500);
   
       }
 
-    } else {
-      setNameError(true);
+    } catch (error) {
+      setError(true);
       setTimeout(() => {
-        setNameError(false)
-      }, 3500);
+        setError(false);
+        setLoading(false);
+        setName('');
+        setEmail('');
+        setPassword('');
+        setPassConfirm('');
+        setRol('null');
+        window.location.reload();
+      }, 2000);
 
     }
     
   }
 
   return (
-    <Wrapper>
-      <label>Name</label>
-      <input
-        type='text'
-        value={name}
-        name='name'
-        onChange={handleInput}
-      />
-      {nameError && <div className="formError">*Write your name</div>}
-      <label>Email</label>
-      <input
-        type='text'
-        value={email}
-        name='email'
-        onChange={handleInput}
-      />
-      {emailError && <div className="formError">*Write your email</div>}
-      {notEmail && <div className="formError">*Invalid email</div>}
-      <label>Password</label>
-      <input
-        type='password'
-        value={password}
-        name='password'
-        onChange={handleInput}
-      />
-      {passError && <div className="formError">*Write a password</div>}
-      <label>Password Confirmation</label>
-      <input
-        type='password'
-        value={passConfirm}
-        name='passConfirm'
-        onChange={handleInput}
-      />
-      {passConfirmError && <div className="formError">*Confirm your password</div>}
-      {notPassConfirm && <div className="formError">*Confirmation doesn't match</div>}
-      <label>Rol</label>
-      <select name='rol' onChange={handleInput}>
-        <option value="null"></option>
-        <option value="doctor">Doctor</option>
-        <option value="patient">Patient</option>
-      </select>
-      {rolError && <div className="formError">*Select a role</div>}
-      <ButtonDark text="Submit" callback={handleSubmit} />
-    </Wrapper>
+    <>
+      <Wrapper>
+        {error && <div className="error">Something went wrong...</div>}
+        {!loading && !error && (
+          <>
+            <label>Name</label>
+            <input
+              type='text'
+              value={name}
+              name='name'
+              onChange={handleInput}
+            />
+            {nameError && <div className="formError">*Write your name</div>}
+            <label>Email</label>
+            <input
+              type='text'
+              value={email}
+              name='email'
+              onChange={handleInput}
+            />
+            {emailError && <div className="formError">*Write your email</div>}
+            {notEmail && <div className="formError">*Invalid email</div>}
+            <label>Password</label>
+            <input
+              type='password'
+              value={password}
+              name='password'
+              onChange={handleInput}
+            />
+            {passError && <div className="formError">*Write a password</div>}
+            <label>Password Confirmation</label>
+            <input
+              type='password'
+              value={passConfirm}
+              name='passConfirm'
+              onChange={handleInput}
+            />
+            {passConfirmError && <div className="formError">*Confirm your password</div>}
+            {notPassConfirm && <div className="formError">*Confirmation doesn't match</div>}
+            <label>Rol</label>
+            <select name='rol' onChange={handleInput}>
+              <option value="null"></option>
+              <option value="doctor">Doctor</option>
+              <option value="patient">Patient</option>
+            </select>
+            {rolError && <div className="formError">*Select a role</div>}
+            <ButtonDark text="Submit" callback={handleSubmit} />
+          </>
+        )}
+      </Wrapper>
+      {loading && !error &&
+        <div className="spinner">
+          <Spinner />
+        </div>
+      }
+    </>
   )
 
 }

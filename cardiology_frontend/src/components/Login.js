@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../API";
 // Components
 import ButtonDark from "./ButtonDark";
+import Spinner from "./Spinner";
 // Styles
 import { Wrapper } from "./Forms.styles";
 
@@ -29,62 +30,90 @@ const Login = () => {
   }
   
   const handleSubmit = async () => {
-    const formData = new FormData();
+    try {
+      setLoading(true);
 
-    if (email != '') {
+      const formData = new FormData();
 
-      if (password != '') {
-
-        formData.append('user[email]', email);
-        formData.append('user[password]', password);
-    
-        await API.login(formData);
-    
-        if (localStorage.userRol === 'doctor') {
-          navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
-    
-        } else if (localStorage.userRol === 'patient') {
-          navigate(`/patient-profile/${localStorage.getItem('userId')}`);
-    
+      if (email != '') {
+  
+        if (password != '') {
+  
+          formData.append('user[email]', email);
+          formData.append('user[password]', password);
+      
+          await API.login(formData);
+      
+          if (localStorage.userRol === 'doctor') {
+            navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+      
+          } else if (localStorage.userRol === 'patient') {
+            navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+      
+          }
+  
+        } else {
+          setPassError(true);
+          setTimeout(() => {
+            setPassError(false)
+          }, 3500);
         }
-
+  
       } else {
-        setPassError(true);
+        setEmailError(true);
         setTimeout(() => {
-          setPassError(false)
+          setEmailError(false)
         }, 3500);
+  
       }
 
-    } else {
-      setEmailError(true);
-      setTimeout(() => {
-        setEmailError(false)
-      }, 3500);
+      setLoading(false);
 
+    } catch (error) {
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+        setLoading(false);
+        setEmail('');
+        setPassword('');
+        window.location.reload();
+      }, 2000);
     }
 
   }
 
   return (
+    <>
     <Wrapper>
-      <label>Email</label>
-      <input
-        type='text'
-        value={email}
-        name='email'
-        onChange={handleInput}
-      />
-      {emailError && <div className="formError">*Write your email</div>}
-      <label>Password</label>
-      <input
-        type='password'
-        value={password}
-        name='password'
-        onChange={handleInput}
-      />
-      {passError && <div className="formError">*Write your password</div>}
-      <ButtonDark text='Sign In' callback={handleSubmit} />
+      {error && <div className="error">Something went wrong...</div>}
+      {!loading && !error && (
+        <>
+          <label>Email</label>
+          <input
+            type='text'
+            value={email}
+            name='email'
+            onChange={handleInput}
+          />
+          {emailError && <div className="formError">*Write your email</div>}
+          <label>Password</label>
+          <input
+            type='password'
+            value={password}
+            name='password'
+            onChange={handleInput}
+          />
+          {passError && <div className="formError">*Write your password</div>}
+          <ButtonDark text='Sign In' callback={handleSubmit} />
+        </>
+      )}
     </Wrapper>
+    {loading && !error && 
+      <div className="spinner">
+        <Spinner />
+      </div>
+    }
+    </>
   )
 
 }

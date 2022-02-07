@@ -6,8 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     --maxWidth: 1280px;
 
     --white: #fff;
-    --darkGreen: #37ba78;
     --lightGreen: #76f3ad;
+    --darkGreen: #37ba78;
+    --lightGrey: #eee;
+    --medGrey: #353535;
     --darkGrey: #1c1c1c;
     --black: #000;
 

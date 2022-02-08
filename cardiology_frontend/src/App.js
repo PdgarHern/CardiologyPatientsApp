@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Doctor from "./components/Doctor";
+import UpdateDoctorProfile from "./components/UpdateDoctorProfile";
 import Patient from "./components/Patient";
 // Context
 import UserProvider from "./context";
@@ -24,6 +25,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/doctor-profile/:doctorId' element={<Doctor />} />
+            <Route path='/update-doctor/:doctorId' element={<UpdateDoctorProfile />} />
             <Route path='/patient-profile/:patientId' element={<Patient />} />
           </Routes>
           <GlobalStyle />

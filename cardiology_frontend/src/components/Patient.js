@@ -28,7 +28,7 @@ const Patient = () => {
       {patientInfo[0] != null ? (
         <>
           <UserHeroImage
-            userPic={patientInfo[0].img.url == null
+            userPic={patientInfo[0].img == null
               ? UserPic
               : patientInfo[0].img.url}
             name={patientInfo[0].name}

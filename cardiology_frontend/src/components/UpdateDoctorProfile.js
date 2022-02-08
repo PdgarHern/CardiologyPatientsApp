@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 // API
 import API from "../API";
 // Components
+import BreadCrumb from "./BreadCrumb";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Hook
@@ -93,7 +94,9 @@ const UpdateDoctorProfile = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
-      
+      {info[0] ? (
+        <BreadCrumb text={info[0].name} linkPath={`/doctor-profile/${localStorage.userId}`} />
+      ) : null}
       <Wrapper>
         {error && <div className="error">There was an error...</div>}
         {!loading && info[0] ? (

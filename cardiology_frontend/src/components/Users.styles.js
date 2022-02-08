@@ -125,4 +125,8 @@ export const Content = styled.div`
 
   }
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
 `

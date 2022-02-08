@@ -59,7 +59,9 @@ const apiSettings = {
 
   // Patient
   getPatients: async patientId => {
-    const endpoint = `${PATIENTS}?id=${patientId}`;
+    const endpoint = patientId == null
+      ? `${PATIENTS}`
+      : `${PATIENTS}?id=${patientId}`
     return await (await fetch(endpoint)).json();
   },
   getPatient: async patientId => {

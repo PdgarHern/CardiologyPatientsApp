@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_08_191909) do
+ActiveRecord::Schema.define(version: 2022_02_08_194604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,24 @@ ActiveRecord::Schema.define(version: 2022_02_08_191909) do
     t.index ["doctor_id"], name: "index_followups_on_doctor_id"
   end
 
+  create_table "followups_parameters", force: :cascade do |t|
+    t.bigint "followup_id", null: false
+    t.bigint "parameter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followup_id"], name: "index_followups_parameters_on_followup_id"
+    t.index ["parameter_id"], name: "index_followups_parameters_on_parameter_id"
+  end
+
+  create_table "followups_patients", force: :cascade do |t|
+    t.bigint "followup_id", null: false
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followup_id"], name: "index_followups_patients_on_followup_id"
+    t.index ["patient_id"], name: "index_followups_patients_on_patient_id"
+  end
+
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
     t.datetime "exp", null: false
@@ -105,5 +123,9 @@ ActiveRecord::Schema.define(version: 2022_02_08_191909) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "doctors", "users"
   add_foreign_key "followups", "doctors"
+  add_foreign_key "followups_parameters", "followups"
+  add_foreign_key "followups_parameters", "parameters"
+  add_foreign_key "followups_patients", "followups"
+  add_foreign_key "followups_patients", "patients"
   add_foreign_key "patients", "users"
 end

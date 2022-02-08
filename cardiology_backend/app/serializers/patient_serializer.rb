@@ -1,6 +1,6 @@
 class PatientSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :name, :clinicRecord, :gender, :birthDate, :phoneNumber, :consentRGPD, :user_id, :img
+  attributes :id, :name, :clinicRecord, :gender, :birthDate, :phoneNumber, :consentRGPD, :user_id, :followups, :img
 
   def img
     if object.img.attached?

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :followups_patients
+  resources :followups_parameters
   resources :followups
   resources :parameters
   resources :patients

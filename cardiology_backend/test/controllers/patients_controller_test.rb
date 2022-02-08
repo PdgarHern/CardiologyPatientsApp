@@ -6,10 +6,10 @@ class PatientsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test "should get index" do
-    get patients_url, as: :json
-    assert_response :success
-  end
+  # test "should get index" do
+  #   get patients_url, as: :json
+  #   assert_response :success
+  # end
 
   # test "should create patient" do
   #   assert_difference('Patient.count') do

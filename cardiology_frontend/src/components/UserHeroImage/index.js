@@ -9,7 +9,13 @@ const UserHeroImage = ({ userPic, name }) => {
   const navigate = useNavigate();
 
   const handleEditButton = () => {
-    navigate(`/update-doctor/${localStorage.userId}`);
+    if (localStorage.userRol === 'doctor') {
+      navigate(`/update-doctor/${localStorage.userId}`);
+
+    } else if (localStorage.userRol === 'patient') {
+      navigate(`/update-patient/${localStorage.userId}`);
+
+    }
   }
 
   return (

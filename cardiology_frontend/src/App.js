@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Doctor from "./components/Doctor";
 import UpdateDoctorProfile from "./components/UpdateDoctorProfile";
 import Patient from "./components/Patient";
+import UpdatePatientProfile from "./components/UpdatePatientProfile";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -27,6 +28,7 @@ function App() {
             <Route path='/doctor-profile/:doctorId' element={<Doctor />} />
             <Route path='/update-doctor/:doctorId' element={<UpdateDoctorProfile />} />
             <Route path='/patient-profile/:patientId' element={<Patient />} />
+            <Route path='/update-patient/:patientId' element={<UpdatePatientProfile />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

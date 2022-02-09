@@ -12,7 +12,7 @@ class ParametersControllerTest < ActionDispatch::IntegrationTest
 
   # test "should create parameter" do
   #   assert_difference('Parameter.count') do
-  #     post parameters_url, params: { parameter: { frequency: @parameter.frequency, name: @parameter.name, type: @parameter.type } }, as: :json
+  #     post parameters_url, params: { parameter: { frequency: @parameter.frequency, name: @parameter.name, type: @parameter.kind } }, as: :json
   #   end
 
   #   assert_response 201
@@ -24,15 +24,15 @@ class ParametersControllerTest < ActionDispatch::IntegrationTest
   # end
 
   # test "should update parameter" do
-  #   patch parameter_url(@parameter), params: { parameter: { frequency: @parameter.frequency, name: @parameter.name, type: @parameter.type } }, as: :json
+  #   patch parameter_url(@parameter), params: { parameter: { frequency: @parameter.frequency, name: @parameter.name, type: @parameter.kind } }, as: :json
   #   assert_response 200
   # end
 
-  # test "should destroy parameter" do
-  #   assert_difference('Parameter.count', -1) do
-  #     delete parameter_url(@parameter), as: :json
-  #   end
+  test "should destroy parameter" do
+    assert_difference('Parameter.count', -1) do
+      delete parameter_url(@parameter), as: :json
+    end
 
-  #   assert_response 204
-  # end
+    assert_response 204
+  end
 end

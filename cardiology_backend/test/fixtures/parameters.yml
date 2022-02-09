@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  type: 
+  kind: MyString
   frequency: MyString
 
 two:
   name: MyString
-  type: 
+  kind: MyString
   frequency: MyString

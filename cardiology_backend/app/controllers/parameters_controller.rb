@@ -46,6 +46,6 @@ class ParametersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def parameter_params
-      params.require(:parameter).permit(:name, :type, :frequency)
+      params.require(:parameter).permit(:name, :kind, :frequency)
     end
 end

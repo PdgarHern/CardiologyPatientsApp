@@ -46,6 +46,6 @@ class FollowupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def followup_params
-      params.require(:followup).permit(:startDate, :endDate, :doctor_id)
+      params.require(:followup).permit(:startDate, :endDate, :doctor_id, :patient_id, :followuptemplate_id, :hospital_id)
     end
 end

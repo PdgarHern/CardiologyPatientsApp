@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_09_185456) do
+ActiveRecord::Schema.define(version: 2022_02_10_164349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,12 +43,26 @@ ActiveRecord::Schema.define(version: 2022_02_09_185456) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.string "value"
+    t.bigint "parameter_id"
+    t.bigint "followup_id"
+    t.bigint "hospital_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followup_id"], name: "index_answers_on_followup_id"
+    t.index ["hospital_id"], name: "index_answers_on_hospital_id"
+    t.index ["parameter_id"], name: "index_answers_on_parameter_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.integer "phoneNumber"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hospital_id"
+    t.index ["hospital_id"], name: "index_doctors_on_hospital_id"
     t.index ["user_id"], name: "index_doctors_on_user_id"
   end
 
@@ -58,25 +72,35 @@ ActiveRecord::Schema.define(version: 2022_02_09_185456) do
     t.bigint "doctor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hospital_id", null: false
+    t.bigint "patient_id", null: false
+    t.bigint "followuptemplate_id", null: false
     t.index ["doctor_id"], name: "index_followups_on_doctor_id"
+    t.index ["followuptemplate_id"], name: "index_followups_on_followuptemplate_id"
+    t.index ["hospital_id"], name: "index_followups_on_hospital_id"
+    t.index ["patient_id"], name: "index_followups_on_patient_id"
   end
 
-  create_table "followups_parameters", force: :cascade do |t|
-    t.bigint "followup_id", null: false
+  create_table "followuptemplates", force: :cascade do |t|
+    t.bigint "hospital_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_id"], name: "index_followuptemplates_on_hospital_id"
+  end
+
+  create_table "followuptemplates_parameters", force: :cascade do |t|
+    t.bigint "followuptemplate_id", null: false
     t.bigint "parameter_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_parameters_on_followup_id"
-    t.index ["parameter_id"], name: "index_followups_parameters_on_parameter_id"
+    t.index ["followuptemplate_id"], name: "index_followuptemplates_parameters_on_followuptemplate_id"
+    t.index ["parameter_id"], name: "index_followuptemplates_parameters_on_parameter_id"
   end
 
-  create_table "followups_patients", force: :cascade do |t|
-    t.bigint "followup_id", null: false
-    t.bigint "patient_id", null: false
+  create_table "hospitals", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_patients_on_followup_id"
-    t.index ["patient_id"], name: "index_followups_patients_on_patient_id"
   end
 
   create_table "jwt_denylist", force: :cascade do |t|
@@ -91,6 +115,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_185456) do
     t.string "frequency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hospital_id", null: false
+    t.index ["hospital_id"], name: "index_parameters_on_hospital_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -103,6 +129,8 @@ ActiveRecord::Schema.define(version: 2022_02_09_185456) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "hospital_id"
+    t.index ["hospital_id"], name: "index_patients_on_hospital_id"
     t.index ["user_id"], name: "index_patients_on_user_id"
   end
 
@@ -121,11 +149,19 @@ ActiveRecord::Schema.define(version: 2022_02_09_185456) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "followups"
+  add_foreign_key "answers", "hospitals"
+  add_foreign_key "answers", "parameters"
+  add_foreign_key "doctors", "hospitals"
   add_foreign_key "doctors", "users"
   add_foreign_key "followups", "doctors"
-  add_foreign_key "followups_parameters", "followups"
-  add_foreign_key "followups_parameters", "parameters"
-  add_foreign_key "followups_patients", "followups"
-  add_foreign_key "followups_patients", "patients"
+  add_foreign_key "followups", "followuptemplates"
+  add_foreign_key "followups", "hospitals"
+  add_foreign_key "followups", "patients"
+  add_foreign_key "followuptemplates", "hospitals"
+  add_foreign_key "followuptemplates_parameters", "followuptemplates"
+  add_foreign_key "followuptemplates_parameters", "parameters"
+  add_foreign_key "parameters", "hospitals"
+  add_foreign_key "patients", "hospitals"
   add_foreign_key "patients", "users"
 end

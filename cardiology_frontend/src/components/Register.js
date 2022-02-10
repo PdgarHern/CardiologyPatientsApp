@@ -6,15 +6,20 @@ import API from "../API";
 // Components
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
+// Hook
+import { useHospitalsFetch } from "../hooks/useHospitalsFetch";
 // Styles
 import { Wrapper } from "./Forms.styles";
 
 const Register = () => {
+  const { state: hospitals } = useHospitalsFetch();
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passConfirm, setPassConfirm] = useState('');
   const [rol, setRol] = useState('null');
+  const [hospital, setHospital] = useState('null');
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -26,6 +31,7 @@ const Register = () => {
   const [passConfirmError, setPassConfirmError] = useState(false);
   const [notPassConfirm, setNotPassConfirm] = useState(false);
   const [rolError, setRolError] = useState(false);
+  const [hospitalError, setHospitalError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -38,6 +44,7 @@ const Register = () => {
     if (name === 'password') setPassword(value);
     if (name === 'passConfirm') setPassConfirm(value);
     if (name === 'rol') setRol(value);
+    if (name === 'hospital') setHospital(value);
 
   }
 
@@ -56,41 +63,57 @@ const Register = () => {
                 if (password == passConfirm) {
     
                   if (rol != 'null') {
-                    setLoading(true);
+
+                    if (hospital != 'null') {
+
+                      setLoading(true);
     
-                    const formData = new FormData();
-      
-                    formData.append('user[email]', email);
-                    formData.append('user[password]', password);
-                    formData.append('user[rol]', rol);
-              
-                    await API.createUser(formData);
-                    await API.login(formData);
-                    
-                    if (localStorage.userRol === 'doctor') {
                       const formData = new FormData();
-              
-                      formData.append('doctor[name]', name);
-                      formData.append('doctor[user_id]', localStorage.getItem('userId'));
-              
-                      await API.createDoctor(formData);
+        
+                      formData.append('user[email]', email);
+                      formData.append('user[password]', password);
+                      formData.append('user[rol]', rol);
+                
+                      await API.createUser(formData);
+                      await API.login(formData);
+                      
+                      if (localStorage.userRol === 'doctor') {
+                        const formData = new FormData();
+                
+                        formData.append('doctor[name]', name);
+                        formData.append('doctor[user_id]', localStorage.getItem('userId'));
+                        formData.append('doctor[hospital_id]', hospital);
 
-                      setLoading(false);
-              
-                      navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
-              
-                    } else if (localStorage.userRol === 'patient') {
-                      const formData = new FormData();
-              
-                      formData.append('patient[name]', name);
-                      formData.append('patient[user_id]', localStorage.getItem('userId'));
-              
-                      await API.createPatient(formData);
+                        localStorage.setItem('userHosp', hospital);
+                
+                        await API.createDoctor(formData);
+  
+                        setLoading(false);
+                
+                        navigate(`/doctor-profile/${localStorage.getItem('userId')}`);
+                
+                      } else if (localStorage.userRol === 'patient') {
+                        const formData = new FormData();
+                
+                        formData.append('patient[name]', name);
+                        formData.append('patient[user_id]', localStorage.getItem('userId'));
+                        formData.append('doctor[hospital_id]', hospital);
 
-                      setLoading(false);
-              
-                      navigate(`/patient-profile/${localStorage.getItem('userId')}`);
-              
+                        localStorage.setItem('userHosp', hospital);
+                
+                        await API.createPatient(formData);
+  
+                        setLoading(false);
+                
+                        navigate(`/patient-profile/${localStorage.getItem('userId')}`);
+                
+                      }
+
+                    } else {
+                      setHospitalError(true);
+                      setTimeout(() => {
+                        setHospitalError(false)
+                      }, 3500);
                     }
     
                   } else {
@@ -211,7 +234,17 @@ const Register = () => {
               <option value="doctor">Doctor</option>
               <option value="patient">Patient</option>
             </select>
+            <br/>
             {rolError && <div className="formError">*Select a role</div>}
+            <label>Hospital</label>
+            <select name='hospital' value={hospital} onChange={handleInput}>
+              <option value='null'></option>
+              {hospitals.results.map(hospital => (
+                <option value={hospital.id}>{hospital.name}</option>
+              ))}
+            </select>
+            <br/>
+            {hospitalError && <div className="formError">*Select a Hospital</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
           </>
         )}

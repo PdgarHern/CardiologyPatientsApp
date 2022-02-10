@@ -9,6 +9,7 @@ import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Hook
 import { useDoctorFetch } from "../hooks/useDoctorFetch";
+import { useHospitalsFetch } from "../hooks/useHospitalsFetch";
 // Styles
 import { Wrapper, Content } from "./Users.styles";
 // Image
@@ -17,9 +18,11 @@ import UserPic from "../images/userpic.png";
 const UpdateDoctorProfile = () => {
   // const { userId } = useParams();
   const { state: info } = useDoctorFetch(localStorage.userId);
+  const { state: hospitals } = useHospitalsFetch();
 
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [hospital, setHospital] = useState(localStorage.userHosp);
   const [img, setImg] = useState(null);
 
   const [error, setError] = useState(false);
@@ -46,6 +49,7 @@ const UpdateDoctorProfile = () => {
 
     if (name === 'name') setName(value);
     if (name === 'phoneNumber') setPhoneNumber(value);
+    if (name === 'hospital') setHospital(value);
     if (name === 'img') setImg(e.currentTarget.files[0]);
 
   }
@@ -55,24 +59,17 @@ const UpdateDoctorProfile = () => {
       setError(false);
       setLoading(true);
 
-      if (img == null) {
-        const formData = new FormData();
+      const formData = new FormData();
 
-        if (name != '') formData.append('doctor[name]', name);
-        if (phoneNumber != '') formData.append('doctor[phoneNumber]', phoneNumber);
-
-        await API.updateDoctor(info[0].id, formData);
-
-      } else {
-        const formData = new FormData();
-
-        if (name != '') formData.append('doctor[name]', name);
-        if (phoneNumber != '') formData.append('doctor[phoneNumber]', phoneNumber);
-        formData.append('doctor[img]', img);
-
-        await API.updateDoctor(info[0].id, formData);
-
+      if (name != '') formData.append('doctor[name]', name);
+      if (phoneNumber != '') formData.append('doctor[phoneNumber]', phoneNumber);
+      if (hospital != localStorage.userHosp) {
+        formData.append('doctor[hospital_id]', hospital);
+        localStorage.userHosp = hospital;
       }
+      if (img != null) formData.append('doctor[img]', img);
+
+      await API.updateDoctor(info[0].id, formData);
 
       setLoading(false);
 
@@ -120,6 +117,12 @@ const UpdateDoctorProfile = () => {
                 onClick={handleValue}
                 onChange={handleInput}
               />
+              <label>Hospital</label>
+              <select name='hospital' value={hospital} onChange={handleInput}>
+                {hospitals.results.map(hospital => (
+                  <option value={hospital.id}>{hospital.name}</option>
+                ))}
+              </select>
             </div>
             <div className="column">
               <label>Profile Image</label>

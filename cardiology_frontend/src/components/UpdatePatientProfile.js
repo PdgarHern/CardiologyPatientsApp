@@ -9,6 +9,7 @@ import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Hook
 import { usePatientFetch } from "../hooks/usePatientFetch";
+import { useHospitalsFetch } from "../hooks/useHospitalsFetch";
 // Styles
 import { Wrapper, Content } from "./Users.styles";
 // Image
@@ -16,6 +17,7 @@ import UserPic from "../images/userpic.png";
 
 const UpdatePatientProfile = () => {
   const { state: info } = usePatientFetch(localStorage.userId);
+  const { state: hospitals } = useHospitalsFetch();
 
   const [name, setName] = useState('');
   const [clinicRecord, setClinicRecord] = useState('');
@@ -23,6 +25,7 @@ const UpdatePatientProfile = () => {
   const [birthDate, setBirthDate] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [consentRGPD, setConsentRGPD] = useState('');
+  const [hospital, setHospital] = useState(localStorage.userHosp);
   const [img, setImg] = useState(null);
 
   const [error, setError] = useState(false);
@@ -72,6 +75,7 @@ const UpdatePatientProfile = () => {
     if (name === 'birthDate') setBirthDate(value);
     if (name === 'phoneNumber') setPhoneNumber(value);
     if (name === 'consentRGPD') setConsentRGPD(value);
+    if (name === 'hospital') setHospital(value);
     if (name === 'img') setImg(e.currentTarget.files[0]);
 
   }
@@ -81,32 +85,21 @@ const UpdatePatientProfile = () => {
       setError(false);
       setLoading(true);
 
-      if (img == null) {
-        const formData = new FormData();
+      const formData = new FormData();
 
-        if (name != '') formData.append('patient[name]', name);
-        if (clinicRecord != '') formData.append('patient[clinicRecord]', clinicRecord);
-        if (gender != '') formData.append('patient[gender]', gender);
-        if (birthDate != '') formData.append('patient[birthDate]', birthDate);
-        if (phoneNumber != '') formData.append('patient[phoneNumber]', phoneNumber);
-        if (consentRGPD != '') formData.append('patient[consentRGPD]', consentRGPD);
-
-        await API.updatePatient(info[0].id, formData);
-
-      } else {
-        const formData = new FormData();
-
-        if (name != '') formData.append('patient[name]', name);
-        if (clinicRecord != '') formData.append('patient[clinicRecord]', clinicRecord);
-        if (gender != '') formData.append('patient[gender]', gender);
-        if (birthDate != '') formData.append('patient[birthDate]', birthDate);
-        if (phoneNumber != '') formData.append('patient[phoneNumber]', phoneNumber);
-        if (consentRGPD != '') formData.append('patient[consentRGPD]', consentRGPD);
-        formData.append('patient[img]', img);
-
-        await API.updatePatient(info[0].id, formData);
-
+      if (name != '') formData.append('patient[name]', name);
+      if (clinicRecord != '') formData.append('patient[clinicRecord]', clinicRecord);
+      if (gender != '') formData.append('patient[gender]', gender);
+      if (birthDate != '') formData.append('patient[birthDate]', birthDate);
+      if (phoneNumber != '') formData.append('patient[phoneNumber]', phoneNumber);
+      if (consentRGPD != '') formData.append('patient[consentRGPD]', consentRGPD);
+      if (hospital != localStorage.userHosp) {
+        formData.append('patient[hospital_id]', hospital);
+        localStorage.userHosp = hospital;
       }
+      if (img != null) formData.append('patient[img]', img);
+
+      await API.updatePatient(info[0].id, formData);
 
       setLoading(false);
 
@@ -188,6 +181,12 @@ const UpdatePatientProfile = () => {
                 onClick={handleValue}
                 onChange={handleInput}
               />
+              <label>Hospital</label>
+              <select name='hospital' value={hospital} onChange={handleInput}>
+                {hospitals.results.map(hospital => (
+                  <option value={hospital.id}>{hospital.name}</option>
+                ))}
+              </select>
             </div>
             <div className="column">
               <label>Profile Image</label>

@@ -3,7 +3,8 @@ import {
   API_URL,
   USERS,
   DOCTORS,
-  PATIENTS
+  PATIENTS,
+  HOSPITALS
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -78,6 +79,28 @@ const apiSettings = {
   },
   deletePatient: async patientId => {
     const endpoint = `${PATIENTS}/${patientId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Hospital
+  getHospitals: async () => {
+    const endpoint = `${HOSPITALS}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getHospital: async hospitalId => {
+    const endpoint = `${HOSPITALS}/${hospitalId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createHospital: async body => {
+    const endpoint = `${HOSPITALS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateHospital: async (hospitalId, body) => {
+    const endpoint = `${HOSPITALS}/${hospitalId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteHospital: async hospitalId => {
+    const endpoint = `${HOSPITALS}/${hospitalId}`;
     return await (await axios.delete(endpoint));
   }
 

@@ -29,6 +29,9 @@ const Doctor = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
+      {localStorage.userId && doctorInfo[0] && (
+        localStorage.setItem('userHosp', doctorInfo[0].hospital_id)
+      )}
       {doctorInfo[0] != null ? (
         <>
           <UserHeroImage
@@ -39,9 +42,11 @@ const Doctor = () => {
           />
           <Content>
             <div className="infoColumn">
+              <h1>Hospital: {doctorInfo[0].hospital_id}</h1>
+            </div>
+            <div className="infoColumn">
               <h1>Phone Number: {doctorInfo[0].phoneNumber}</h1>
             </div>
-            <div className="infoColumn"></div>
           </Content>
           <br/>
           <Grid header='Patients'>

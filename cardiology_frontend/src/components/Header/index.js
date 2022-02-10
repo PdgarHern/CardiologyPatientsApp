@@ -40,6 +40,7 @@ const Header = () => {
       localStorage.removeItem('userId');
       localStorage.removeItem('userToken');
       localStorage.removeItem('userRol');
+      localStorage.removeItem('userHosp');
 
       navigate('/');
     } catch (error) {}

@@ -6,6 +6,11 @@ export const Wrapper = styled.div`
   border-radius: 20px;
   padding: 5px;
   text-align: center;
+  transition: transform .2s;
+
+  :hover {
+    transform: scale(1.1);
+  }
 
   h3 {
     margin: 10px 0 0 0;
@@ -23,9 +28,5 @@ export const Image = styled.img`
   height: 200px;
   object-fit: cover;
   border-radius: 15px;
-
-  :hover {
-    opacity: 0.8;
-  }
 
 `;

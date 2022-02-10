@@ -13,7 +13,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
 
   # test "should create doctor" do
   #   assert_difference('Doctor.count') do
-  #     post doctors_url, params: { doctor: { name: @doctor.name, phoneNumber: @doctor.phoneNumber, user_id: @doctor.user_id } }, as: :json
+  #     post doctors_url, params: { doctor: { name: @doctor.name, phoneNumber: @doctor.phoneNumber, user_id: @doctor.user_id, hospital_id: @doctor.hospital_id } }, as: :json
   #   end
 
   #   assert_response 201
@@ -25,7 +25,7 @@ class DoctorsControllerTest < ActionDispatch::IntegrationTest
   # end
 
   # test "should update doctor" do
-  #   patch doctor_url(@doctor), params: { doctor: { name: @doctor.name, phoneNumber: @doctor.phoneNumber, user_id: @user.id } }, as: :json
+  #   patch doctor_url(@doctor), params: { doctor: { name: @doctor.name, phoneNumber: @doctor.phoneNumber, user_id: @user.id, hospital_id: @doctor.hospital_id } }, as: :json
   #   assert_response 200
   # end
 

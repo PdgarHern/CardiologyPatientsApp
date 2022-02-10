@@ -2,6 +2,12 @@
 
 one:
   value: MyString
+  parameter_id: 298486374
+  followup_id: 298486374
+  hospital_id: 298486374
 
 two:
   value: MyString
+  parameter_id: 298486374
+  followup_id: 298486374
+  hospital_id: 298486374

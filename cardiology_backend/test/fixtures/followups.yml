@@ -4,8 +4,14 @@ one:
   startDate: MyString
   endDate: MyString
   doctor_id: 298486374
+  hospital_id: 298486374
+  patient_id: 298486374
+  followuptemplate_id: 298486374
 
 two:
   startDate: MyString
   endDate: MyString
   doctor_id: 298486374
+  hospital_id: 298486374
+  patient_id: 298486374
+  followuptemplate_id: 298486374

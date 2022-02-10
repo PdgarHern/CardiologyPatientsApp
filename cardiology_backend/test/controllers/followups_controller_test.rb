@@ -12,7 +12,7 @@ class FollowupsControllerTest < ActionDispatch::IntegrationTest
 
   # test "should create followup" do
   #   assert_difference('Followup.count') do
-  #     post followups_url, params: { followup: { endDate: @followup.endDate, startDate: @followup.startDate, doctor_id: @followup.doctor_id } }, as: :json
+  #     post followups_url, params: { followup: { endDate: @followup.endDate, startDate: @followup.startDate, doctor_id: @followup.doctor_id, patient_id: @followup.patient_id, followuptemplate_id: @followup.followuptemplate_id, hospital_id: @followup.hospital_id } }, as: :json
   #   end
 
   #   assert_response 201
@@ -24,7 +24,7 @@ class FollowupsControllerTest < ActionDispatch::IntegrationTest
   # end
 
   # test "should update followup" do
-  #   patch followup_url(@followup), params: { followup: { endDate: @followup.endDate, startDate: @followup.startDate, doctor_id: @followup.doctor_id } }, as: :json
+  #   patch followup_url(@followup), params: { followup: { endDate: @followup.endDate, startDate: @followup.startDate, doctor_id: @followup.doctor_id, patient_id: @followup.patient_id, followuptemplate_id: @followup.followuptemplate_id, hospital_id: @followup.hospital_id } }, as: :json
   #   assert_response 200
   # end
 

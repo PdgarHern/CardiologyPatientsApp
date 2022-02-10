@@ -4,8 +4,10 @@ one:
   name: MyString
   kind: MyString
   frequency: MyString
+  hospital_id: 298486374
 
 two:
   name: MyString
   kind: MyString
   frequency: MyString
+  hospital_id: 298486374

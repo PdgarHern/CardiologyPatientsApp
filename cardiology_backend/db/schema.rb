@@ -81,6 +81,24 @@ ActiveRecord::Schema.define(version: 2022_02_10_164349) do
     t.index ["patient_id"], name: "index_followups_on_patient_id"
   end
 
+  create_table "followups_parameters", force: :cascade do |t|
+    t.bigint "followup_id", null: false
+    t.bigint "parameter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followup_id"], name: "index_followups_parameters_on_followup_id"
+    t.index ["parameter_id"], name: "index_followups_parameters_on_parameter_id"
+  end
+
+  create_table "followups_patients", force: :cascade do |t|
+    t.bigint "followup_id", null: false
+    t.bigint "patient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followup_id"], name: "index_followups_patients_on_followup_id"
+    t.index ["patient_id"], name: "index_followups_patients_on_patient_id"
+  end
+
   create_table "followuptemplates", force: :cascade do |t|
     t.bigint "hospital_id"
     t.datetime "created_at", precision: 6, null: false
@@ -158,6 +176,10 @@ ActiveRecord::Schema.define(version: 2022_02_10_164349) do
   add_foreign_key "followups", "followuptemplates"
   add_foreign_key "followups", "hospitals"
   add_foreign_key "followups", "patients"
+  add_foreign_key "followups_parameters", "followups"
+  add_foreign_key "followups_parameters", "parameters"
+  add_foreign_key "followups_patients", "followups"
+  add_foreign_key "followups_patients", "patients"
   add_foreign_key "followuptemplates", "hospitals"
   add_foreign_key "followuptemplates_parameters", "followuptemplates"
   add_foreign_key "followuptemplates_parameters", "parameters"

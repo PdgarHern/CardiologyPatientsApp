@@ -16,7 +16,7 @@ import { Wrapper, Content } from "./Users.styles";
 import UserPic from "../images/userpic.png";
 
 const UpdatePatientProfile = () => {
-  const { state: info } = usePatientFetch(localStorage.userId);
+  const { state: info } = usePatientFetch(localStorage.userId, 'profile');
   const { state: hospitals } = useHospitalsFetch();
 
   const [name, setName] = useState('');

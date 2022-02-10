@@ -7,7 +7,7 @@ const PatientThumb = ({ id, name, imageUrl }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/`);
+    navigate(`/patient/${id}`);
   }
 
   return(

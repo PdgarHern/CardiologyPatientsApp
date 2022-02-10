@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// API
-import API from "../API";
 // Components
 import UserHeroImage from "./UserHeroImage";
 // Hook
@@ -12,7 +10,7 @@ import { Content } from "./Users.styles";
 import UserPic from "../images/userpic.png";
 
 const Patient = () => {
-  const { state: patientInfo, loading, error } = usePatientFetch(localStorage.userId);
+  const { state: patientInfo, loading, error } = usePatientFetch(localStorage.userId, 'profile');
 
   const navigate = useNavigate();
 

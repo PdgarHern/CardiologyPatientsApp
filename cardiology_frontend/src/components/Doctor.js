@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// API
-import API from "../API";
 // Components
 import UserHeroImage from "./UserHeroImage";
 import Grid from "./Grid";

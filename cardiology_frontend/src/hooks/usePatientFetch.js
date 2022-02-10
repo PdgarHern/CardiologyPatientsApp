@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // API
 import API from "../API";
 
-export const usePatientFetch = patientId => {
+export const usePatientFetch = (patientId, option) => {
   const [state, setState] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -13,7 +13,16 @@ export const usePatientFetch = patientId => {
         setLoading(true);
         setError(false);
 
-        const patient = await API.getPatients(patientId);
+        var patient = null;
+
+        if (option == 'profile') {
+          patient = await API.getPatients(patientId);
+
+        } else {
+          patient = await API.getPatient(patientId);
+        }
+
+        
 
         setState({
           ...patient

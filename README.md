@@ -20,6 +20,11 @@ You need to have the app installed in order to open the file "ER_Usabi.dia".<br/
 <img src="documentation/images/er.PNG" align="center" width="300px" alt="er" />
 
 ###
+Here is the resulting Relational Diagram:<br/>
+
+<img src="documentation/images/RelationalDiagramUsabi.PNG" align="center" width="300px" alt="Relational" />
+
+###
 The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.io</a>.<br/>
 Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".<br/>
 

@@ -28,7 +28,7 @@ const PatientVisualizer = () => {
               : patient.img.url}
             name={patient.name}
           />
-          <FollowUpsTable></FollowUpsTable>
+          <FollowUpsTable id={patientId} />
         </>
         
       )}

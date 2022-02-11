@@ -4,7 +4,9 @@ import {
   USERS,
   DOCTORS,
   PATIENTS,
-  HOSPITALS
+  HOSPITALS,
+  FOLLOWUPS,
+  PARAMETERS
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -101,6 +103,52 @@ const apiSettings = {
   },
   deleteHospital: async hospitalId => {
     const endpoint = `${HOSPITALS}/${hospitalId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Followup
+  getFollowUps: async patientId => {
+    const endpoint = patientId == null
+      ? `${FOLLOWUPS}`
+      : `${FOLLOWUPS}?id=${patientId}`
+    return await (await fetch(endpoint)).json();
+  },
+  getFollowUp: async followUpId => {
+    const endpoint = `${FOLLOWUPS}/${followUpId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createFollowUp: async body => {
+    const endpoint = `${FOLLOWUPS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateFollowUp: async (followUpId, body) => {
+    const endpoint = `${FOLLOWUPS}/${followUpId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteFollowUp: async followUpId => {
+    const endpoint = `${FOLLOWUPS}/${followUpId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Parameter
+  getParameters: async () => {
+    const endpoint = `${PARAMETERS}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getParameters: async parameterId => {
+    const endpoint = `${PARAMETERS}/${parameterId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createParameter: async body => {
+    const endpoint = `${PARAMETERS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateParameter: async (parameterId, body) => {
+    const endpoint = `${PARAMETERS}/${parameterId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteParameter: async parameterId => {
+    const endpoint = `${PARAMETERS}/${parameterId}`;
     return await (await axios.delete(endpoint));
   }
 

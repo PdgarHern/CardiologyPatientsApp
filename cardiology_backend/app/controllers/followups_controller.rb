@@ -3,7 +3,9 @@ class FollowupsController < ApplicationController
 
   # GET /followups
   def index
-    @followups = Followup.all
+    @q = Followup.ransack(patient_id_eq: params[:id]);
+
+    @followups = @q.result(distinct: true).all
 
     render json: @followups
   end

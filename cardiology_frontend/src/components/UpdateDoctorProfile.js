@@ -84,8 +84,6 @@ const UpdateDoctorProfile = () => {
     navigate('/login');
   }
 
-  console.log(name);
-
   return (
     <>
       {!localStorage.userId && (

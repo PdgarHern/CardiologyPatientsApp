@@ -7,6 +7,7 @@ import PatientThumb from "./PatientThumb";
 // Hook
 import { useDoctorFetch } from "../hooks/useDoctorFetch";
 import { usePatientsFetch } from "../hooks/usePatientsFetch";
+import { useHospitalFetch } from "../hooks/useHospitalFetch";
 // Styles
 import { Content } from "./Users.styles";
 // Images
@@ -15,6 +16,8 @@ import UserPic from "../images/userpic.png";
 const Doctor = () => {
   const { state: doctorInfo, loading, error } = useDoctorFetch(localStorage.userId);
   const { state: patients } = usePatientsFetch();
+  const { state: hospital } = useHospitalFetch(localStorage.userHosp);
+  
 
   const navigate = useNavigate();
 
@@ -40,7 +43,7 @@ const Doctor = () => {
           />
           <Content>
             <div className="infoColumn">
-              <h1>Hospital: {doctorInfo[0].hospital_id}</h1>
+              <h1>Hospital: {hospital.name}</h1>
             </div>
             <div className="infoColumn">
               <h1>Phone Number: {doctorInfo[0].phoneNumber}</h1>

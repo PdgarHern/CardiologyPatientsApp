@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import UserHeroImage from "./UserHeroImage";
 import Grid from "./Grid";
 import PatientThumb from "./PatientThumb";
+import ButtonDark from "./ButtonDark";
 // Hook
 import { useDoctorFetch } from "../hooks/useDoctorFetch";
 import { usePatientsFetch } from "../hooks/usePatientsFetch";
 import { useHospitalFetch } from "../hooks/useHospitalFetch";
 // Styles
-import { Content } from "./Users.styles";
+import { Wrapper, Content } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
 
@@ -20,6 +21,14 @@ const Doctor = () => {
   
 
   const navigate = useNavigate();
+
+  const handleParameter = () => {
+    navigate('/post-parameter');
+  }
+
+  const handleTemplate = () => {
+    console.log("Hola");
+  }
 
   const handleAuth = () => {
     navigate('/login');
@@ -49,7 +58,12 @@ const Doctor = () => {
               <h1>Phone Number: {doctorInfo[0].phoneNumber}</h1>
             </div>
           </Content>
-          <br/>
+          <Wrapper>
+            <div className="actionButtons">
+              <ButtonDark text="Create Parameter" callback={handleParameter} />
+              <ButtonDark text="Create Template" callback={handleTemplate} />
+            </div>
+          </Wrapper>
           <Grid header='Patients'>
             {patients.results.map(patient => (
               <PatientThumb

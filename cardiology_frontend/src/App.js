@@ -11,6 +11,8 @@ import UpdateDoctorProfile from "./components/UpdateDoctorProfile";
 import Patient from "./components/Patient";
 import UpdatePatientProfile from "./components/UpdatePatientProfile";
 import PatientVisualizer from "./components/PatientVisualizer";
+import PostParameter from "./components/PostParameter";
+import PutParameter from "./components/PutParameter";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -31,6 +33,8 @@ function App() {
             <Route path='/patient-profile/:patientId' element={<Patient />} />
             <Route path='/update-patient/:patientId' element={<UpdatePatientProfile />} />
             <Route path='/patient/:patientId' element={<PatientVisualizer />} />
+            <Route path='/post-parameter' element={<PostParameter />} />
+            <Route path='/put-parameter/:parameterId' element={<PutParameter />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

@@ -42,6 +42,29 @@ export const Wrapper = styled.div`
     border-radius: 10px;
   }
 
+  .actionButtons {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0;
+    flex: 1;
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+  }
+
 `;
 
 export const Content = styled.div`

@@ -135,7 +135,7 @@ const apiSettings = {
     const endpoint = `${PARAMETERS}`;
     return await (await fetch(endpoint)).json();
   },
-  getParameters: async parameterId => {
+  getParameter: async parameterId => {
     const endpoint = `${PARAMETERS}/${parameterId}`;
     return await (await fetch(endpoint)).json();
   },

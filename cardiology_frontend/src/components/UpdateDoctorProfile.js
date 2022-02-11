@@ -39,7 +39,10 @@ const UpdateDoctorProfile = () => {
       setName(placeholder);
       e.currentTarget.placeholder = '';
     };
-    if (name === 'phoneNumber' && value === '') setPhoneNumber(placeholder);
+    if (name === 'phoneNumber' && value === '') {
+      setPhoneNumber(placeholder);
+      e.currentTarget.placeholder = '';
+    };
 
   }
 

@@ -1,5 +1,5 @@
 class FollowuptemplatesParameterSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :followuptemplate
-  has_one :parameter
+  attributes :id, :followuptemplate_id, :parameter_id
+  # has_one :followuptemplate
+  # has_one :parameter
 end

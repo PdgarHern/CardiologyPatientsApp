@@ -7,7 +7,8 @@ import {
   HOSPITALS,
   FOLLOWUPS,
   PARAMETERS,
-  TEMPLATES
+  TEMPLATES,
+  TEMPLATES_PARAMS
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -65,7 +66,7 @@ const apiSettings = {
   getPatients: async patientId => {
     const endpoint = patientId == null
       ? `${PATIENTS}`
-      : `${PATIENTS}?id=${patientId}`
+      : `${PATIENTS}?id=${patientId}`;
     return await (await fetch(endpoint)).json();
   },
   getPatient: async patientId => {
@@ -160,6 +161,7 @@ const apiSettings = {
   },
   getTemplate: async templateId => {
     const endpoint = `${TEMPLATES}/${templateId}`;
+    return await (await fetch(endpoint)).json();
   },
   createTemplate: async body => {
     const endpoint = `${TEMPLATES}`;
@@ -171,6 +173,30 @@ const apiSettings = {
   },
   deleteTemplate: async templateId => {
     const endpoint = `${TEMPLATES}/${templateId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Followuptemplate-Parameter
+  getTemplatesParams: async templateId => {
+    const endpoint = templateId == null
+      ? `${TEMPLATES_PARAMS}`
+      : `${TEMPLATES_PARAMS}?id=${templateId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getTemplateParam: async templateParamId => {
+    const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createTemplateParam: async body => {
+    const endpoint = `${TEMPLATES_PARAMS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateTemplateParam: async (templateParamId, body) => {
+    const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteTemplateParam: async templateParamId => {
+    const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
     return await (await axios.delete(endpoint));
   }
 

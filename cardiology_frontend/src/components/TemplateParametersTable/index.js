@@ -5,54 +5,51 @@ import API from "../../API";
 // Components
 import ButtonDark from "../ButtonDark";
 // Hook
-import { useParametersFetch } from "../../hooks/useParametersFetch";
+import { useTemplateFetch } from "../../hooks/useTemplateFetch";
+import { useTemplateParamsFetch } from "../../hooks/useTemplateParamsFetch";
 // Styles 
-import { Wrapper } from "./ParametersTable.styles";
-import { API_URL } from "../../config";
+import { Wrapper } from "./TemplateParametersTable.styles";
 
-const ParametersTable = ({ updatable, templateId }) => {
-  const { state: parameters } = useParametersFetch();
+const TemplateParametersTable = ({ templateId }) => {
+  const { state: template } = useTemplateFetch(templateId);
+  const { state: templatesParams } = useTemplateParamsFetch(templateId);
 
   const [parameterId, setParameterId] = useState('');
+  const [templateParamId, setTemplateParamId] = useState('');
 
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    if (updatable) {
-      navigate(`/put-parameter/${e.currentTarget.textContent[0]}`);
-
-    } else {
-      setParameterId(e.currentTarget.textContent[0]);
-      sessionStorage.setItem('parameterId', e.currentTarget.textContent[0]);
-    }
+    setParameterId(e.currentTarget.textContent[0]);
 
   }
 
-  const handleAdd = async () => {
+  const handleDelete = async () => {
     try {
+      templatesParams.results.map(async (templateParam) => {
+        if (templateParam.parameter_id == parameterId) {
 
-      const formData = new FormData();
+          await API.deleteTemplateParam(templateParam.id);
 
-      formData.append('followuptemplates_parameter[followuptemplate_id]', templateId);
-      formData.append('followuptemplates_parameter[parameter_id]', parameterId);
-
-      await API.createTemplateParam(formData);
+        }
+      })
 
       setParameterId('');
 
       window.location.reload();
-
+      
     } catch (error) {
-
+      
     }
+    
   }
 
   return (
     <>
-      {parameters && (
+      {template.parameters && (
         <>
           <Wrapper>
-            <h1>Parameters</h1>
+            <h1>Template Parameters</h1>
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
@@ -62,7 +59,7 @@ const ParametersTable = ({ updatable, templateId }) => {
                 </tr>
               </thead>
               <tbody>
-                {parameters.results.map(parameter => (
+                {template.parameters.map(parameter => (
                   <tr onClick={handleClick}>
                     <td id="id">{parameter.id}</td>
                     <td>{parameter.name}</td>
@@ -74,7 +71,7 @@ const ParametersTable = ({ updatable, templateId }) => {
             </table>
           </Wrapper>
           {parameterId != '' && (
-            <ButtonDark text="Add Parameter" callback={handleAdd} />
+            <ButtonDark text="Delete Parameter" callback={handleDelete} />
           )}
         </>
       )}
@@ -82,4 +79,4 @@ const ParametersTable = ({ updatable, templateId }) => {
   )
 }
 
-export default ParametersTable;
+export default TemplateParametersTable;

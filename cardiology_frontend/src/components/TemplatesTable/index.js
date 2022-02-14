@@ -11,7 +11,7 @@ const TemplatesTable = () => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    console.log('Holaa');
+    navigate(`/put-template/${e.currentTarget.textContent[0]}`);
   }
 
   return (

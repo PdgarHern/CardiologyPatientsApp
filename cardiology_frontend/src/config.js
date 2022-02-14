@@ -7,6 +7,7 @@ const HOSPITALS = `${API_URL}/hospitals`
 const FOLLOWUPS = `${API_URL}/followups`
 const PARAMETERS = `${API_URL}/parameters`
 const TEMPLATES = `${API_URL}/followuptemplates`
+const TEMPLATES_PARAMS = `${API_URL}/followuptemplates_parameters`
 
 export {
     API_URL,
@@ -16,5 +17,6 @@ export {
     HOSPITALS,
     FOLLOWUPS,
     PARAMETERS,
-    TEMPLATES
+    TEMPLATES,
+    TEMPLATES_PARAMS
 };

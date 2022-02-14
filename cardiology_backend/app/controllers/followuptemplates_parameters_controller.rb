@@ -3,7 +3,9 @@ class FollowuptemplatesParametersController < ApplicationController
 
   # GET /followuptemplates_parameters
   def index
-    @followuptemplates_parameters = FollowuptemplatesParameter.all
+    @q = FollowuptemplatesParameter.ransack(followuptemplate_id_eq: params[:id]);
+
+    @followuptemplates_parameters = @q.result(distinct: true).all
 
     render json: @followuptemplates_parameters
   end

@@ -60,8 +60,8 @@ const Doctor = () => {
           </Content>
           <Wrapper>
             <div className="actionButtons">
-              <ButtonDark text="Create Parameter" callback={handleParameter} />
-              <ButtonDark text="Create Template" callback={handleTemplate} />
+              <ButtonDark text="Parameters" callback={handleParameter} />
+              <ButtonDark text="Templates" callback={handleTemplate} />
             </div>
           </Wrapper>
           <Grid header='Patients'>

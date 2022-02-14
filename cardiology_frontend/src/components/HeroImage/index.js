@@ -9,7 +9,7 @@ const UserHeroImage = ({ userPic, name }) => {
   const navigate = useNavigate();
 
   const handleAddButton = () => {
-    console.log('hola');
+    navigate('/post-followup');
   }
 
   return (

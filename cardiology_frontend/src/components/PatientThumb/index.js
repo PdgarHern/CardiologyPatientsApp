@@ -7,6 +7,7 @@ const PatientThumb = ({ id, name, imageUrl }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    sessionStorage.setItem('patientId', id);
     navigate(`/patient/${id}`);
   }
 

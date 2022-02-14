@@ -23,6 +23,10 @@ export const Wrapper = styled.div`
     padding: 10px;
   }
 
+  #selectTemplate {
+    width: 175px;
+  }
+
   #image {
     border: 0;
   }

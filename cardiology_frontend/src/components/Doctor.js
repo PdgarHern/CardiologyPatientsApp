@@ -42,6 +42,9 @@ const Doctor = () => {
       {localStorage.userId && doctorInfo[0] && (
         localStorage.setItem('userHosp', doctorInfo[0].hospital_id)
       )}
+      {localStorage.userId && doctorInfo[0] && (
+        sessionStorage.setItem('doctorId', doctorInfo[0].id)
+      )}
       {doctorInfo[0] != null ? (
         <>
           <UserHeroImage

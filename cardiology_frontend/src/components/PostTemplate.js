@@ -4,12 +4,11 @@ import { useNavigate } from "react-router-dom";
 import API from "../API";
 // Components
 import BreadCrumb from "./BreadCrumb";
-import ParametersTable from "./ParametersTable";
+import TemplatesTable from "./TemplatesTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Styles
 import { Wrapper } from "./Users.styles";
-import TemplatesTable from "./TemplatesTable";
 
 const PostTemplate = () => {
   const [name, setName] = useState('');

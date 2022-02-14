@@ -15,6 +15,7 @@ import PostParameter from "./components/PostParameter";
 import PutParameter from "./components/PutParameter";
 import PostTemplate from "./components/PostTemplate";
 import PutTemplate from "./components/PutTemplate";
+import PostFollowup from "./components/PostFollowup";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -39,6 +40,7 @@ function App() {
             <Route path='/put-parameter/:parameterId' element={<PutParameter />} />
             <Route path='/post-template' element={<PostTemplate />} />
             <Route path='/put-template/:templateId' element={<PutTemplate />} />
+            <Route path='/post-followup' element={<PostFollowup />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

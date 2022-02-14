@@ -6,7 +6,8 @@ import {
   PATIENTS,
   HOSPITALS,
   FOLLOWUPS,
-  PARAMETERS
+  PARAMETERS,
+  TEMPLATES
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -149,6 +150,27 @@ const apiSettings = {
   },
   deleteParameter: async parameterId => {
     const endpoint = `${PARAMETERS}/${parameterId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Followuptemplate
+  getTemplates: async () => {
+    const endpoint = `${TEMPLATES}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getTemplate: async templateId => {
+    const endpoint = `${TEMPLATES}/${templateId}`;
+  },
+  createTemplate: async body => {
+    const endpoint = `${TEMPLATES}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateTemplate: async (templateId, body) => {
+    const endpoint = `${TEMPLATES}/${templateId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteTemplate: async templateId => {
+    const endpoint = `${TEMPLATES}/${templateId}`;
     return await (await axios.delete(endpoint));
   }
 

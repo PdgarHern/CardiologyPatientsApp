@@ -8,7 +8,7 @@ import ParametersTable from "./ParametersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Styles
-import { Wrapper, Content } from "./Users.styles";
+import { Wrapper } from "./Users.styles";
 
 const PostParameter = () => {
   const [name, setName] = useState('');

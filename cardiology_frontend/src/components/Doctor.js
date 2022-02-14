@@ -27,7 +27,7 @@ const Doctor = () => {
   }
 
   const handleTemplate = () => {
-    console.log("Hola");
+    navigate('/post-template');
   }
 
   const handleAuth = () => {

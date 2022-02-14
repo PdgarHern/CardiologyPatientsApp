@@ -8,6 +8,13 @@ class FollowuptemplatesController < ApplicationController
     render json: @followuptemplates
   end
 
+  # GET /followuptemplate-last
+  def last
+    @followuptemplate_last = Followuptemplate.last
+
+    render json: @followuptemplate_last
+  end
+
   # GET /followuptemplates/1
   def show
     render json: @followuptemplate
@@ -46,6 +53,6 @@ class FollowuptemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def followuptemplate_params
-      params.require(:followuptemplate).permit(:hospital_id)
+      params.require(:followuptemplate).permit(:name, :hospital_id)
     end
 end

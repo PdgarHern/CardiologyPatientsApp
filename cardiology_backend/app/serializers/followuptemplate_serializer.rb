@@ -1,3 +1,3 @@
 class FollowuptemplateSerializer < ActiveModel::Serializer
-  attributes :id, :hospital_id, :parameters
+  attributes :id, :name, :hospital_id, :parameters
 end

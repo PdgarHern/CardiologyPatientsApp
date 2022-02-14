@@ -15,5 +15,7 @@ Rails.application.routes.draw do
                sessions: 'users/sessions',
                registrations: 'users/registrations'
              }
+
+  get '/followuptemplate-last', to: 'followuptemplates#last'
              
 end

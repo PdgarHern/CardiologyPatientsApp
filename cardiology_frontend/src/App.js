@@ -16,6 +16,8 @@ import PutParameter from "./components/PutParameter";
 import PostTemplate from "./components/PostTemplate";
 import PutTemplate from "./components/PutTemplate";
 import PostFollowup from "./components/PostFollowup";
+import TemplateVisualizer from "./components/TemplateVisualizer";
+import FollowUpVisualizer from "./components/FollowUpVisualizer";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -41,6 +43,8 @@ function App() {
             <Route path='/post-template' element={<PostTemplate />} />
             <Route path='/put-template/:templateId' element={<PutTemplate />} />
             <Route path='/post-followup' element={<PostFollowup />} />
+            <Route path='/template/:templateId' element={<TemplateVisualizer />} />
+            <Route path='/followup/:followupId' element={<FollowUpVisualizer />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

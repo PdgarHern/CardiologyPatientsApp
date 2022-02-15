@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 // Hook
 import { useFollowUpsFetch } from "../../hooks/useFollowUpsFetch";
 // Styles 
@@ -7,8 +8,10 @@ import { Wrapper } from "./FollowUpsTable.styles";
 const FollowUpsTable = ({ id }) => {
   const { state: followUps } = useFollowUpsFetch(id);
 
+  const navigate = useNavigate();
+
   const handleClick = (e) => {
-    console.log(e.currentTarget.textContent[0]);
+    navigate(`/followup/${e.currentTarget.textContent[0]}`);
   }
 
   return (

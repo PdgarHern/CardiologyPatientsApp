@@ -16,6 +16,7 @@ const TemplatesTable = ({ select }) => {
     if (select) {
       setSelected(true);
       sessionStorage.setItem('templateId', e.currentTarget.textContent[0]);
+      navigate(`/template/${sessionStorage.templateId}`);
     
     } else {
       navigate(`/put-template/${e.currentTarget.textContent[0]}`);

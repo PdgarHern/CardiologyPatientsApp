@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 // Components
 import UserHeroImage from "./UserHeroImage";
+import ButtonDark from "./ButtonDark";
 // Hook
 import { usePatientFetch } from "../hooks/usePatientFetch";
 // Styles
@@ -14,6 +15,10 @@ const Patient = () => {
 
   const navigate = useNavigate();
 
+  const handleFollowUps = () => {
+    navigate(`/my-followups/${patientInfo[0].id}`);
+  }
+
   const handleAuth = () => {
     navigate('/login');
   }
@@ -25,6 +30,9 @@ const Patient = () => {
       )}
       {localStorage.userId && patientInfo[0] && (
         localStorage.setItem('userHosp', patientInfo[0].hospital_id)
+      )}
+      {localStorage.userId && patientInfo[0] && (
+        sessionStorage.removeItem('patientId')
       )}
       {patientInfo[0] != null ? (
         <>
@@ -44,6 +52,7 @@ const Patient = () => {
               <h1>Phone Number: {patientInfo[0].phoneNumber}</h1>
             </div>
           </Content>
+          <ButtonDark text='Follow-Ups' callback={handleFollowUps} />
         </>
       ) : null}
     </>

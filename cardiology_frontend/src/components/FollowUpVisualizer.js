@@ -16,7 +16,59 @@ const FollowUpVisualizer = () => {
   const { followupId } = useParams();
   const { state: followUp, loading, setLoading, error, setError } = useFollowUpFetch(followupId);
 
+  const [parameterId, setParameterId] = useState(null);
+  const [parameterName, setParameterName] = useState('');
+  const [answer, setAnswer] = useState('');
+
+  const [answerError, setAnswerError] = useState(false);
+
   const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    setParameterId(e.currentTarget.textContent[0]);
+    followUp.followuptemplate.parameters.map((parameter) => {
+      if (parameter.id == e.currentTarget.textContent[0]) {
+        setParameterName(parameter.name);
+      }
+    })
+  }
+
+  const handleInput = (e) => {
+    setAnswer(e.currentTarget.value);
+
+  }
+
+  const handleSubmit = async () => {
+    try {
+      
+
+      if (answer != '') {
+        setLoading(true);
+
+        const formData = new FormData();
+
+        formData.append('answer[value]', answer);
+        formData.append('answer[parameter_id]', parameterId);
+        formData.append('answer[followup_id]', followupId);
+        formData.append('answer[hospital_id]', localStorage.userHosp);
+
+        await API.createAnswer(formData);
+
+        setParameterId(null);
+
+        setLoading(false);
+
+      } else {
+        setAnswerError(true);
+        setTimeout(() => {
+          setAnswerError(false)
+        }, 3500);
+      }
+
+    } catch (error) {
+      setError(true);
+    }
+  }
 
   const handleDelete = async () => {
     try {
@@ -35,7 +87,11 @@ const FollowUpVisualizer = () => {
 
   return (
     <>
-      <BreadCrumb text="Follow-Up" linkPath={`/patient/${sessionStorage.patientId}`} />
+      {localStorage.userRol == 'doctor' ? (
+        <BreadCrumb text="Follow-Up" linkPath={`/patient/${sessionStorage.patientId}`} />
+      ) : (
+        <BreadCrumb text="Follow-Up" linkPath={`/my-followups/${sessionStorage.patientId}`} />
+      )}
       <Wrapper>
         {error && <div className="formError">Something went wrong...</div>}
         {!loading && !error ? (
@@ -69,7 +125,7 @@ const FollowUpVisualizer = () => {
               </thead>
               <tbody>
                 {followUp.followuptemplate.parameters.map(parameter => (
-                  <tr>
+                  <tr onClick={handleClick}>
                     <td id="id">{parameter.id}</td>
                     <td>{parameter.name}</td>
                     <td>{parameter.kind}</td>
@@ -79,7 +135,25 @@ const FollowUpVisualizer = () => {
               </tbody>
             </table>
             <br/>
-            <ButtonDark text='Delete' callback={handleDelete} />
+            {localStorage.userRol == 'doctor' ? (
+              <ButtonDark text='Delete' callback={handleDelete} />
+            ) : (
+              <>
+                {parameterId != null ? (
+                  <>
+                    <label>{parameterName}</label>
+                    <input
+                      type='text'
+                      value={answer}
+                      name='answer'
+                      onChange={handleInput}
+                    />
+                    {answerError && <div className='formError'>*Write your answer</div>}
+                    <ButtonDark text="Answer" callback={handleSubmit} />
+                  </>
+                ) : null}
+              </>
+            )}
           </>
         ) : (
           <Spinner />

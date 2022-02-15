@@ -5,7 +5,7 @@ import { useFollowUpsFetch } from "../../hooks/useFollowUpsFetch";
 // Styles 
 import { Wrapper } from "./FollowUpsTable.styles";
 
-const FollowUpsTable = ({ id }) => {
+const FollowUpsTable = ({ id, patient }) => {
   const { state: followUps } = useFollowUpsFetch(id);
 
   const navigate = useNavigate();

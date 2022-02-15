@@ -8,7 +8,8 @@ import {
   FOLLOWUPS,
   PARAMETERS,
   TEMPLATES,
-  TEMPLATES_PARAMS
+  TEMPLATES_PARAMS,
+  ANSWERS
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -197,6 +198,30 @@ const apiSettings = {
   },
   deleteTemplateParam: async templateParamId => {
     const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Answer
+  getAnswers: async id => {
+    const endpoint = id == null
+      ? `${ANSWERS}`
+      : `${ANSWERS}?id=${id}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getAnswer: async answerId => {
+    const endpoint = `${ANSWERS}/${answerId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createAnswer: async body => {
+    const endpoint = `${ANSWERS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateAnswer: async (answerId, body) => {
+    const endpoint = `${ANSWERS}/${answerId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteAnswer: async answerId => {
+    const endpoint = `${ANSWERS}/${answerId}`;
     return await (await axios.delete(endpoint));
   }
 

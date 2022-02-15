@@ -11,34 +11,33 @@ const FollowUpsTable = ({ id, patient }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    navigate(`/followup/${e.currentTarget.textContent[0]}`);
+    navigate(`/followup/${e.currentTarget.dataset.value}`);
   }
 
   return (
     <>
       {followUps && (
         <Wrapper>
-        <h1>Follow-Ups</h1>
-        <table className="table table-striped table-hover table-border table-bordered">
-          <thead>
-            <tr>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Doctor</th>
-            </tr>
-          </thead>
-          <tbody>
-            {followUps.results.map(followUp => (
-              <tr onClick={handleClick}>
-                <td id="id">{followUp.id}</td>
-                <td>{followUp.startDate}</td>
-                <td>{followUp.endDate}</td>
-                <td>{followUp.doctor.name}</td>
+          <h1>Follow-Ups</h1>
+          <table className="table table-striped table-hover table-border table-bordered">
+            <thead>
+              <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Doctor</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </Wrapper>
+            </thead>
+            <tbody>
+              {followUps.results.map(followUp => (
+                <tr onClick={handleClick} data-value={followUp.id}>
+                  <td>{followUp.startDate}</td>
+                  <td>{followUp.endDate}</td>
+                  <td>{followUp.doctor.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Wrapper>
       )}
     </>
   )

@@ -65,13 +65,13 @@ const PutParameter = () => {
       if (name != '') formData.append('parameter[name]', name);
       if (kind != '') formData.append('parameter[kind]', kind);
       if (frequency != '') formData.append('parameter[frequency]', frequency);
-      
+
       await API.updateParameter(parameter.id, formData);
 
       setLoading(false);
 
       navigate(`/post-parameter`);
-    
+
     } catch (error) {
       setError(true);
     }
@@ -108,35 +108,35 @@ const PutParameter = () => {
           <>
             <Content>
               <div className="column">
-              <label>Name</label>
-              <input
-                type='text'
-                value={name}
-                placeholder={parameter.name}
-                name='name'
-                onClick={handleValue}
-                onChange={handleInput}
-              />
-              <label>Kind</label>
-              <input
-                type='text'
-                value={kind}
-                placeholder={parameter.kind}
-                name='kind'
-                onClick={handleValue}
-                onChange={handleInput}
-              />
-              <label>Frequency</label>
-              <input
-                type='text'
-                value={frequency}
-                placeholder={parameter.frequency}
-                name='frequency'
-                onClick={handleValue}
-                onChange={handleInput}
-              />
+                <label>Name</label>
+                <input
+                  type='text'
+                  value={name}
+                  placeholder={parameter.name}
+                  name='name'
+                  onClick={handleValue}
+                  onChange={handleInput}
+                />
+                <label>Kind</label>
+                <input
+                  type='text'
+                  value={kind}
+                  placeholder={parameter.kind}
+                  name='kind'
+                  onClick={handleValue}
+                  onChange={handleInput}
+                />
+                <label>Frequency</label>
+                <input
+                  type='text'
+                  value={frequency}
+                  placeholder={parameter.frequency}
+                  name='frequency'
+                  onClick={handleValue}
+                  onChange={handleInput}
+                />
               </div>
-              
+
             </Content>
             <div className="actionButtons">
               <ButtonDark text='Update' callback={handleSubmit} />

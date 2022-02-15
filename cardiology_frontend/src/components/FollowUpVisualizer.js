@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import API from "../API";
 // Components
 import BreadCrumb from "./BreadCrumb";
+import AnswersTable from "./AnswersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Hook
@@ -21,6 +22,7 @@ const FollowUpVisualizer = () => {
   const [answer, setAnswer] = useState('');
 
   const [answerError, setAnswerError] = useState(false);
+  const [confirmation, setConfirmation] = useState(false);
 
   const navigate = useNavigate();
 
@@ -40,8 +42,6 @@ const FollowUpVisualizer = () => {
 
   const handleSubmit = async () => {
     try {
-      
-
       if (answer != '') {
         setLoading(true);
 
@@ -54,9 +54,15 @@ const FollowUpVisualizer = () => {
 
         await API.createAnswer(formData);
 
-        setParameterId(null);
-
         setLoading(false);
+
+        setConfirmation(true);
+        setTimeout(() => {
+          setConfirmation(false)
+        }, 3500);
+
+        setParameterId(null);
+        setAnswer('');
 
       } else {
         setAnswerError(true);
@@ -92,6 +98,7 @@ const FollowUpVisualizer = () => {
       ) : (
         <BreadCrumb text="Follow-Up" linkPath={`/my-followups/${sessionStorage.patientId}`} />
       )}
+      {localStorage.removeItem('followupId')}
       <Wrapper>
         {error && <div className="formError">Something went wrong...</div>}
         {!loading && !error ? (
@@ -149,11 +156,13 @@ const FollowUpVisualizer = () => {
                       onChange={handleInput}
                     />
                     {answerError && <div className='formError'>*Write your answer</div>}
+                    {confirmation && <div>Answer sent correctly</div>}
                     <ButtonDark text="Answer" callback={handleSubmit} />
                   </>
                 ) : null}
               </>
             )}
+            <AnswersTable id={followupId} />
           </>
         ) : (
           <Spinner />

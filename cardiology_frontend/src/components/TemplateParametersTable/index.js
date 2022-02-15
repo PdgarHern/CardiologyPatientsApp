@@ -20,7 +20,7 @@ const TemplateParametersTable = ({ templateId }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    setParameterId(e.currentTarget.textContent[0]);
+    setParameterId(e.currentTarget.dataset.value);
 
   }
 
@@ -60,8 +60,7 @@ const TemplateParametersTable = ({ templateId }) => {
               </thead>
               <tbody>
                 {template.parameters.map(parameter => (
-                  <tr onClick={handleClick}>
-                    <td id="id">{parameter.id}</td>
+                  <tr onClick={handleClick} data-value={parameter.id}>
                     <td>{parameter.name}</td>
                     <td>{parameter.kind}</td>
                     <td>{parameter.frequency}</td>

@@ -15,11 +15,11 @@ const TemplatesTable = ({ select }) => {
   const handleClick = (e) => {
     if (select) {
       setSelected(true);
-      sessionStorage.setItem('templateId', e.currentTarget.textContent[0]);
+      sessionStorage.setItem('templateId', e.currentTarget.dataset.value);
       navigate(`/template/${sessionStorage.templateId}`);
     
     } else {
-      navigate(`/put-template/${e.currentTarget.textContent[0]}`);
+      navigate(`/put-template/${e.currentTarget.dataset.value}`);
 
     }
   }
@@ -36,8 +36,7 @@ const TemplatesTable = ({ select }) => {
               </thead>
               <tbody>
                 {templates.results.map(template => (
-                  <tr onClick={handleClick}>
-                    <td id="id">{template.id}</td>
+                  <tr onClick={handleClick} data-value={template.id}>
                     <td>{template.name}</td>
                   </tr>
                 ))}

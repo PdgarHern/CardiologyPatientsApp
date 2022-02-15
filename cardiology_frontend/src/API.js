@@ -202,10 +202,10 @@ const apiSettings = {
   },
 
   // Answer
-  getAnswers: async id => {
-    const endpoint = id == null
+  getAnswers: async followupId => {
+    const endpoint = followupId == null
       ? `${ANSWERS}`
-      : `${ANSWERS}?id=${id}`;
+      : `${ANSWERS}?id=${followupId}`;
     return await (await fetch(endpoint)).json();
   },
   getAnswer: async answerId => {

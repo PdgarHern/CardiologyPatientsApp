@@ -19,11 +19,11 @@ const ParametersTable = ({ updatable, templateId }) => {
 
   const handleClick = (e) => {
     if (updatable) {
-      navigate(`/put-parameter/${e.currentTarget.textContent[0]}`);
+      navigate(`/put-parameter/${e.currentTarget.dataset.value}`);
 
     } else {
-      setParameterId(e.currentTarget.textContent[0]);
-      sessionStorage.setItem('parameterId', e.currentTarget.textContent[0]);
+      setParameterId(e.currentTarget.dataset.value);
+      sessionStorage.setItem('parameterId', e.currentTarget.dataset.value);
     }
 
   }
@@ -63,8 +63,7 @@ const ParametersTable = ({ updatable, templateId }) => {
               </thead>
               <tbody>
                 {parameters.results.map(parameter => (
-                  <tr onClick={handleClick}>
-                    <td id="id">{parameter.id}</td>
+                  <tr onClick={handleClick} data-value={parameter.id}>
                     <td>{parameter.name}</td>
                     <td>{parameter.kind}</td>
                     <td>{parameter.frequency}</td>

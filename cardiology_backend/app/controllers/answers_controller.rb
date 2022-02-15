@@ -3,7 +3,9 @@ class AnswersController < ApplicationController
 
   # GET /answers
   def index
-    @answers = Answer.all
+    @q = Answer.ransack(followup_id_eq: params[:id]);
+
+    @answers = @q.result(distinct: true).all
 
     render json: @answers
   end

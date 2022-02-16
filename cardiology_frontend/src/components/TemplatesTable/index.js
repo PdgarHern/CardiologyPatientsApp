@@ -17,7 +17,7 @@ const TemplatesTable = ({ select }) => {
       setSelected(true);
       sessionStorage.setItem('templateId', e.currentTarget.dataset.value);
       navigate(`/template/${sessionStorage.templateId}`);
-    
+
     } else {
       navigate(`/put-template/${e.currentTarget.dataset.value}`);
 
@@ -36,9 +36,13 @@ const TemplatesTable = ({ select }) => {
               </thead>
               <tbody>
                 {templates.results.map(template => (
-                  <tr onClick={handleClick} data-value={template.id}>
-                    <td>{template.name}</td>
-                  </tr>
+                  <>
+                    {template.hospital_id == localStorage.userHosp ? (
+                      <tr onClick={handleClick} data-value={template.id}>
+                        <td>{template.name}</td>
+                      </tr>
+                    ) : null}
+                  </>
                 ))}
               </tbody>
             </table>

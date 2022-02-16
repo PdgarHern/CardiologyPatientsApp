@@ -97,7 +97,7 @@ const Register = () => {
                 
                         formData.append('patient[name]', name);
                         formData.append('patient[user_id]', localStorage.getItem('userId'));
-                        formData.append('doctor[hospital_id]', hospital);
+                        formData.append('patient[hospital_id]', hospital);
 
                         localStorage.setItem('userHosp', hospital);
                 

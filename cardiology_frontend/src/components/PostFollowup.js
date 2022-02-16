@@ -128,7 +128,11 @@ const PostFollowup = () => {
             <select id="selectTemplate" name='template' value={template} onChange={handleInput}>
               <option value='null'></option>
               {templates.results.map(template => (
-                <option value={template.id}>{template.name}</option>
+                <>
+                  {template.hospital_id == localStorage.userHosp ? (
+                    <option value={template.id}>{template.name}</option>
+                  ) : null}
+                </>
               ))}
             </select>
             {templateError && <div className="formError">*Select a template</div>}

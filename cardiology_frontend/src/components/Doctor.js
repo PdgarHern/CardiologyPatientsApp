@@ -69,7 +69,9 @@ const Doctor = () => {
           </Wrapper>
           <Grid header='Patients'>
             {patients.results.map(patient => (
-              <PatientThumb
+              <>
+              {patient.hospital_id == localStorage.userHosp ? (
+                <PatientThumb
                 key={patient.id}
                 id={patient.id}
                 name={patient.name}
@@ -81,6 +83,8 @@ const Doctor = () => {
                 }
                 clickable
               />
+              ) : null}
+              </>
             ))}
           </Grid>
         </>

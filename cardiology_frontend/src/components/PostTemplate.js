@@ -55,12 +55,22 @@ const PostTemplate = () => {
         setName('');
         window.location.reload();
       }, 2000);
-      
+
     }
+  }
+
+  const handleAuth = () => {
+    navigate('/login');
   }
 
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       <BreadCrumb text="Create Template" linkPath={`/doctor-profile/${localStorage.userId}`} />
       <Wrapper>
         {error && <div className="error">Something went wrong...</div>}
@@ -75,7 +85,7 @@ const PostTemplate = () => {
             />
             {nameError && <div className="formError">*Write a name</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
-            <br/>
+            <br />
             <TemplatesTable />
           </>
         ) : (

@@ -74,8 +74,14 @@ const PutTemplate = () => {
     navigate('/login');
   }
 
-  return(
+  return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       {template ? (
         <BreadCrumb text={template.name} linkPath={'/post-template'} />
       ) : null}

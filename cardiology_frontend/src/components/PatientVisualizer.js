@@ -17,8 +17,20 @@ const PatientVisualizer = () => {
   const { patientId } = useParams();
   const { state: patient } = usePatientFetch(patientId, 'visualize');
 
+  const navigate = useNavigate();
+
+  const handleAuth = () => {
+    navigate('/login');
+  }
+
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       {patient && (
         <>
           <BreadCrumb text={patient.name} linkPath={`/doctor-profile/${localStorage.userId}`} />

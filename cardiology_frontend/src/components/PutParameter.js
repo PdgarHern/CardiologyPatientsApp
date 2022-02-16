@@ -99,6 +99,12 @@ const PutParameter = () => {
 
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       {parameter ? (
         <BreadCrumb text={parameter.name} linkPath={'/post-parameter'} />
       ) : null}

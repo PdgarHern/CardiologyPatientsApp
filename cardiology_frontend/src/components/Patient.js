@@ -28,6 +28,9 @@ const Patient = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
+      {localStorage.userRol != 'patient' && (
+        handleAuth()
+      )}
       {localStorage.userId && patientInfo[0] && (
         localStorage.setItem('userHosp', patientInfo[0].hospital_id)
       )}

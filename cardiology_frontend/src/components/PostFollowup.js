@@ -100,8 +100,18 @@ const PostFollowup = () => {
 
   }
 
+  const handleAuth = () => {
+    navigate('/login');
+  }
+
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       {sessionStorage.removeItem('templateId')}
       <BreadCrumb text="Create Followup" linkPath={`/patient/${sessionStorage.patientId}`} />
       <Wrapper>

@@ -93,8 +93,18 @@ const PostParameter = () => {
 
   }
 
+  const handleAuth = () => {
+    navigate('/login');
+  }
+
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       <BreadCrumb text="Create Parameter" linkPath={`/doctor-profile/${localStorage.userId}`} />
       <Wrapper>
         {error && <div className="error">Something went wrong...</div>}
@@ -125,7 +135,7 @@ const PostParameter = () => {
             />
             {frequencyError && <div className="formError">*Write a frequency</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
-            <br/>
+            <br />
             <ParametersTable updatable={true} />
           </>
         ) : (

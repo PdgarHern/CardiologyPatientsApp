@@ -92,6 +92,9 @@ const UpdateDoctorProfile = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
+      {localStorage.userRol != 'doctor' && (
+        handleAuth()
+      )}
       {info[0] ? (
         <BreadCrumb text={info[0].name} linkPath={`/doctor-profile/${localStorage.userId}`} />
       ) : null}

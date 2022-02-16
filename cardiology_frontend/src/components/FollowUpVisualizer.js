@@ -91,8 +91,15 @@ const FollowUpVisualizer = () => {
     }
   }
 
+  const handleAuth = () => {
+    navigate('/login');
+  }
+
   return (
     <>
+      {!localStorage.userId && (
+        handleAuth()
+      )}
       {localStorage.userRol == 'doctor' ? (
         <BreadCrumb text="Follow-Up" linkPath={`/patient/${sessionStorage.patientId}`} />
       ) : (
@@ -141,7 +148,7 @@ const FollowUpVisualizer = () => {
                 ))}
               </tbody>
             </table>
-            <br/>
+            <br />
             {localStorage.userRol == 'doctor' ? (
               <ButtonDark text='Delete' callback={handleDelete} />
             ) : (

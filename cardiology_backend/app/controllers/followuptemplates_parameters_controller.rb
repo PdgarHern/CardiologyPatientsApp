@@ -1,5 +1,6 @@
 class FollowuptemplatesParametersController < ApplicationController
   before_action :set_followuptemplates_parameter, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /followuptemplates_parameters
   def index

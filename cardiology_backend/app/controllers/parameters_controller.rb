@@ -1,5 +1,6 @@
 class ParametersController < ApplicationController
   before_action :set_parameter, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /parameters
   def index

@@ -26,6 +26,7 @@ const TemplateParametersTable = ({ templateId }) => {
 
   const handleDelete = async () => {
     try {
+      console.log(parameterId);
       templatesParams.results.map(async (templateParam) => {
         if (templateParam.parameter_id == parameterId) {
 
@@ -36,7 +37,9 @@ const TemplateParametersTable = ({ templateId }) => {
 
       setParameterId('');
 
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload()
+      }, 100);
       
     } catch (error) {
       

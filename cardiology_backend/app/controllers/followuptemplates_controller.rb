@@ -1,5 +1,6 @@
 class FollowuptemplatesController < ApplicationController
   before_action :set_followuptemplate, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /followuptemplates
   def index

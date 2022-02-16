@@ -44,23 +44,23 @@ const apiSettings = {
   // Doctor
   getDoctors: async doctorId => {
     const endpoint = `${DOCTORS}?id=${doctorId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getDoctor: async doctorId => {
     const endpoint = `${DOCTORS}/${doctorId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createDoctor: async body => {
     const endpoint = `${DOCTORS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateDoctor: async (doctorId, body) => {
     const endpoint = `${DOCTORS}/${doctorId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteDoctor: async doctorId => {
     const endpoint = `${DOCTORS}/${doctorId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Patient
@@ -68,45 +68,45 @@ const apiSettings = {
     const endpoint = patientId == null
       ? `${PATIENTS}`
       : `${PATIENTS}?id=${patientId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getPatient: async patientId => {
     const endpoint = `${PATIENTS}/${patientId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createPatient: async body => {
     const endpoint = `${PATIENTS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updatePatient: async (patientId, body) => {
     const endpoint = `${PATIENTS}/${patientId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deletePatient: async patientId => {
     const endpoint = `${PATIENTS}/${patientId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Hospital
   getHospitals: async () => {
     const endpoint = `${HOSPITALS}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getHospital: async hospitalId => {
     const endpoint = `${HOSPITALS}/${hospitalId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createHospital: async body => {
     const endpoint = `${HOSPITALS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateHospital: async (hospitalId, body) => {
     const endpoint = `${HOSPITALS}/${hospitalId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteHospital: async hospitalId => {
     const endpoint = `${HOSPITALS}/${hospitalId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Followup
@@ -114,67 +114,67 @@ const apiSettings = {
     const endpoint = patientId == null
       ? `${FOLLOWUPS}`
       : `${FOLLOWUPS}?id=${patientId}`
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getFollowUp: async followUpId => {
     const endpoint = `${FOLLOWUPS}/${followUpId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createFollowUp: async body => {
     const endpoint = `${FOLLOWUPS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateFollowUp: async (followUpId, body) => {
     const endpoint = `${FOLLOWUPS}/${followUpId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteFollowUp: async followUpId => {
     const endpoint = `${FOLLOWUPS}/${followUpId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Parameter
   getParameters: async () => {
     const endpoint = `${PARAMETERS}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getParameter: async parameterId => {
     const endpoint = `${PARAMETERS}/${parameterId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createParameter: async body => {
     const endpoint = `${PARAMETERS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateParameter: async (parameterId, body) => {
     const endpoint = `${PARAMETERS}/${parameterId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteParameter: async parameterId => {
     const endpoint = `${PARAMETERS}/${parameterId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Followuptemplate
   getTemplates: async () => {
     const endpoint = `${TEMPLATES}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getTemplate: async templateId => {
     const endpoint = `${TEMPLATES}/${templateId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createTemplate: async body => {
     const endpoint = `${TEMPLATES}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateTemplate: async (templateId, body) => {
     const endpoint = `${TEMPLATES}/${templateId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteTemplate: async templateId => {
     const endpoint = `${TEMPLATES}/${templateId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Followuptemplate-Parameter
@@ -182,23 +182,23 @@ const apiSettings = {
     const endpoint = templateId == null
       ? `${TEMPLATES_PARAMS}`
       : `${TEMPLATES_PARAMS}?id=${templateId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getTemplateParam: async templateParamId => {
     const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createTemplateParam: async body => {
     const endpoint = `${TEMPLATES_PARAMS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateTemplateParam: async (templateParamId, body) => {
     const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteTemplateParam: async templateParamId => {
     const endpoint = `${TEMPLATES_PARAMS}/${templateParamId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
 
   // Answer
@@ -206,23 +206,23 @@ const apiSettings = {
     const endpoint = followupId == null
       ? `${ANSWERS}`
       : `${ANSWERS}?id=${followupId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getAnswer: async answerId => {
     const endpoint = `${ANSWERS}/${answerId}`;
-    return await (await fetch(endpoint)).json();
+    return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   createAnswer: async body => {
     const endpoint = `${ANSWERS}`;
-    return await (await axios.post(endpoint, body));
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   updateAnswer: async (answerId, body) => {
     const endpoint = `${ANSWERS}/${answerId}`;
-    return await (await axios.put(endpoint, body));
+    return await (await axios.put(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
   },
   deleteAnswer: async answerId => {
     const endpoint = `${ANSWERS}/${answerId}`;
-    return await (await axios.delete(endpoint));
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   }
 
 }

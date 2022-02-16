@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
 // API
@@ -189,6 +188,10 @@ const Register = () => {
     
   }
 
+  const handleGoogle = () => {
+    navigate('/google-login');
+  }
+
   return (
     <>
       <Wrapper>
@@ -247,6 +250,8 @@ const Register = () => {
             <br/>
             {hospitalError && <div className="formError">*Select a Hospital</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
+            <br/><br/>
+            <ButtonDark text="Google Login" callback={handleGoogle} />
           </>
         )}
       </Wrapper>

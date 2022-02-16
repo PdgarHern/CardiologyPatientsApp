@@ -17,6 +17,5 @@ Rails.application.routes.draw do
              }
 
   get '/followuptemplate-last', to: 'followuptemplates#last'
-  get '/check-token', to: 'tokens#check_token'
-             
+  get '/check-token', to: 'token#check_token'
 end

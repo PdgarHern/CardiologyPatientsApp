@@ -20,6 +20,7 @@ import TemplateVisualizer from "./components/TemplateVisualizer";
 import FollowUpVisualizer from "./components/FollowUpVisualizer";
 import PatientFollowUps from "./components/PatientFollowUps";
 import PutAnswer from "./components/PutAnswer";
+import RegisterGoogle from "./components/RegisterGoogle";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -49,6 +50,7 @@ function App() {
             <Route path='/followup/:followupId' element={<FollowUpVisualizer />} />
             <Route path='/my-followups/:patientId' element={<PatientFollowUps />} />
             <Route path='/put-answer/:answerId' element={<PutAnswer />} />
+            <Route path='/google-login' element={<RegisterGoogle />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

@@ -17,15 +17,22 @@ We currently have two documents: an *ER Diagram* and a *Use Case*.
 The *ER Diagram* has been done with an App called <a href="http://dia-installer.de/index.html.es">Dia</a>.<br/>
 You need to have the app installed in order to open the file "ER_Usabi.dia".<br/>
 
-<img src="documentation/images/entity_relathionship.PNG" align="center" width="300px" alt="er" />
+<div align="center">
+  <img src="documentation/images/entity_relathionship.PNG" width="600px" alt="er" />
+</div>
 
 ###
 Here is the resulting Relational Diagram:<br/>
 
-<img src="documentation/images/RelationalDiagram.PNG" align="center" width="300px" alt="Relational" />
+<div align="center">
+  <img src="documentation/images/RelationalDiagram.PNG" width="500px" alt="Relational" />
+</div>
 
 ###
 The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.io</a>.<br/>
 Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".<br/>
 
-<img src="documentation/images/useCaseDiagram.PNG" align="center" width="300px" alt="useCase" />
+<div align="center">
+  <img src="documentation/images/useCaseDiagram.PNG" width="300px" alt="useCase" />
+</div>
+

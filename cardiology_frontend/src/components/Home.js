@@ -1,7 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-// API
-import API from "../API";
+// Components
+import ButtonDark from "./ButtonDark";
+// Styles
+import { Wrapper } from "./Users.styles";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,24 +17,10 @@ const Home = () => {
   }
 
   return (
-    <>
-      <p>Home Component</p>
-      <input
-        type='button'
-        onClick={handleRegister}
-        value='Register'
-      />
-      <input
-        type='button'
-        onClick={handleLogin}
-        value='Login'
-      />
-      {localStorage.userId ? (
-        <p>Logged in</p>
-      ) : (
-        <p>Not logged in</p>
-      )}
-    </>
+    <Wrapper>
+      <ButtonDark text="Register" callback={handleRegister} />
+      <ButtonDark text="Login" callback={handleLogin} />
+    </Wrapper>
     
   )
 }

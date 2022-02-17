@@ -40,6 +40,10 @@ const apiSettings = {
     const endpoint = `${USERS}/sign_out`;
     return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
   },
+  chechToken: async token => {
+    const endpoint = `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${token}`;
+    return await (await fetch(endpoint)).json();
+  },
 
   // Doctor
   getDoctors: async doctorId => {

@@ -11,7 +11,7 @@
 </div>
 
 # Documentation so far
-We currently have two documents: an *ER Diagram* and a *Use Case*.
+We currently have three diagrams: an *ER Diagram*, a *Relational* and a *Use Case*.
 
 ###
 The *ER Diagram* has been done with an App called <a href="http://dia-installer.de/index.html.es">Dia</a>.<br/>
@@ -33,6 +33,6 @@ The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.i
 Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".<br/>
 
 <div align="center">
-  <img src="documentation/images/useCaseDiagram.PNG" width="300px" alt="useCase" />
+  <img src="documentation/images/useCaseDiagram.PNG" width="400px" alt="useCase" />
 </div>
 

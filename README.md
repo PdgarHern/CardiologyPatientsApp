@@ -590,8 +590,8 @@ I could not tell any significant difference between *Postgre* and *MySQL*. They 
 I would recommend both if they case was given.
 
 # Work Planning
-
-
+For planning the project I used Trello:
+[ - Trello](https://trello.com/b/fn7WvOIc/cardiologyproject
 
 # Conclusion and opinion
 
@@ -610,31 +610,3 @@ I would recommend both if they case was given.
   <li><a href="https://medium.com/ruby-daily/a-devise-jwt-tutorial-for-authenticating-users-in-ruby-on-rails-ca214898318e">Devise-jwt tutorial</a></li>
   <li>Countless Stack Overflow pages</li>
 </ol>
-
-
-# Documentation so far
-We currently have three diagrams: an *ER Diagram*, a *Relational* and a *Use Case*.
-
-###
-The *ER Diagram* has been done with an App called <a href="http://dia-installer.de/index.html.es">Dia</a>.<br/>
-You need to have the app installed in order to open the file "ER_Usabi.dia".<br/>
-
-<div align="center">
-  <img src="documentation/images/entity_relationship.PNG" width="600px" alt="er" />
-</div>
-
-###
-Here is the resulting Relational Diagram:<br/>
-
-<div align="center">
-  <img src="documentation/images/RelationalDiagram.PNG" width="500px" alt="Relational" />
-</div>
-
-###
-The *Use Case Diagram* was done using <a href="https://app.diagrams.net/">Draw.io</a>.<br/>
-Just enter their page, select "Open Existing Diagran" and select the file "CasosDeUsoUsabi.drawio".<br/>
-
-<div align="center">
-  <img src="documentation/images/useCaseDiagram.PNG" width="400px" alt="useCase" />
-</div>
-

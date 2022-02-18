@@ -287,7 +287,89 @@ To run this app you can use whatever computer you have and having the necessary 
 Then you can access the *Web Client* with your same computer or using even your phone.
 
 # Interfaces
-
+Now, you can see some screenshots of the project interfaces *(these may change in future versions)*:<br/>
+<ol>
+  <li>Login</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/login.PNG" alt="login" />
+  </ul>
+  <li>Register</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/register.PNG" alt="register" />
+  </ul>
+  <li>Google Register</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/gRegister.PNG" alt="gRegister" />
+  </ul>
+  <li>Patient Profile</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/patientP.PNG" alt="patientP" />
+  </ul>
+  <li>Patient Update</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/patientU.PNG" alt="patientU" />
+  </ul>
+  <li>Doctor Profile</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/doctorP.PNG" alt="doctorP" />
+  </ul>
+  <li>Doctor Update</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/doctorU.PNG" alt="doctorU" />
+  </ul>
+  <li>Parameter Page</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/parameterP.PNG" alt="parameterP" />
+  </ul>
+  <li>Parameter Update</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/parameterU.PNG" alt="parameterU" />
+  </ul>
+  <li>Template Page</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/templateP.PNG" alt="templateP" />
+  </ul>
+  <li>Template Update</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/templateU.PNG" alt="templateU" />
+  </ul>
+  <li>Patient Visualizer (doctor)</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/patientV.PNG" alt="patientV" />
+  </ul>
+  <li>Follow-Up Create</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/followupC.PNG" alt="followupC" />
+  </ul>
+  <li>Follow-Ups List (patient)</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/followupL.PNG" alt="followupL" />
+  </ul>
+  <li>Follow-Up Page (doctor)</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/followupD.PNG" alt="followupD" />
+  </ul>
+  <li>Follow-Up Page (patient)</li>
+  <br/>
+  <ul>
+    <img src="documentation/images/followupP.PNG" alt="followupP" />
+  </ul>
+</ol>
 
 
 ### Usability

@@ -373,19 +373,37 @@ Now, you can see some screenshots of the project interfaces *(these may change i
 
 
 ### Usability
-
-
+*(All the following aspects may change in future versions)*<br/>
+<br/>
+The app was created trying to make it *simple*. Its visual design and elements were made with this idea.<br/>
+<br/>
+You can easily navigate and access everything and nothing is hard to find.
 
 #### Visual Design
-
-
+For this app, I've used some green colors, as this may reasemble a clinic or hospital:<br/>
+<ol>
+  <li>White (#fff)</li>
+  <li>Light green (#76f3ad)</li>
+  <li>Dark green (#37ba78)</li>
+  <li>Medium grey (#353535)</li>
+</ol>
+<br/>
+<img src="documentation/images/register.PNG" alt="colors" />
 
 #### Error handling
-
+Errors should not normally happen during the normal use of the app.<br/>
+However, if some happened (such as a bad login), this should be correctly handled and the app won't lock.
+<div align="center">
+  <img src="documentation/images/loginFail.PNG" alt="fail" />
+</div>
 
 
 #### Notifications for the user
-
+Users will also be notified when te haven't filled a form field or when the app starts processing some kind of request.<br/>
+<div flex-direction="row" align="center">
+  <img src="documentation/images/formControl.PNG" alt="formControl" width="800" />
+  <img src="documentation/images/spinner.PNG" alt="spinner" width="800" />
+</div>
 
 
 #### Font

@@ -388,7 +388,7 @@ For this app, I've used some green colors, as this may reasemble a clinic or hos
   <li>Medium grey (#353535)</li>
 </ol>
 <br/>
-<img src="documentation/images/register.PNG" alt="colors" />
+<img src="documentation/images/doctorP.PNG" alt="colors" />
 
 #### Error handling
 Errors should not normally happen during the normal use of the app.<br/>
@@ -407,55 +407,117 @@ Users will also be notified when te haven't filled a form field or when the app 
 
 
 #### Font
-
-
+For this project I used *Abel* (A Google Font).<br/>
+This is a modern interpretation of sans serif.<br/>
+It was originally used for newspaper headlines and posters. Its angled terminals and spiked stems give it enough style to be unique at display sizes, while its mono-weight still works well at smaller text sizes.
 
 #### User customization
-
-
+The most interesting aspect to comment here is the *profile image*.<br/>
+<div flex-direction="row" align="center">
+  <img src="documentation/images/img.PNG" src="img" />
+  <img src="documentation/images/editImg.PNG" src="imgEdit" />
+</div>
 
 #### Interfaces display
-
-
+They are consistent. As you could have seen before, there are certain paterns thaht repeat themselves.<br/>
+This makes it easier for the user to navigate and use the app, as well as making the learning process faster.
 
 #### Text redaction
-
-
+Every text is small, short, easy to read.<br/>
+If there was a lot of text, the user could get tired more easily, so we can make the experience more comfortable by using small texts.
 
 #### Multimedia aspect
-
-
+The only *multimedia aspect* we can found are the profile images.
 
 #### Summary
-
-
+Again, all these things were made with simplicity in mind. Looking for an esay and fast way to do everything while keeping good aesthetic.
 
 # Guides
-
-
+Next, I will address the guides necessary to install and get the project running:
 
 ## Installation guide
 
-
-
 ### First of all
+To get this app running you'll need to install *NodeJS*, *Yarn*, *Ruby 2.6.8* with *Rails 6.1* and *PostgreSQL* (I use PostgreSQL 14).<br/>
+<br/>
+Here you have some links:<br/>
+[ - NodeJS Download](https://nodejs.org/es/)<br/>
+[ - Ruby Download](https://rubyinstaller.org/downloads/)<br/>
+[ - Ruby on Rails Installation Tutorial](https://guides.rubyonrails.org/getting_started.html)<br/>
+[ - PostgreSQL Download](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)<br/>
+<br/>
+After installing *NodeJS*, run the following command to install *Yarn*:<br/>
+```
+npm install -g yarn
+```
 
-
+###
+Once you have everything downloaded and installed you'll need to run a few things in the command prompt.<br/>
+I recommend using the *Git Bash*. It's comfortable and shouldn't give you any problem.<br/>
+<br/>
+[ - Git Download](https://git-scm.com/downloads)
 
 ### Backend
+The Backend is created with *Ruby on Rails* and uses *PostgreSQL* for the database.<br/>
+<br/>
+*Ruby* is an interpreted, high-level programming language designed with an emphasis on programming productivity and simplicity.<br/>
+*Rails* is a model-view-controller framework for *Ruby*. It is used to create server-side web applications.<br/>
+*PostgreSQL* is one of the biggest relational database management systems. It emphasizes extensibility and SQL compliance.<br/>
+<br/>
+In the <a href="cardiology_backend">cardiology_backend</a> folder you need to run ```bundle install```.<br/>
+If the bash doesn't recognize *bundle*, try running ```gem install bundler``` first.<br/>
+<br/>
+Then, head to <a href="cardiology_backend/config">config</a> and delete ```credentials.yml.enc```.<br/>
+Now, run the command ```EDITOR=nano rails credentials:edit``` and add the next code:<br/>
+```
+devise:
+  jwt_secret_key: <rails secret>
+```
+Where it says *rails secret* you have to put the secret code that the API will use in the encryptation of user credentials.<br/>
+You can generate that secret code of your own by running that same command in the bash:<br/>
+```
+rails secret
+```
+To save and close the file, press *Ctrl+X*, *Y* and then *Enter*.<br/>
+<br/>
+Also, you will have to create a file called ```application.yml``` inside the <a href="cardiology_backend/config">config</a> folder.<br/>
+To do so run the command ```bundle exec figaro install```.<br/>
+In that file, you will have to write the following:<br/>
+```
+development:
+  host_postgres: your_host
+  port_postgres: "your_port"
+  username_postgres: your_user
+  password_postgres: your_password
+```
+This is done this way for security reasons, keeping all your *PostgreSQL* information in private.<br/>
+<br/>
+Lastly, run ```rails db:setup``` and it will generate the entire database for you. It will be empty, though.<br/>
+<br/>
+If you want to insert some test data into the database (Not necessary) I recomend using Postman.<br/>
+To do almost every request to the database, you need to have an *auth token*. So, you'll have to sign up and sign in first.
 
-
+###
+[ - Postman Download](https://www.postman.com/downloads/)<br/>
 
 ### Frontend
-
+This is a *React* frontend.<br/>
+*React* is a JavaScript library for building user interfaces based on UI components.<br/>
+<br/>
+The *frontend* preparation is easy. You just have to access <a href="cardiology_frontend">cardiology_frontend</a> and run ```npm install```.<br/>
+<br/>
+You don't need to have any data already in the *database* you will be able to do every action since the beginning from here.
 
 
 ### Starting the app
-
-
+Both *Rails* and *React* uses port 3000. However, this is not a problem.<br/>
+<br/>
+Run the *backend* with ```rails s```.<br/>
+It is possible that running ```rails s``` throughs you an error the first time. The terminal will require you to run ```yarn install --check-files```. Do so and then you should be able to run the server as normally.<br/>
+<br/>
+Then, run *React* using ```npm start```. It will ask to auto-select another port. Press *Y* and the app should start.
 
 ## Use guide
-
 
 
 # Technologies comparison

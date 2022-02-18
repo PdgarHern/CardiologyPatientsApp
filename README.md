@@ -401,8 +401,8 @@ However, if some happened (such as a bad login), this should be correctly handle
 #### Notifications for the user
 Users will also be notified when te haven't filled a form field or when the app starts processing some kind of request.<br/>
 <div flex-direction="row" align="center">
-  <img src="documentation/images/formControl.PNG" alt="formControl" width="800" />
-  <img src="documentation/images/spinner.PNG" alt="spinner" width="800" />
+  <img src="documentation/images/formControl.PNG" alt="formControl" width="400" />
+  <img src="documentation/images/spinner.PNG" alt="spinner" width="300" />
 </div>
 
 

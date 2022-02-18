@@ -591,7 +591,7 @@ I would recommend both if they case was given.
 
 # Work Planning
 For planning the project I used Trello:
-[ - Trello](https://trello.com/b/fn7WvOIc/cardiologyproject
+[ - Trello](https://trello.com/b/fn7WvOIc/cardiologyproject)
 
 # Conclusion and opinion
 

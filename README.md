@@ -518,7 +518,19 @@ It is possible that running ```rails s``` throughs you an error the first time. 
 Then, run *React* using ```npm start```. It will ask to auto-select another port. Press *Y* and the app should start.
 
 ## Use guide
-
+You first need to Login (or create an account if you don't have one).<br/>
+Now, the number of things you can do depends on your role:<br/>
+<ol>
+  <li>
+    Doctor: if you are a doctor, you'll have a list of the patients from your hospital. You can click on them in order to see or create follow-ups for them.<br/>
+    You can as well view, create, update and delete parameters and templates for your hospital.
+  </li>
+  <li>
+    Patient: if you are a patient, you can access a list with all your follow-ups. You can visualize them if you click on them.<br/>
+    Here you can select a parameter and create an 'answer' with the requested data.
+  </li>
+  <li>Both kind of users can edit their profiles, too.
+</ol>
 
 # Technologies comparison
 In this part, I'm going to compare the three technologies that I use with other ones similar to them and / or with the same purpose.

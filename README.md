@@ -266,8 +266,25 @@ As you could have seen in the diagram before, these are the existing relationshi
 </div>
 
 # System functioning and requirements
+We could say that this project is divided in three parts:<br/>
+<ol>
+  <li>Frontend / Web Client: Made using React</li>
+  <li>Backend / API: Made using Rails</li>
+  <li>Database: Made with PostgreSQL</li>
+</ol>
 
+###
+When using the app, you interact directly with the *Web Client*.<br/>
+This provides a good looking, easy way to manage and check the information from the *database* and allow us to do every action that we need in a way that everyone can understand.<br/>
+However, there is still one step in between the *Web Client* and the *database*. And that is the *API*.<br/>
+The *API* acts like an interpreter between the other two parts of the project.<br/> 
+It communicates with the *database* in a certain way it understands (SQL sentences) and also transforms all what have to do with the tables and the relathionships between them into objects to make it easier for the *Web Client* to understand.<br/>
+<br/>
+<img src="documentation/images/function.PNG" alt="Function-Diagram" />
 
+###
+To run this app you can use whatever computer you have and having the necessary tools installed.<br/>
+Then you can access the *Web Client* with your same computer or using even your phone.
 
 # Interfaces
 

@@ -116,7 +116,7 @@ For this project, I created eight entities: *User*, *Doctor*, *Patient*, *Parame
   <img src="documentation/images/entity_relationship.PNG" width="600px" alt="er" />
 </div>
 <br/><br/>
-They all have a unique *id*.<br/>
+They all have a unique 'id'.<br/>
 Here is a list about the attributes for each entity:<br/>
 <ol>
   <li>
@@ -225,12 +225,45 @@ As you could have seen in the diagram before, these are the existing relationshi
 </div>
 
 # User Requirements
-
-
+<ol>
+  <li>
+    Platform
+    <ul>
+      <li>The project will be a web app.</li>
+    </ul>
+  </li>
+  <li>
+    Main purpose
+    <ul>
+      <li>Allow doctors to create follow-ups for the patients.</li>
+      <li>Allow patients to fill their follow-ups with their responses.</li>
+      <li>Allow doctors to check those responses.</li>
+    </ul>
+  </li>
+  <li>
+    Interfaces needed
+    <ul>
+      <li>Sign in page (doctors and patients)</li>
+      <li>Sign up page (doctors and patients)</li>
+      <li>Profile page (doctors and patients)</li>
+      <li>Profile update page (doctors and patients)</li>
+      <li>Parameter view and create page (doctors)</li>
+      <li>Parameter update and delete page (doctors)</li>
+      <li>Template view and create page (doctors)</li>
+      <li>Template update and delete page (doctors)</li>
+      <li>Follow-up create page (doctor)</li>
+      <li>One patient follow-ups (patients)</li>
+      <li>Patient info visualizer with the follow-ups (doctors)</li>
+      <li>Follow-up visualizer with answers and delete option (doctors)</li>
+      <li>Follow-up visualizer with view, create and update answers (patients)</li>
+    </ul>
+  </li>
+</ol>
 
 ### User Cases
-
-
+<div align="center">
+  <img src="documentation/images/useCaseDiagram.PNG" width="400px" alt="useCase" />
+</div>
 
 # System functioning and requirements
 

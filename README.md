@@ -89,32 +89,140 @@
 </details>
 
 # Cardiology Web App
-
-
+Welcome to the -*Cardiology patients' goal tracking app*-, an application created to make the medical process of creating and sending follow-ups easier.<br/>
+This app can be used by either doctors and patients. The firts ones can create parameters and templates that will later be used to create follow-ups for the patients.<br/>
+The patients then can check their follow-ups and fill the assigned parameters.
 
 ### Need Source
-
-
+Nowadays, this entire process can be tedious and slow.<br/>
+The patients have to go to the hospital to take their follow-ups, complete them and then go back to see the doctor.<br/>
+In some cases, you may not want the patients to come to the hospital, maybe it's not good for them, but it is the only way.<br/>
+<br/>
+That's what we try to solve here.
 
 ### Demanding Company
-
-
+This project has been developed by the demmand of *Usabi*.
 
 ### Summarized Idea
-
-
+The idea is to create an app so the communication between doctors and patients (as well as the follow-ups that a patient must do) easier, faster and smoother for everyone.
+<br/>
 
 # Data Model
-
-
+Let's now see how the database was made, the entities and relationships that exist and all the attributes.
 
 ### Entities
-
-
+For this project, I created eight entities: *User*, *Doctor*, *Patient*, *Parameter*, *Followuptemplate*, *Followup*, *Answer* and *Hospital*.<br/><br/>
+<div align="center">
+  <img src="documentation/images/entity_relationship.PNG" width="600px" alt="er" />
+</div>
+<br/><br/>
+They all have a unique *id*.<br/>
+Here is a list about the attributes for each entity:<br/>
+<ol>
+  <li>
+    User:
+    <ul>
+      <li>email: String</li>
+      <li>password: String</li>
+      <li>rol: String</li>
+    </ul>
+  </li>
+  <li>
+    Doctor
+    <ul>
+      <li>name: String</li>
+      <li>phoneNumber: Integer</li>
+    </ul>
+  </li>
+  <li>
+    Patient:
+    <ul>
+      <li>name: String</li>
+      <li>clinicRecord: String</li>
+      <li>gender: String</li>
+      <li>birthDate: String</li>
+      <li>phoneNumber: Integer</li>
+      <li>consentRGPD: Boolean</li>
+      <li>linkDevice: Boolean</li>
+    </ul>
+  </li>
+  <li>
+    Parameter:
+    <ul>
+      <li>name: String</li>
+      <li>kind: String</li>
+      <li>frequency: String</li>
+    </ul>
+  </li>
+  <li>
+    Followuptemplate:
+    <ul>
+      <li>name: String</li>
+    </ul>
+  </li>
+  <li>
+    Followup
+    <ul>
+      <li>startDate: String</li>
+      <li>endDate: String</li>
+    </ul>
+  </li>
+  <li>
+    Answer
+    <ul>
+      <li>value: String</li>
+      <li>timestamp: Timestamp</li>
+    </ul>
+  </li>
+  <li>
+    Hospital
+    <ul>
+      <li>name: String</li>
+    </ul>
+  </li>
+</ol>
 
 ### Relationships
-
-
+As you could have seen in the diagram before, these are the existing relationships and tables they generate (in case of needed):<br/>
+<ol>
+  <li>Hospital: It has a 'one to many' relation with almost every entity. For this, we have to add a "hospital_id" to:
+    <ul>
+      <li>Doctor</li>
+      <li>Patient</li>
+      <li>Parameter</li>
+      <li>Followuptemplate</li>
+      <li>Followup</li>
+      <li>Answer</li>
+    </ul>
+  </li>
+  <li>Both Doctor and Patient need a "user_id", having a certain 'User' the possibility of being one doctor or one patient.</li>
+  <li>Parameter and Followuptemplate form a 'many to many' relation, generating the table "Followuptemplate_Parameter" with these two attributes:
+    <ul>
+      <li>followuptemplate_id: Reference</li>
+      <li>parameter_id: Reference</li>
+    </ul>
+  </li>
+  <li>Followup has another three 'one to many' relationships with 'Doctor', 'Patient' and 'Followuptemplate' generating the next attributes:
+    <ul>
+      <li>doctor_id: Reference</li>
+      <li>patient_id: Reference</li>
+      <li>followuptemplate_id: Reference</li>
+    </ul>
+  </li>
+  <li>Answer has two more 'one to many' relationships with 'Parameter' and 'Followup':
+    <ul>
+      <li>parameter_id: Reference</li>
+      <li>followup_id: Reference</li>
+    </ul>
+  </li>
+</ol>
+<br/>
+<div align="center">
+  <img src="documentation/images/classDiagram.PNG" width="500px" alt="Class" />
+</div>
+<div align="center">
+  <img src="documentation/images/RelationalDiagram.PNG" width="500px" alt="Relational" />
+</div>
 
 # User Requirements
 
@@ -262,6 +370,10 @@ I would recommend both if they case was given.
 
 
 # Conclusion and opinion
+
+
+
+# Repositories and links used
 <ol>
   <li><a href="https://youtu.be/nTeuhbP7wdE">React tutorial</a></li>
   <li><a href="https://youtu.be/fmyvWz5TUWg">Rails tutorial</a></li>
@@ -274,10 +386,6 @@ I would recommend both if they case was given.
   <li><a href="https://medium.com/ruby-daily/a-devise-jwt-tutorial-for-authenticating-users-in-ruby-on-rails-ca214898318e">Devise-jwt tutorial</a></li>
   <li>Countless Stack Overflow pages</li>
 </ol>
-
-
-# Repositories and links used
-
 
 
 # Documentation so far

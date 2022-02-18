@@ -20,6 +20,7 @@ const Home = () => {
     <Wrapper>
       <ButtonDark text="Register" callback={handleRegister} />
       <ButtonDark text="Login" callback={handleLogin} />
+      <h1><a href="http://localhost:5500/Welcome.html">App Help</a></h1>
     </Wrapper>
     
   )

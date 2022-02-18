@@ -15,6 +15,10 @@ import { Wrapper } from "./Users.styles";
 const PostFollowup = () => {
   const formData = new FormData();
 
+  var today = new Date();
+
+  var date = today.getFullYear() + '/' + (today.getMonth() +1) + '/' + today.getDate();
+
   const { state: templates } = useTemplatesFetch();
 
   const [startDate, setStartDate] = useState('');

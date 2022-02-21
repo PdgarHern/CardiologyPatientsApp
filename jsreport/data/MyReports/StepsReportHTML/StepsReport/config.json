@@ -1,0 +1,17 @@
+{
+    "name": "StepsReport",
+    "engine": "handlebars",
+    "recipe": "html",
+    "data": {
+        "shortid": "ai3dU7rdN"
+    },
+    "shortid": "WfMGOfV4k0",
+    "creationDate": {
+        "$$date": 1645462061768
+    },
+    "modificationDate": {
+        "$$date": 1645466521083
+    },
+    "_id": "oqY0D9aKoKXUdOTf",
+    "$entitySet": "templates"
+}

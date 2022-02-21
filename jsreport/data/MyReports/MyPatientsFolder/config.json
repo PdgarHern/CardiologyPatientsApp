@@ -1,0 +1,12 @@
+{
+    "name": "MyPatientsFolder",
+    "creationDate": {
+        "$$date": 1645456536542
+    },
+    "modificationDate": {
+        "$$date": 1645456536542
+    },
+    "shortid": "IEofe-Z",
+    "_id": "Dzpiu3RT8uHdBFpW",
+    "$entitySet": "folders"
+}

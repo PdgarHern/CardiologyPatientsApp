@@ -1,0 +1,17 @@
+{
+    "name": "DoctorFollowups",
+    "engine": "handlebars",
+    "recipe": "html",
+    "data": {
+        "shortid": "XlasFxDT8"
+    },
+    "shortid": "WA06Wp1BP6",
+    "creationDate": {
+        "$$date": 1645469168913
+    },
+    "modificationDate": {
+        "$$date": 1645469822154
+    },
+    "_id": "jIVVXMgL1T6inuJO",
+    "$entitySet": "templates"
+}

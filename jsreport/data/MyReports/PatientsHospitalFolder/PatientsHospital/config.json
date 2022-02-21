@@ -1,0 +1,20 @@
+{
+    "name": "PatientsHospital",
+    "engine": "handlebars",
+    "recipe": "html",
+    "data": {
+        "shortid": "xPeyk19iP"
+    },
+    "shortid": "HFhFqEmnia",
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1645459678063
+    },
+    "modificationDate": {
+        "$$date": 1645461327471
+    },
+    "_id": "vZHVQNQBt5cV7NwO",
+    "$entitySet": "templates"
+}

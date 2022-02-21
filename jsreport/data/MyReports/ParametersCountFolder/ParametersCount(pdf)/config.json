@@ -1,0 +1,20 @@
+{
+    "name": "ParametersCount(pdf)",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "2S9lxN2Ey"
+    },
+    "shortid": "UFSjCtcnb",
+    "creationDate": {
+        "$$date": 1645468292380
+    },
+    "modificationDate": {
+        "$$date": 1645468435858
+    },
+    "chrome": {
+        "printBackground": true
+    },
+    "_id": "fvpIwNCIXIhtACRQ",
+    "$entitySet": "templates"
+}

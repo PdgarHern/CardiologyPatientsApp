@@ -58,10 +58,11 @@ const FollowUpVisualizer = () => {
 
         setConfirmation(true);
         setTimeout(() => {
-          setConfirmation(false)
-        }, 3500);
+          setConfirmation(false);
+          setParameterId(null);
+        }, 2000);
 
-        setParameterId(null);
+        
         setAnswer('');
 
       } else {

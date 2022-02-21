@@ -78,3 +78,4 @@
 2022-02-17T18:51:30.968Z - info: 2 worker threads initialized in 255ms
 2022-02-17T18:51:30.969Z - info: Starting temp files cleanup with 180000ms threshold
 2022-02-17T18:51:30.970Z - info: reporter initialized
+2022-02-21T15:11:38.593Z - info: Initializing jsreport (version: 3.4.1, configuration file: jsreport.config.json, nodejs: 16.13.0)

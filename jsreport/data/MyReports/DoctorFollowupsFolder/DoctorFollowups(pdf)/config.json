@@ -1,0 +1,20 @@
+{
+    "name": "DoctorFollowups(pdf)",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "XlasFxDT8"
+    },
+    "shortid": "vE8QAJq52",
+    "creationDate": {
+        "$$date": 1645469830458
+    },
+    "modificationDate": {
+        "$$date": 1645469860324
+    },
+    "chrome": {
+        "printBackground": true
+    },
+    "_id": "PGcneRdptGeYSe2m",
+    "$entitySet": "templates"
+}

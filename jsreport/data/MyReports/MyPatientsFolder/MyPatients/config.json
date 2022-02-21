@@ -1,0 +1,17 @@
+{
+    "name": "MyPatients",
+    "engine": "handlebars",
+    "recipe": "html",
+    "data": {
+        "shortid": "rA4u3uXBR"
+    },
+    "shortid": "54JQQEgcY",
+    "creationDate": {
+        "$$date": 1645456392642
+    },
+    "modificationDate": {
+        "$$date": 1645467023384
+    },
+    "_id": "fhO0mEHtYdoAyho8",
+    "$entitySet": "templates"
+}

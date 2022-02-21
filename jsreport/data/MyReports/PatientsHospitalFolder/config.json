@@ -1,0 +1,12 @@
+{
+    "name": "PatientsHospitalFolder",
+    "creationDate": {
+        "$$date": 1645459651299
+    },
+    "modificationDate": {
+        "$$date": 1645459651299
+    },
+    "shortid": "wjKd8YH",
+    "_id": "STju4CZsZUbI3lAa",
+    "$entitySet": "folders"
+}

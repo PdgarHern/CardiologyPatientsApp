@@ -1,0 +1,17 @@
+{
+    "name": "StepsReport(pdf)",
+    "engine": "handlebars",
+    "recipe": "chrome-pdf",
+    "data": {
+        "shortid": "ai3dU7rdN"
+    },
+    "shortid": "kL81Jhd4S",
+    "creationDate": {
+        "$$date": 1645466671518
+    },
+    "modificationDate": {
+        "$$date": 1645466767143
+    },
+    "_id": "bDLcgZ3Z5ErMwIja",
+    "$entitySet": "templates"
+}

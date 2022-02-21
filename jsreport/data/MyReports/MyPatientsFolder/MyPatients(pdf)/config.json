@@ -1,0 +1,20 @@
+{
+    "name": "MyPatients(pdf)",
+    "recipe": "chrome-pdf",
+    "shortid": "uDN9JowqH",
+    "engine": "handlebars",
+    "data": {
+        "shortid": "rA4u3uXBR"
+    },
+    "creationDate": {
+        "$$date": 1645466650872
+    },
+    "modificationDate": {
+        "$$date": 1645466650872
+    },
+    "chrome": {
+        "printBackground": true
+    },
+    "_id": "a3E5NhN16KLuY4wY",
+    "$entitySet": "templates"
+}

@@ -1,0 +1,95 @@
+<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js'></script>
+<script src="path/to/chartjs/dist/chart.js"></script>
+
+<style>
+    {{asset "./styles.css"}}
+</style>
+
+<div class="WrapperHeader">
+    <div class="ContentHeader">
+        <img id="logo" src="{{asset "appLogo.png" "dataURI"}}" alt="logo" />
+    </div>
+</div>
+
+<br/>
+
+<div class="WrapperContent">
+    <div class="ContentContent">
+        <h1>Number of patients</h1>
+        <table id="table" class="table" style="display: none;">
+            <thead>
+                <th>Name</th>
+                <th>Followups</th>
+            </thead>
+            <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{arrayCount followups}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <canvas id="myChart" width="1200" height="800"></canvas>
+        <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            let names = [];
+            let followups = [];
+
+            for (let i = 1; i < document.getElementById("table").rows.length; i++) {
+                names.push(document.getElementById("table").rows[i].cells[0].innerHTML);
+                followups.push(document.getElementById("table").rows[i].cells[1].innerHTML);
+            }
+
+            const myChart = new Chart(ctx, {
+                type: 'polarArea',
+                data: {
+                    labels: names,
+                    datasets: [{
+                        label: 'Number of follow-ups created',
+                        data: followups,
+                        backgroundColor: [
+                            'rgba(66, 133, 244, 0.8)',
+                            'rgba(234, 67, 53, 0.8)',
+                            'rgba(251, 188, 4, 0.8)',
+                            'rgba(52, 168, 83, 0.8)',
+                            'rgba(255, 109, 1, 0.8)',
+                            'rgba(70, 189, 198, 0.8)',
+                            'rgba(123, 170, 247, 0.8)',
+                            'rgba(240, 123, 114, 0.8)',
+                            'rgba(252, 208, 79, 0.8)',
+                            'rgba(113, 194, 135, 0.8)',
+                            'rgba(255, 153, 77, 0.8)',
+                            'rgba(126, 209, 215, 0.8)',
+                            'rgba(1, 13, 49, 0.8)',
+                            'rgba(255, 29, 50, 0.8)',
+                            'rgba(53, 53, 53, 0.5)'
+                        ],
+                        borderColor: 'rgba(28, 28, 28, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                        display: false,
+                        ticks: {
+                            beginAtZero: true,
+                            autoSkip: false
+                        }
+                        }],
+                        xAxes: [{
+                            display: false,
+                        ticks: {
+                            autoSkip: false
+                        }
+                        }]
+                    }
+                }
+            })
+        </script>
+    </div>
+</div>

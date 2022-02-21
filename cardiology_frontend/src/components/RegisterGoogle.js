@@ -16,7 +16,7 @@ const RegisterGoogle = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [rol, setRol] = useState('null');
+  const [role, setRole] = useState('null');
   const [hospital, setHospital] = useState('null');
 
   const [tokenValid, setTokenValid] = useState(false);
@@ -24,7 +24,7 @@ const RegisterGoogle = () => {
   const [loading, setLoading] = useState(false);
 
   const [emailError, setEmailError] = useState(false);
-  const [rolError, setRolError] = useState(false);
+  const [roleError, setRoleError] = useState(false);
   const [hospitalError, setHospitalError] = useState(false);
 
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const RegisterGoogle = () => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
 
-    if (name === 'rol') setRol(value);
+    if (name === 'role') setRole(value);
     if (name === 'hospital') setHospital(value);
 
   }
@@ -42,7 +42,7 @@ const RegisterGoogle = () => {
     try {
       if (email != '') {
 
-        if (rol != 'null') {
+        if (role != 'null') {
 
           if (hospital != 'null') {
 
@@ -52,7 +52,7 @@ const RegisterGoogle = () => {
 
             formData.append('user[email]', email);
             formData.append('user[password]', 'google');
-            formData.append('user[rol]', rol);
+            formData.append('user[rol]', role);
 
             await API.createUser(formData);
             await API.login(formData);
@@ -97,9 +97,9 @@ const RegisterGoogle = () => {
           }
 
         } else {
-          setRolError(true);
+          setRoleError(true);
           setTimeout(() => {
-            setRolError(false)
+            setRoleError(false)
           }, 3500);
         }
 
@@ -116,7 +116,7 @@ const RegisterGoogle = () => {
         setError(false);
         setLoading(false);
         setEmail('');
-        setRol('null');
+        setRole('null');
         setHospital('null');
       }, 2000);
     }
@@ -168,14 +168,14 @@ const RegisterGoogle = () => {
           {tokenValid && <p>{email}</p>}
           {emailError && <div className="formError">*Please log in</div>}
           <br/>
-          <label>Rol</label>
-          <select name='rol' onChange={handleInput}>
+          <label>Role</label>
+          <select name='role' onChange={handleInput}>
             <option value="null"></option>
             <option value="doctor">Doctor</option>
             <option value="patient">Patient</option>
           </select>
           <br />
-          {rolError && <div className="formError">*Select a role</div>}
+          {roleError && <div className="formError">*Select a role</div>}
           <label>Hospital</label>
           <select name='hospital' value={hospital} onChange={handleInput}>
             <option value='null'></option>

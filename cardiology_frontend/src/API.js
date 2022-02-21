@@ -47,7 +47,9 @@ const apiSettings = {
 
   // Doctor
   getDoctors: async doctorId => {
-    const endpoint = `${DOCTORS}?id=${doctorId}`;
+    const endpoint = doctorId == null
+      ? `${DOCTORS}`
+      : `${DOCTORS}?id=${doctorId}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getDoctor: async doctorId => {

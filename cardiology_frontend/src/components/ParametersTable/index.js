@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import jsreport from "@jsreport/browser-client";
 // API
 import API from "../../API";
 // Components
@@ -8,9 +9,8 @@ import ButtonDark from "../ButtonDark";
 import { useParametersFetch } from "../../hooks/useParametersFetch";
 // Styles 
 import { Wrapper } from "./ParametersTable.styles";
-import { API_URL } from "../../config";
 
-const ParametersTable = ({ updatable, templateId }) => {
+const ParametersTable = ({ report, updatable, templateId }) => {
   const { state: parameters } = useParametersFetch();
 
   const [parameterId, setParameterId] = useState('');
@@ -26,6 +26,38 @@ const ParametersTable = ({ updatable, templateId }) => {
       sessionStorage.setItem('parameterId', e.currentTarget.dataset.value);
     }
 
+  }
+
+  const handleReport = async () => {
+    jsreport.serverUrl = 'http://localhost:5488';
+
+    const report = await jsreport.render({
+      template: {
+        name: 'ParametersCount'
+      },
+      data: {
+        data: parameters.results
+      }
+
+    })
+
+    report.openInWindow({title: 'My Patients Report'});
+  }
+
+  const handleReportPDF = async () => {
+    jsreport.serverUrl = 'http://localhost:5488';
+
+    const report = await jsreport.render({
+      template: {
+        name: 'ParametersCount(pdf)'
+      },
+      data: {
+        data: parameters.results
+      }
+
+    })
+
+    report.openInWindow({title: 'My Patients Report'});
   }
 
   const handleAdd = async () => {
@@ -76,6 +108,12 @@ const ParametersTable = ({ updatable, templateId }) => {
               </tbody>
             </table>
           </Wrapper>
+          {report && (
+            <>
+              <ButtonDark text="Number of templates" callback={handleReport} />
+              <ButtonDark text="Number of templates (PDF)" callback={handleReportPDF} />
+            </>
+          )}
           {parameterId != '' && (
             <ButtonDark text="Add Parameter" callback={handleAdd} />
           )}

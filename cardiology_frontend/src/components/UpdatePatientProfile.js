@@ -159,7 +159,7 @@ const UpdatePatientProfile = () => {
               />
               <label>Birth Date</label>
               <input
-                type='text'
+                type='date'
                 value={birthDate}
                 placeholder={info[0].birthDate}
                 name='birthDate'

@@ -1,0 +1,20 @@
+{
+    "name": "PatientsHospital(pdf)",
+    "recipe": "chrome-pdf",
+    "shortid": "hW3P6zvWf",
+    "engine": "handlebars",
+    "data": {
+        "shortid": "xPeyk19iP"
+    },
+    "chrome": {
+        "printBackground": true
+    },
+    "creationDate": {
+        "$$date": 1645467072067
+    },
+    "modificationDate": {
+        "$$date": 1645467161200
+    },
+    "_id": "zsXYjaDqFkwSX4Je",
+    "$entitySet": "templates"
+}

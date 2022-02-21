@@ -1,0 +1,12 @@
+{
+    "name": "PatientsHospitalDB",
+    "shortid": "xPeyk19iP",
+    "creationDate": {
+        "$$date": 1645459678931
+    },
+    "modificationDate": {
+        "$$date": 1645460814371
+    },
+    "_id": "IRg3HWl8pm67NwW4",
+    "$entitySet": "data"
+}

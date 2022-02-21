@@ -18,7 +18,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passConfirm, setPassConfirm] = useState('');
-  const [rol, setRol] = useState('null');
+  const [role, setRole] = useState('null');
   const [hospital, setHospital] = useState('null');
 
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ const Register = () => {
   const [passError, setPassError] = useState(false);
   const [passConfirmError, setPassConfirmError] = useState(false);
   const [notPassConfirm, setNotPassConfirm] = useState(false);
-  const [rolError, setRolError] = useState(false);
+  const [roleError, setRoleError] = useState(false);
   const [hospitalError, setHospitalError] = useState(false);
 
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const Register = () => {
     if (name === 'email') setEmail(value);
     if (name === 'password') setPassword(value);
     if (name === 'passConfirm') setPassConfirm(value);
-    if (name === 'rol') setRol(value);
+    if (name === 'role') setRole(value);
     if (name === 'hospital') setHospital(value);
 
   }
@@ -62,7 +62,7 @@ const Register = () => {
     
                 if (password == passConfirm) {
     
-                  if (rol != 'null') {
+                  if (role != 'null') {
 
                     if (hospital != 'null') {
 
@@ -72,7 +72,7 @@ const Register = () => {
         
                       formData.append('user[email]', email);
                       formData.append('user[password]', password);
-                      formData.append('user[rol]', rol);
+                      formData.append('user[rol]', role);
                 
                       await API.createUser(formData);
                       await API.login(formData);
@@ -117,9 +117,9 @@ const Register = () => {
                     }
     
                   } else {
-                    setRolError(true);
+                    setRoleError(true);
                     setTimeout(() => {
-                      setRolError(false)
+                      setRoleError(false)
                     }, 3500);
     
                   }
@@ -180,7 +180,7 @@ const Register = () => {
         setEmail('');
         setPassword('');
         setPassConfirm('');
-        setRol('null');
+        setRole('null');
         window.location.reload();
       }, 2000);
 
@@ -232,14 +232,14 @@ const Register = () => {
             />
             {passConfirmError && <div className="formError">*Confirm your password</div>}
             {notPassConfirm && <div className="formError">*Confirmation doesn't match</div>}
-            <label>Rol</label>
-            <select name='rol' onChange={handleInput}>
+            <label>Role</label>
+            <select name='role' onChange={handleInput}>
               <option value="null"></option>
               <option value="doctor">Doctor</option>
               <option value="patient">Patient</option>
             </select>
             <br/>
-            {rolError && <div className="formError">*Select a role</div>}
+            {roleError && <div className="formError">*Select a role</div>}
             <label>Hospital</label>
             <select name='hospital' value={hospital} onChange={handleInput}>
               <option value='null'></option>

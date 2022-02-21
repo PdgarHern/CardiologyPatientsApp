@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css">
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js'></script>
+<script src="path/to/chartjs/dist/chart.js"></script>
+
+<style>
+    {{asset "./styles.css"}}
+</style>
+
+<div class="WrapperHeader">
+    <div class="ContentHeader">
+        <img id="logo" src="{{asset "appLogo.png" "dataURI"}}" alt="logo" />
+    </div>
+</div>
+
+<br/>
+
+<div class="WrapperContent">
+    <div class="ContentContent">
+        <h1> My Patients </h1>
+        <table id="table" class="table striped hover hovered cell-hovered border bordered">
+            <thead>
+                <th>Name</th>
+                <th>Clinic Record</th>
+                <th>Birth Date</th>
+                <th>Phone Number</th>
+            </thead>
+            <tbody>
+                {{#each data.patients}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{clinicRecord}}</td>
+                        <td>{{birthDate}}</td>
+                        <td>{{phoneNumber}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

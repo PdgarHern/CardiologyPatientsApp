@@ -1,0 +1,12 @@
+{
+    "name": "MyPatientsDB",
+    "shortid": "rA4u3uXBR",
+    "creationDate": {
+        "$$date": 1645456405088
+    },
+    "modificationDate": {
+        "$$date": 1645458372099
+    },
+    "_id": "mFJLPhMi2CVMPgSI",
+    "$entitySet": "data"
+}

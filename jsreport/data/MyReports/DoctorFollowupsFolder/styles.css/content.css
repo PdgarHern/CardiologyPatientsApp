@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: 'Abel', sans-serif;
+}
+
+.WrapperHeader {
+    background: #37ba78;
+    padding: 0 20px;
+    box-shadow: 0px 1px 10px black;
+}
+
+.ContentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    padding: 20px 0;
+    margin: 0 auto;
+    color: white;
+
+}
+
+#logo {
+    width: 100px;
+
+    @media screen and (max-width: 500px) {
+        width: 80px;
+    }
+}
+
+.WrapperContent {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}

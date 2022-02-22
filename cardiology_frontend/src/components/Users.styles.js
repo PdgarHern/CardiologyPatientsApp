@@ -69,6 +69,55 @@ export const Wrapper = styled.div`
 
   }
 
+  .sendMessage {
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0;
+    flex: 1;
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
+  }
+
+  #thisUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    background-color: #a3a3a3;
+    border-radius: 50px;
+    margin-left: 20%;
+    margin-bottom: 10px;
+  }
+
+  #otherUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    height: 50px;
+    border: 1px #535353 solid;
+    border-radius: 50px;
+    margin-right: 20%;
+    margin-bottom: 10px;
+  }
+
 `;
 
 export const Content = styled.div`

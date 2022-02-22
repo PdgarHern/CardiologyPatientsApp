@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_16_162914) do
+ActiveRecord::Schema.define(version: 2022_02_22_160901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2022_02_16_162914) do
     t.index ["parameter_id"], name: "index_answers_on_parameter_id"
   end
 
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+    t.bigint "patient_id", null: false
+    t.bigint "doctor_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["doctor_id"], name: "index_chats_on_doctor_id"
+    t.index ["patient_id"], name: "index_chats_on_patient_id"
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.integer "phoneNumber"
@@ -80,24 +90,6 @@ ActiveRecord::Schema.define(version: 2022_02_16_162914) do
     t.index ["followuptemplate_id"], name: "index_followups_on_followuptemplate_id"
     t.index ["hospital_id"], name: "index_followups_on_hospital_id"
     t.index ["patient_id"], name: "index_followups_on_patient_id"
-  end
-
-  create_table "followups_parameters", force: :cascade do |t|
-    t.bigint "followup_id", null: false
-    t.bigint "parameter_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_parameters_on_followup_id"
-    t.index ["parameter_id"], name: "index_followups_parameters_on_parameter_id"
-  end
-
-  create_table "followups_patients", force: :cascade do |t|
-    t.bigint "followup_id", null: false
-    t.bigint "patient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_patients_on_followup_id"
-    t.index ["patient_id"], name: "index_followups_patients_on_patient_id"
   end
 
   create_table "followuptemplates", force: :cascade do |t|
@@ -127,6 +119,18 @@ ActiveRecord::Schema.define(version: 2022_02_16_162914) do
     t.string "jti", null: false
     t.datetime "exp", null: false
     t.index ["jti"], name: "index_jwt_denylist_on_jti"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "value"
+    t.bigint "chat_id", null: false
+    t.bigint "patient_id"
+    t.bigint "doctor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.index ["doctor_id"], name: "index_messages_on_doctor_id"
+    t.index ["patient_id"], name: "index_messages_on_patient_id"
   end
 
   create_table "parameters", force: :cascade do |t|
@@ -173,19 +177,20 @@ ActiveRecord::Schema.define(version: 2022_02_16_162914) do
   add_foreign_key "answers", "followups"
   add_foreign_key "answers", "hospitals"
   add_foreign_key "answers", "parameters"
+  add_foreign_key "chats", "doctors"
+  add_foreign_key "chats", "patients"
   add_foreign_key "doctors", "hospitals"
   add_foreign_key "doctors", "users"
   add_foreign_key "followups", "doctors"
   add_foreign_key "followups", "followuptemplates"
   add_foreign_key "followups", "hospitals"
   add_foreign_key "followups", "patients"
-  add_foreign_key "followups_parameters", "followups"
-  add_foreign_key "followups_parameters", "parameters"
-  add_foreign_key "followups_patients", "followups"
-  add_foreign_key "followups_patients", "patients"
   add_foreign_key "followuptemplates", "hospitals"
   add_foreign_key "followuptemplates_parameters", "followuptemplates"
   add_foreign_key "followuptemplates_parameters", "parameters"
+  add_foreign_key "messages", "chats"
+  add_foreign_key "messages", "doctors"
+  add_foreign_key "messages", "patients"
   add_foreign_key "parameters", "hospitals"
   add_foreign_key "patients", "hospitals"
   add_foreign_key "patients", "users"

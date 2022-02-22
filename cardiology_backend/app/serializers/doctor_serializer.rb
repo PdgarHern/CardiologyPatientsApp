@@ -3,6 +3,7 @@ class DoctorSerializer < ActiveModel::Serializer
   attributes :id, :name, :phoneNumber, :user_id, :hospital_id, :img
 
   has_many :followups
+  has_many :chats
 
   def img
     if object.img.attached?

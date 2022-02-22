@@ -41,6 +41,8 @@ const Header = () => {
       localStorage.removeItem('userToken');
       localStorage.removeItem('userRol');
       localStorage.removeItem('userHosp');
+      sessionStorage.removeItem('patientId');
+      sessionStorage.removeItem('doctorId');
 
       navigate('/');
     } catch (error) {}

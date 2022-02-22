@@ -9,6 +9,8 @@ const PARAMETERS = `${API_URL}/parameters`
 const TEMPLATES = `${API_URL}/followuptemplates`
 const TEMPLATES_PARAMS = `${API_URL}/followuptemplates_parameters`
 const ANSWERS = `${API_URL}/answers`
+const CHATS = `${API_URL}/chats`
+const MESSAGES = `${API_URL}/messages`
 
 export {
     API_URL,
@@ -20,5 +22,7 @@ export {
     PARAMETERS,
     TEMPLATES,
     TEMPLATES_PARAMS,
-    ANSWERS
+    ANSWERS,
+    CHATS,
+    MESSAGES
 };

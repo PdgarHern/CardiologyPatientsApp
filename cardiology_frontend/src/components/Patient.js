@@ -19,6 +19,10 @@ const Patient = () => {
     navigate(`/my-followups/${patientInfo[0].id}`);
   }
 
+  const handleChats = () => {
+    navigate(`/chats-visualizer/${patientInfo[0].id}`);
+  }
+
   const handleAuth = () => {
     navigate('/login');
   }
@@ -35,7 +39,7 @@ const Patient = () => {
         localStorage.setItem('userHosp', patientInfo[0].hospital_id)
       )}
       {localStorage.userId && patientInfo[0] && (
-        sessionStorage.removeItem('patientId')
+        sessionStorage.setItem('patientId', patientInfo[0].id)
       )}
       {patientInfo[0] != null ? (
         <>
@@ -56,6 +60,7 @@ const Patient = () => {
             </div>
           </Content>
           <ButtonDark text='Follow-Ups' callback={handleFollowUps} />
+          <ButtonDark text='Chats' callback={handleChats} />
         </>
       ) : null}
     </>

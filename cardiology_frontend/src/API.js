@@ -9,7 +9,9 @@ import {
   PARAMETERS,
   TEMPLATES,
   TEMPLATES_PARAMS,
-  ANSWERS
+  ANSWERS,
+  CHATS,
+  MESSAGES
 } from "./config";
 
 const saveInLocalStorage = userDetails => {
@@ -229,6 +231,52 @@ const apiSettings = {
   deleteAnswer: async answerId => {
     const endpoint = `${ANSWERS}/${answerId}`;
     return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}));
+  },
+
+  // Chat
+  getChats: async (doctorId, patientId) => {
+    const endpoint = doctorId == null
+      ? `${CHATS}?patientId=${patientId}`
+      : `${CHATS}?doctorId=${doctorId}&patientId=${patientId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getChat: async chatId => {
+    const endpoint = `${CHATS}/${chatId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createChat: async body => {
+    const endpoint = `${CHATS}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateChat: async (chatId, body) => {
+    const endpoint = `${CHATS}/${chatId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteChat: async chatId => {
+    const endpoint = `${CHATS}/${chatId}`;
+    return await (await axios.delete(endpoint));
+  },
+
+  // Message
+  getMessages: async () => {
+    const endpoint = `${MESSAGES}`;
+    return await (await fetch(endpoint)).json();
+  },
+  getMessage: async messageId => {
+    const endpoint = `${MESSAGES}/${messageId}`;
+    return await (await fetch(endpoint)).json();
+  },
+  createMessage: async body => {
+    const endpoint = `${MESSAGES}`;
+    return await (await axios.post(endpoint, body));
+  },
+  updateMessage: async (messageId, body) => {
+    const endpoint = `${MESSAGES}/${messageId}`;
+    return await (await axios.put(endpoint, body));
+  },
+  deleteMessage: async messageId => {
+    const endpoint = `${MESSAGES}/${messageId}`;
+    return await (await axios.delete(endpoint));
   }
 
 }

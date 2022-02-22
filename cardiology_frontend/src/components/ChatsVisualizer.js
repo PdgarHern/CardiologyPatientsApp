@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // Components
-import FollowUpsTable from "./FollowUpsTable";
+import ChatsTable from "./ChatsTable";
 
-const PatientFollowUps = () => {
+const ChatsVisualizer = () => {
   const { patientId } = useParams();
 
   const navigate = useNavigate();
@@ -22,9 +22,9 @@ const PatientFollowUps = () => {
         handleAuth()
       )}
       {sessionStorage.setItem('patientId', patientId)}
-      <FollowUpsTable id={patientId} patient={true} />
+      <ChatsTable id={patientId} />
     </>
   )
 }
 
-export default PatientFollowUps;
+export default ChatsVisualizer;

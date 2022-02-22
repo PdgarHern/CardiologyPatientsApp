@@ -21,6 +21,8 @@ import FollowUpVisualizer from "./components/FollowUpVisualizer";
 import PatientFollowUps from "./components/PatientFollowUps";
 import PutAnswer from "./components/PutAnswer";
 import RegisterGoogle from "./components/RegisterGoogle";
+import Chat from "./components/Chat";
+import ChatsVisualizer from "./components/ChatsVisualizer";
 // Context
 import UserProvider from "./context";
 // Styles
@@ -51,6 +53,8 @@ function App() {
             <Route path='/my-followups/:patientId' element={<PatientFollowUps />} />
             <Route path='/put-answer/:answerId' element={<PutAnswer />} />
             <Route path='/google-login' element={<RegisterGoogle />} />
+            <Route path='/chat/:chatNonId' element={<Chat />} />
+            <Route path='/chats-visualizer/:patientId' element={<ChatsVisualizer />} />
           </Routes>
           <GlobalStyle />
         </UserProvider>

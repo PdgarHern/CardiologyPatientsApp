@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   background: var(--medGrey);
   color: var(--white);
 
+  @media screen and (margin-top: 0) {
+    position: fixed;
+  }
+
 `;
 
 export const Content = styled.div`

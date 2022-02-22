@@ -71,7 +71,7 @@ export const Wrapper = styled.div`
 
   .sendMessage {
     width: 50%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
@@ -79,6 +79,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
     margin: 0;
     flex: 1;
+    background-color: white;
 
     :first-child {
       margin-left: 0;
@@ -116,6 +117,11 @@ export const Wrapper = styled.div`
     border-radius: 50px;
     margin-right: 20%;
     margin-bottom: 10px;
+  }
+
+  .chatMessages {
+    width: 100%;
+    margin-bottom: 80px;
   }
 
 `;

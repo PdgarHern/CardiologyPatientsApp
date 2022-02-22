@@ -19,4 +19,6 @@ Rails.application.routes.draw do
              }
 
   get '/followuptemplate-last', to: 'followuptemplates#last'
+
+  mount ActionCable.server => "/chat"
 end

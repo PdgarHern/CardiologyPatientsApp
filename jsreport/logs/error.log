@@ -1,0 +1,56 @@
+2022-02-21T15:13:15.469Z - error: Error when processing OData POST: /odata/data Error: Entity with name "MyPatients" already exists in the /MyReports folder.
+    at module.exports (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\@jsreport\jsreport-core\lib\shared\createError.js:10:13)
+    at MainReporter.createError (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\@jsreport\jsreport-core\lib\shared\reporter.js:47:12)
+    at validateDuplicatedName (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\@jsreport\jsreport-core\lib\main\folders\validateDuplicatedName.js:83:20)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async ListenerCollection.fire (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\@jsreport\jsreport-core\lib\shared\listenerCollection.js:157:21)
+    at async Object.insert (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\@jsreport\jsreport-core\lib\main\store\collection.js:102:5)
+2022-02-21T15:18:52.274Z - error: Error during processing request at http://localhost:5488/api/validate-import?fullImport=false&targetFolder=IEofe-Z, details: Error: end of central directory record signature not found
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\yauzl\index.js:187:14
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\yauzl\index.js:631:5
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\fd-slicer\index.js:32:7
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:660:5)
+2022-02-21T15:19:15.788Z - error: Error during processing request at http://localhost:5488/api/validate-import?fullImport=true&targetFolder=IEofe-Z, details: Error: end of central directory record signature not found
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\yauzl\index.js:187:14
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\yauzl\index.js:631:5
+    at C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\fd-slicer\index.js:32:7
+    at FSReqCallback.wrapper [as oncomplete] (node:fs:660:5)
+2022-02-21T15:58:37.903Z - error: Error when processing render request 63 Error when evaluating engine handlebars for template /MyReports/MyPatientsFolder/MyPatients
+Unexpected token (669:8) SyntaxError: Unexpected token (669:8)
+    at Parser.pp$4.raise (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:3460:15)
+    at Parser.pp$9.unexpected (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:756:10)
+    at Parser.pp$5.parseExprAtom (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2835:12)
+    at Parser.pp$5.parseExprSubscripts (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2627:21)
+    at Parser.pp$5.parseMaybeUnary (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2593:19)
+    at Parser.pp$5.parseExprOps (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2520:21)
+    at Parser.pp$5.parseMaybeConditional (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2503:21)
+    at Parser.pp$5.parseMaybeAssign (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2470:21)
+    at Parser.pp$5.parseExpression (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2433:21)
+    at Parser.pp$8.parseStatement (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:946:47) rootId=wl2m64033vlxejx, id=wl2m64033vlxejx
+2022-02-21T15:58:37.905Z - error: Rendering request 63 finished with error in 65 ms rootId=wl2m64033vlxejx, id=wl2m64033vlxejx
+2022-02-21T16:05:50.727Z - error: Error when processing render request 72 Error when evaluating engine handlebars for template /MyReports/MyPatientsFolder/MyPatients
+Unexpected token (671:11) SyntaxError: Unexpected token (671:11)
+    at Parser.pp$4.raise (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:3460:15)
+    at Parser.pp$9.unexpected (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:756:10)
+    at Parser.pp$5.parseExprAtom (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2835:12)
+    at Parser.pp$5.parseExprSubscripts (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2627:21)
+    at Parser.pp$5.parseMaybeUnary (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2593:19)
+    at Parser.pp$5.parseExprOps (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2520:21)
+    at Parser.pp$5.parseMaybeConditional (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2503:21)
+    at Parser.pp$5.parseMaybeAssign (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2470:21)
+    at Parser.pp$5.parseExpression (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2433:21)
+    at Parser.pp$8.parseReturnStatement (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:1076:33) rootId=bswn7kohig89uy6, id=bswn7kohig89uy6
+2022-02-21T16:05:50.730Z - error: Rendering request 72 finished with error in 101 ms rootId=bswn7kohig89uy6, id=bswn7kohig89uy6
+2022-02-21T16:06:07.175Z - error: Error when processing render request 73 Error when evaluating engine handlebars for template /MyReports/MyPatientsFolder/MyPatients
+Unexpected token (671:12) SyntaxError: Unexpected token (671:12)
+    at Parser.pp$4.raise (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:3460:15)
+    at Parser.pp$9.unexpected (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:756:10)
+    at Parser.pp$5.parseExprAtom (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2835:12)
+    at Parser.pp$5.parseExprSubscripts (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2627:21)
+    at Parser.pp$5.parseMaybeUnary (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2593:19)
+    at Parser.pp$5.parseExprOps (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2520:21)
+    at Parser.pp$5.parseMaybeConditional (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2503:21)
+    at Parser.pp$5.parseMaybeAssign (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2470:21)
+    at Parser.pp$5.parseParenAndDistinguishExpression (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2931:30)
+    at Parser.pp$5.parseExprAtom (C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\node_modules\acorn\dist\acorn.js:2794:43) rootId=o0r7y3wyc0164f5, id=o0r7y3wyc0164f5
+2022-02-21T16:06:07.182Z - error: Rendering request 73 finished with error in 42 ms rootId=o0r7y3wyc0164f5, id=o0r7y3wyc0164f5

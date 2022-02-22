@@ -10,6 +10,11 @@ class FollowuptemplatesControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :success
   # end
 
+  # test "should get last" do
+  #   get followuptemplates_url, as: :json
+  #   assert_response :success
+  # end
+
   # test "should create followuptemplate" do
   #   assert_difference('Followuptemplate.count') do
   #     post followuptemplates_url, params: { followuptemplate: { hospital_id: @followuptemplate.hospital_id } }, as: :json

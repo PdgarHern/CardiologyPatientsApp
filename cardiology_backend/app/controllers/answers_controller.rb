@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   # GET /answers
   def index

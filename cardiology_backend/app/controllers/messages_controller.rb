@@ -3,7 +3,18 @@ class MessagesController < ApplicationController
 
   # GET /messages
   def index
-    @messages = Message.all
+    @q = Message.ransack(chat_id_eq: params[:id]);
+
+    @messages = @q.result(distinct: true).order("id ASC")
+
+    render json: @messages
+  end
+
+  # GET /message-last
+  def last
+    @q = Message.ransack(chat_id_eq: params[:id]);
+
+    @messages = @q.result(distinct: true).last
 
     render json: @messages
   end

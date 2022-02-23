@@ -10,6 +10,8 @@ import { Content } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
 
+
+
 const Patient = () => {
   const { state: patientInfo, loading, error } = usePatientFetch(localStorage.userId, 'profile');
 

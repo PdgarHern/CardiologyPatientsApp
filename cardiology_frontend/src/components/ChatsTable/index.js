@@ -14,7 +14,7 @@ const ChatsTable = ({ id }) => {
 
   const handleClick = (e) => {
     sessionStorage.setItem('doctorId', e.currentTarget.dataset.value);
-    navigate(`/chat/${e.currentTarget.dataset.value}-${id}`);
+    navigate(`/chat/${e.currentTarget.dataset.value}`);
   }
 
   return (

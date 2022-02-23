@@ -6,7 +6,7 @@ class ChatChannel < ApplicationCable::Channel
 
   def receive(data)
     puts "received something: #{data.to_json}"
-    ActionCable.server.broadcast @chat_channel, "I received the info you gave me"
+    ActionCable.server.broadcast @chat_channel, Message.last
   end
 
   def unsubscribed

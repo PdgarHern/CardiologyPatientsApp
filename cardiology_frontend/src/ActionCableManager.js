@@ -9,7 +9,8 @@ export default class ActionCableManager {
   connectToChannel() {
     this.connection = this.consumer.subscriptions.create(
       {
-        channel: "ChatChannel"
+        channel: "ChatChannel",
+        channel_code: `${sessionStorage.doctorId}-${sessionStorage.patientId}`
       }
     );
 
@@ -18,7 +19,7 @@ export default class ActionCableManager {
     }
 
     this.connection.received = (data) => {
-      console.log("I received this: ", data);
+      document.dispatchEvent(new CustomEvent('newMessage', {detail: data}));
     }
 
     this.connection.disconnected = () => {

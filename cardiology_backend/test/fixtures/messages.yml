@@ -2,12 +2,12 @@
 
 one:
   value: MyString
-  chat: one
-  patient: one
-  doctor: one
+  chat_id: 298486374
+  patient_id: 298486374
+  doctor_id: 298486374
 
 two:
   value: MyString
-  chat: two
-  patient: two
-  doctor: two
+  chat_id: 298486374
+  patient_id: 298486374
+  doctor_id: 298486374

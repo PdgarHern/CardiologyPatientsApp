@@ -53,7 +53,7 @@ function App() {
             <Route path='/my-followups/:patientId' element={<PatientFollowUps />} />
             <Route path='/put-answer/:answerId' element={<PutAnswer />} />
             <Route path='/google-login' element={<RegisterGoogle />} />
-            <Route path='/chat/:chatNonId' element={<Chat />} />
+            <Route path='/chat/:chatId' element={<Chat />} />
             <Route path='/chats-visualizer/:patientId' element={<ChatsVisualizer />} />
           </Routes>
           <GlobalStyle />

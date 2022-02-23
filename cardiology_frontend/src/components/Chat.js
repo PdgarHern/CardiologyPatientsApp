@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import ActionCableManager from "../ActionCableManager";
 // API
 import API from "../API";
@@ -7,15 +8,20 @@ import BreadCrumb from "./BreadCrumb";
 import ButtonDark from "./ButtonDark";
 // Hook
 import { useChatFetch } from "../hooks/useChatFetch";
+import { useMessagesFetch } from "../hooks/useMessagesFetch";
 // Styles
 import { Wrapper } from "./Users.styles";
 
+const actioncable = new ActionCableManager();
+
+actioncable.closeConnection();
+actioncable.connectToChannel();
+
 const Chat = () => {
+  const { chatId } = useParams();
+
+  const { state: messages } = useMessagesFetch(chatId);
   const { state: chat } = useChatFetch(sessionStorage.doctorId, sessionStorage.patientId);
-
-  const actioncable = new ActionCableManager();
-
-  actioncable.connectToChannel();
 
   const [message, setMessage] = useState('');
 
@@ -34,7 +40,7 @@ const Chat = () => {
         const formData = new FormData();
 
         formData.append('message[value]', message);
-        formData.append('message[chat_id]', chat[0].id);
+        formData.append('message[chat_id]', chatId);
 
         if (localStorage.userRol == 'doctor') {
           formData.append('message[doctor_id]', sessionStorage.doctorId);
@@ -49,8 +55,11 @@ const Chat = () => {
 
         setLoading(false);
 
-        actioncable.sendSomething(`http://localhost:3000/chats?doctorId=${sessionStorage.doctorId}&patientId=${sessionStorage.patientId}`);
+        actioncable.sendSomething(chatId);
+
       }
+
+      setMessage('');
 
     } catch (error) {
       setError(true);
@@ -68,7 +77,7 @@ const Chat = () => {
           )}
           <Wrapper>
             <div className="chatMessages">
-              {chat[0].messages.map(message => (
+              {messages.results.map(message => (
                 <>
                   {(localStorage.userRol == 'doctor' && message.doctor_id != null) || (localStorage.userRol == 'patient' && message.patient_id != null) ? (
                     <div id="thisUser">{message.value}</div>

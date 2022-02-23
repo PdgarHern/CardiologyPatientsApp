@@ -258,8 +258,10 @@ const apiSettings = {
   },
 
   // Message
-  getMessages: async () => {
-    const endpoint = `${MESSAGES}`;
+  getMessages: async chatId => {
+    const endpoint = chatId == null 
+      ? `${MESSAGES}`
+      : `${MESSAGES}?id=${chatId}`;
     return await (await fetch(endpoint)).json();
   },
   getMessage: async messageId => {

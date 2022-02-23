@@ -8,6 +8,8 @@ import ButtonDark from "./ButtonDark";
 import BreadCrumb from "./BreadCrumb";
 import HeroImage from "./HeroImage";
 import FollowUpsTable from "./FollowUpsTable";
+
+import ActionCableManager from "../ActionCableManager";
 // Hook
 import { usePatientFetch } from "../hooks/usePatientFetch";
 import { useChatFetch } from "../hooks/useChatFetch";
@@ -15,6 +17,8 @@ import { useChatFetch } from "../hooks/useChatFetch";
 import { Wrapper } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
+
+const actioncable = new ActionCableManager();
 
 const PatientVisualizer = () => {
   const { patientId } = useParams();
@@ -35,7 +39,8 @@ const PatientVisualizer = () => {
   }
 
   const handleChat = () => {
-    navigate(`/chat/${sessionStorage.doctorId}-${patientId}`)
+    actioncable.connectToChannel();
+    navigate(`/chat/${chat[0].id}`)
   }
 
   const handleStartChat = async () => {
@@ -54,7 +59,7 @@ const PatientVisualizer = () => {
   
         setLoading(false);
   
-        navigate(`/chat/${sessionStorage.doctorId}-${patientId}`)
+        navigate(`/chat/${chat[0].id}`);
 
       } else {
         setNameError(true);
@@ -66,6 +71,7 @@ const PatientVisualizer = () => {
       
     } catch (error) {
       setError(true);
+      console.log(error);
     }
   }
 

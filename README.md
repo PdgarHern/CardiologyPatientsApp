@@ -509,6 +509,20 @@ The *frontend* preparation is easy. You just have to access <a href="cardiology_
 You don't need to have any data already in the *database* you will be able to do every action since the beginning from here.
 
 
+### Reports and App Help System
+Apart from the *Backend* and *Frontend*, there are two more folders necessary for the complete functioning of the app.<br/>
+<ol>
+  <li>
+    <a href="jsreport">Jsrepot</a>: Here is the server and templates for the reports you can access in the app (mostly if you are a doctor).<br/>
+    To get it running, go inside the folder and run ```npm start```.
+  </li>
+  <li>
+    <a href="Build html documentation">Help System</a>: This is the help system. For this case, I used the Visual Studio Code extension 'Live Server'. Just place yourself in any html of the folder and execute the server.
+    <img src="documentation/images/liveServer.PNG" alt="live-server" />
+  </li>
+</ol>
+
+
 ### Starting the app
 Both *Rails* and *React* uses port 3000. However, this is not a problem.<br/>
 <br/>

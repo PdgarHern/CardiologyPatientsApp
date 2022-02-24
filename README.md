@@ -630,5 +630,7 @@ I'm looking forward to continue expanding this project and working and learning 
   <li><a href="https://medium.com/swlh/upload-images-to-your-rails-api-from-react-the-easy-way-241bbe71ea85">Active Storage tutorial</a></li>
   <li><a href="https://github.com/waiting-for-dev/devise-jwt">Devise-jwt GitHub</a></li>
   <li><a href="https://medium.com/ruby-daily/a-devise-jwt-tutorial-for-authenticating-users-in-ruby-on-rails-ca214898318e">Devise-jwt tutorial</a></li>
+  <li><a href="https://guides.rubyonrails.org/action_cable_overview.html">Action Cable</a></li>
+  <li><a href="https://www.w3schools.com/">W3Schools</a></li>
   <li>Countless Stack Overflow pages</li>
 </ol>

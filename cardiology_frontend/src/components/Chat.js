@@ -14,8 +14,15 @@ import { Wrapper } from "./Users.styles";
 
 const actioncable = new ActionCableManager();
 
-actioncable.closeConnection();
-actioncable.connectToChannel();
+window.onload = () => {
+  actioncable.closeConnection();
+  actioncable.connectToChannel();
+}
+
+
+window.onclose = () => {
+  actioncable.closeConnection();
+}
 
 const Chat = () => {
   const { chatId } = useParams();

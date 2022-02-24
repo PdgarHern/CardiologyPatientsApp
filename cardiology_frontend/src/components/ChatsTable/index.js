@@ -13,8 +13,8 @@ const ChatsTable = ({ id }) => {
   const navigate = useNavigate();
 
   const handleClick = (e) => {
-    sessionStorage.setItem('doctorId', e.currentTarget.dataset.value);
-    navigate(`/chat/${e.currentTarget.dataset.value}`);
+    sessionStorage.setItem('doctorId', e.currentTarget.dataset.doctor);
+    navigate(`/chat/${e.currentTarget.dataset.chat}`);
   }
 
   return (
@@ -27,7 +27,7 @@ const ChatsTable = ({ id }) => {
             </thead>
             <tbody>
               {chats.results.map(chat => (
-                <tr onClick={handleClick} data-value={chat.doctor.id}>
+                <tr onClick={handleClick} data-doctor={chat.doctor.id} data-chat={chat.id}>
                   <td><Image src={chat.doctor.img.url} alt={UserPic} /></td>
                   <td>{chat.name}</td>
                 </tr>

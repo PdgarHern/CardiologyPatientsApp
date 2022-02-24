@@ -17,8 +17,14 @@ const PostFollowup = () => {
 
   var today = new Date();
 
-  var date = today.getFullYear() + '/' + (today.getMonth() +1) + '/' + today.getDate();
-
+  var date = null;
+  
+  if (today.getMonth() > 9) {
+    date = today.getFullYear() + '-' + (today.getMonth() +1) + '-' + today.getDate();
+  } else {
+    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-' + today.getDate();
+  }
+  
   const { state: templates } = useTemplatesFetch();
 
   const [startDate, setStartDate] = useState('');
@@ -29,7 +35,9 @@ const PostFollowup = () => {
   const [loading, setLoading] = useState(false);
 
   const [startDateError, setStartDateError] = useState(false);
+  const [startDateInvalid, setStartDateInvalid] = useState(false);
   const [endDateError, setEndDateError] = useState(false);
+  const [endDateInvalid, setEndDateInvalid] = useState(false);
   const [templateError, setTemplateError] = useState(false);
 
   const navigate = useNavigate();
@@ -47,41 +55,63 @@ const PostFollowup = () => {
   const handleSubmit = async () => {
     try {
       if (startDate != '') {
+        if (date <= startDate) {
+          
+          if (endDate != '') {
 
-        if (endDate != '') {
+            if (endDate > startDate) {
 
-          if (template != 'null') {
+              if (template != 'null') {
+  
+                setLoading(true);
+    
+                formData.append('followup[startDate]', startDate);
+                formData.append('followup[endDate]', endDate);
+                formData.append('followup[doctor_id]', sessionStorage.doctorId);
+                formData.append('followup[patient_id]', sessionStorage.patientId);
+                formData.append('followup[hospital_id]', localStorage.userHosp);
+                formData.append('followup[followuptemplate_id]', template);
+    
+                await API.createFollowUp(formData);
+    
+                setLoading(false);
+    
+                navigate(`/patient/${sessionStorage.patientId}`);
+    
+              } else {
+                setTemplateError(true);
+                setTimeout(() => {
+                  setTemplateError(false)
+                }, 3500);
+              }
 
-            setLoading(true);
+            } else {
+              setEndDateInvalid(true);
+              setTimeout(() => {
+                setEndDateInvalid(false)
+              }, 3500);
+            }
 
-            formData.append('followup[startDate]', startDate);
-            formData.append('followup[endDate]', endDate);
-            formData.append('followup[doctor_id]', sessionStorage.doctorId);
-            formData.append('followup[patient_id]', sessionStorage.patientId);
-            formData.append('followup[hospital_id]', localStorage.userHosp);
-            formData.append('followup[followuptemplate_id]', template);
-
-            await API.createFollowUp(formData);
-
-            setLoading(false);
-
-            navigate(`/patient/${sessionStorage.patientId}`);
-
+            
+  
+  
+  
           } else {
-            setTemplateError(true);
+            setEndDateError(true);
             setTimeout(() => {
-              setTemplateError(false)
+              setEndDateError(false)
             }, 3500);
           }
 
-
-
         } else {
-          setEndDateError(true);
+          setStartDateInvalid(true);
           setTimeout(() => {
-            setEndDateError(false)
+            setStartDateInvalid(false)
           }, 3500);
         }
+        console.log(startDate);
+
+        
 
       } else {
         setStartDateError(true);
@@ -130,6 +160,7 @@ const PostFollowup = () => {
               onChange={handleInput}
             />
             {startDateError && <div className="formError">*Select a date</div>}
+            {startDateInvalid && <div className="formError">*Select a valid date</div>}
             <label>End Date</label>
             <input
               type='date'
@@ -138,6 +169,7 @@ const PostFollowup = () => {
               onChange={handleInput}
             />
             {endDateError && <div className="formError">*Select a date</div>}
+            {endDateInvalid && <div className="formError">*Select a valid date</div>}
             <label>Template</label>
             <select id="selectTemplate" name='template' value={template} onChange={handleInput}>
               <option value='null'></option>

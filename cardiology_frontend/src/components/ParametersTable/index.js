@@ -5,15 +5,40 @@ import jsreport from "@jsreport/browser-client";
 import API from "../../API";
 // Components
 import ButtonDark from "../ButtonDark";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 // Hook
 import { useParametersFetch } from "../../hooks/useParametersFetch";
 // Styles 
 import { Wrapper } from "./ParametersTable.styles";
 
+const style = {
+  position: 'absolute',
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 600,
+  bgcolor: 'background.paper',
+  border: '1px solid #000',
+  borderRadius: '50px',
+  boxShadow: 24,
+  p: 4,
+  h1: { color: '#1c1c1c', marginLeft: '30%' },
+  '.modalButtons': {
+    display: 'flex',
+    flexDirection: 'row',
+  }
+};
+
 const ParametersTable = ({ report, updatable, templateId }) => {
   const { state: parameters } = useParametersFetch();
 
   const [parameterId, setParameterId] = useState('');
+
+  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,7 +66,7 @@ const ParametersTable = ({ report, updatable, templateId }) => {
 
     })
 
-    report.openInWindow({title: 'My Patients Report'});
+    report.openInWindow({ title: 'My Patients Report' });
   }
 
   const handleReportPDF = async () => {
@@ -57,7 +82,7 @@ const ParametersTable = ({ report, updatable, templateId }) => {
 
     })
 
-    report.openInWindow({title: 'My Patients Report'});
+    report.openInWindow({ title: 'My Patients Report' });
   }
 
   const handleAdd = async () => {
@@ -77,6 +102,14 @@ const ParametersTable = ({ report, updatable, templateId }) => {
     } catch (error) {
 
     }
+  }
+
+  const handleOpen = () => {
+    setOpen(true);
+  }
+
+  const handleClose = () => {
+    setOpen(false);
   }
 
   return (
@@ -110,8 +143,21 @@ const ParametersTable = ({ report, updatable, templateId }) => {
           </Wrapper>
           {report && (
             <>
-              <ButtonDark text="Number of templates" callback={handleReport} />
-              <ButtonDark text="Number of templates (PDF)" callback={handleReportPDF} />
+              <ButtonDark text="Number of templates" callback={handleOpen} />
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box sx={style}>
+                  <h1>Choose an option</h1>
+                  <div className="modalButtons">
+                    <ButtonDark text="Online" callback={handleReport} />
+                    <ButtonDark text="PDF" callback={handleReportPDF} />
+                  </div>
+                </Box>
+              </Modal>
             </>
           )}
           {parameterId != '' && (

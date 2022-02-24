@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // Components
+import BreadCrumb from "./BreadCrumb";
 import FollowUpsTable from "./FollowUpsTable";
 
 const PatientFollowUps = () => {
@@ -22,6 +23,7 @@ const PatientFollowUps = () => {
         handleAuth()
       )}
       {sessionStorage.setItem('patientId', patientId)}
+      <BreadCrumb text='Follow-ups list' linkPath={`/patient-profile/${patientId}`} />
       <FollowUpsTable id={patientId} patient={true} />
     </>
   )

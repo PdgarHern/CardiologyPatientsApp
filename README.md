@@ -519,7 +519,9 @@ Apart from the *Backend* and *Frontend*, there are two more folders necessary fo
   </li>
   <li>
     <a href="Build html documentation">Help System</a>: This is the help system. For this case, I used the Visual Studio Code extension 'Live Server'. Just place yourself in any html of the folder and execute the server.
-    <img src="documentation/images/liveServer.PNG" alt="live-server" />
+    <img src="documentation/images/liveServer.PNG" alt="live-server" /><br/>
+    <br/>
+    I'll recommend you to run the 'live server' in a new window of Visual Studio Code.
   </li>
 </ol>
 

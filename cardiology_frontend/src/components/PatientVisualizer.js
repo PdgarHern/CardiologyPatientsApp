@@ -54,7 +54,7 @@ const PatientVisualizer = () => {
   
         setLoading(false);
   
-        navigate(`/chat/${chat[0].id}`);
+        window.location.reload();
 
       } else {
         setNameError(true);

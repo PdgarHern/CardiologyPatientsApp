@@ -11,13 +11,13 @@ class MessagesController < ApplicationController
   end
 
   # GET /message-last
-  def last
-    @q = Message.ransack(chat_id_eq: params[:id]);
+  # def last
+  #   @q = Message.ransack(chat_id_eq: params[:id]);
 
-    @messages = @q.result(distinct: true).last
+  #   @messages = @q.result(distinct: true).last
 
-    render json: @messages
-  end
+  #   render json: @messages
+  # end
 
   # GET /messages/1
   def show

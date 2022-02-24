@@ -63,6 +63,7 @@
           <li><a href="#first-of-all">First of all</a></li>
           <li><a href="#backend">Backend</a></li>
           <li><a href="#frontend">Frontend</a></li>
+          <li><a href="#reports-and-app-help-system">Reports and App Help System</a></li>
           <li><a href="#starting-the-app">Starting the app</a></li>
         </ul>
         <li><a href="#use-guide">Use guide</a></li>
@@ -509,6 +510,22 @@ The *frontend* preparation is easy. You just have to access <a href="cardiology_
 You don't need to have any data already in the *database* you will be able to do every action since the beginning from here.
 
 
+### Reports and App Help System
+Apart from the *Backend* and *Frontend*, there are two more folders necessary for the complete functioning of the app.<br/>
+<ol>
+  <li>
+    <a href="jsreport">Jsrepot</a>: Here is the server and templates for the reports you can access in the app (mostly if you are a doctor).<br/>
+    To get it running, go inside the folder and run ```npm start```.
+  </li>
+  <li>
+    <a href="Build html documentation">Help System</a>: This is the help system. For this case, I used the Visual Studio Code extension 'Live Server'. Just place yourself in any html of the folder and execute the server.
+    <img src="documentation/images/liveServer.PNG" alt="live-server" /><br/>
+    <br/>
+    I'll recommend you to run the 'live server' in a new window of Visual Studio Code.
+  </li>
+</ol>
+
+
 ### Starting the app
 Both *Rails* and *React* uses port 3000. However, this is not a problem.<br/>
 <br/>
@@ -529,7 +546,13 @@ Now, the number of things you can do depends on your role:<br/>
     Patient: if you are a patient, you can access a list with all your follow-ups. You can visualize them if you click on them.<br/>
     Here you can select a parameter and create an 'answer' with the requested data.
   </li>
-  <li>Both kind of users can edit their profiles, too.
+  <li>
+    Both kind of users can edit their profiles, too.
+  </li>
+  <li>
+    The app also has a chat. This is created by a doctor in order to comunicate with one patient.<br/>
+    The doctor can create and enter each chat from its Patient Visualizer page. The patient will find another button, next to the one they use to watch all their follow-ups, where they can see and access to all their chats.
+  </li>
 </ol>
 
 # Technologies comparison
@@ -594,8 +617,7 @@ For planning the project I used Trello:<br/>
 [ - Trello](https://trello.com/b/fn7WvOIc/cardiologyproject)
 
 # Conclusion and opinion
-Unfortunatley, I didn't have all the time I would have wanted to develop the project.<br/>
-However, it's looking good.<br/>
+The project is not finished yet, but it's looking good.<br/>
 <br/>
 I'm looking forward to continue expanding this project and working and learning with these technologies.
 
@@ -610,5 +632,7 @@ I'm looking forward to continue expanding this project and working and learning 
   <li><a href="https://medium.com/swlh/upload-images-to-your-rails-api-from-react-the-easy-way-241bbe71ea85">Active Storage tutorial</a></li>
   <li><a href="https://github.com/waiting-for-dev/devise-jwt">Devise-jwt GitHub</a></li>
   <li><a href="https://medium.com/ruby-daily/a-devise-jwt-tutorial-for-authenticating-users-in-ruby-on-rails-ca214898318e">Devise-jwt tutorial</a></li>
+  <li><a href="https://guides.rubyonrails.org/action_cable_overview.html">Action Cable</a></li>
+  <li><a href="https://www.w3schools.com/">W3Schools</a></li>
   <li>Countless Stack Overflow pages</li>
 </ol>

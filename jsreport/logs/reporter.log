@@ -3885,3 +3885,471 @@ Cannot read properties of undefined (reading 'length')
 2022-02-24T16:21:09.431Z - debug: Executing recipe html rootId=rj1pudl67414xnv, id=rj1pudl67414xnv
 2022-02-24T16:21:09.431Z - debug: Skipping storing report. rootId=rj1pudl67414xnv, id=rj1pudl67414xnv
 2022-02-24T16:21:09.432Z - info: Rendering request 12 finished in 30 ms rootId=rj1pudl67414xnv, id=rj1pudl67414xnv
+2022-02-24T19:33:02.290Z - info: Initializing jsreport (version: 3.4.1, configuration file: jsreport.config.json, nodejs: 16.13.0)
+2022-02-24T19:33:02.293Z - info: Searching for available extensions in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-02-24T19:33:02.301Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-02-24T19:33:02.335Z - info: Found 35 extension(s)
+2022-02-24T19:33:02.378Z - debug: Writing extension locations cache to C:\Users\PDGHPR~1\AppData\Local\Temp\jsreport\core\locations.json
+2022-02-24T19:33:02.380Z - debug: Discovered 35 extensions
+2022-02-24T19:33:02.432Z - debug: Extension authentication@3.2.0 is disabled, skipping
+2022-02-24T19:33:02.434Z - info: Using extension base@3.0.0
+2022-02-24T19:33:02.440Z - info: Using extension child-templates@3.0.1
+2022-02-24T19:33:02.444Z - info: Using extension cli@3.1.0
+2022-02-24T19:33:02.447Z - info: Using extension components@3.2.0
+2022-02-24T19:33:02.452Z - info: Using extension data@3.0.1
+2022-02-24T19:33:02.454Z - info: Using extension express@3.3.1
+2022-02-24T19:33:02.795Z - info: Using extension freeze@3.0.1
+2022-02-24T19:33:02.798Z - info: Using extension fs-store@3.1.0
+2022-02-24T19:33:02.918Z - info: Using extension handlebars@3.0.0
+2022-02-24T19:33:02.921Z - info: Using extension import-export@3.1.1
+2022-02-24T19:33:02.936Z - info: Using extension jsrender@3.0.0
+2022-02-24T19:33:02.938Z - info: Using extension licensing@3.0.2
+2022-02-24T19:33:02.970Z - info: Using extension localization@3.2.0
+2022-02-24T19:33:02.971Z - info: Using extension npm@3.1.1
+2022-02-24T19:33:02.974Z - info: Using extension pdf-utils@3.3.0
+2022-02-24T19:33:02.977Z - info: Using extension reports@3.0.3
+2022-02-24T19:33:02.980Z - info: Using extension tags@3.1.0
+2022-02-24T19:33:02.983Z - info: Using extension text@3.0.0
+2022-02-24T19:33:02.984Z - info: Using extension version-control@3.1.0
+2022-02-24T19:33:02.999Z - info: Using extension assets@3.3.0
+2022-02-24T19:33:03.015Z - info: Using extension authorization@3.2.0
+2022-02-24T19:33:03.022Z - debug: Extension authorization@3.2.0 was disabled
+2022-02-24T19:33:03.023Z - info: Using extension browser-client@3.1.0
+2022-02-24T19:33:03.026Z - info: Using extension chrome-pdf@3.1.0
+2022-02-24T19:33:03.029Z - debug: Chrome strategy is chrome-pool, numberOfWorkers: 1
+2022-02-24T19:33:03.029Z - info: Using extension docx@3.2.0
+2022-02-24T19:33:03.033Z - info: Using extension html-to-xlsx@3.2.0
+2022-02-24T19:33:03.109Z - info: html-to-xlsx detected chrome as available html engine
+2022-02-24T19:33:03.109Z - info: Using extension pptx@3.1.0
+2022-02-24T19:33:03.112Z - info: Using extension scheduling@3.0.1
+2022-02-24T19:33:03.156Z - info: Using extension scripts@3.2.0
+2022-02-24T19:33:03.158Z - info: Using extension static-pdf@3.0.0
+2022-02-24T19:33:03.159Z - info: Using extension studio@3.4.0
+2022-02-24T19:33:03.292Z - info: Using extension xlsx@3.1.0
+2022-02-24T19:33:03.326Z - info: Using extension public-templates@3.0.0
+2022-02-24T19:33:03.328Z - debug: Extension public-templates@3.0.0 was disabled
+2022-02-24T19:33:03.328Z - info: Using extension sample-template@3.1.0
+2022-02-24T19:33:03.331Z - info: Using extension studio-theme-dark@3.0.1
+2022-02-24T19:33:03.335Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2022-02-24T19:33:03.335Z - info: Using fs provider for template store.
+2022-02-24T19:33:03.343Z - info: fs store is persisting using fs for C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\data
+2022-02-24T19:33:03.352Z - info: fs store is loading data
+2022-02-24T19:33:03.431Z - info: fs store is initialized successfully
+2022-02-24T19:33:03.443Z - debug: studio default theme is: light
+2022-02-24T19:33:03.466Z - info: Creating default express app.
+2022-02-24T19:33:03.502Z - info: jsreport server successfully started on http port: 5488
+2022-02-24T19:33:03.507Z - info: Verifying license key free
+2022-02-24T19:33:03.905Z - info: Using enterprise trial license
+2022-02-24T19:33:03.910Z - info: Initializing worker threads
+2022-02-24T19:33:03.910Z - debug: Extensions in workers: base, child-templates, components, data, express, handlebars, jsrender, localization, npm, pdf-utils, reports, text, version-control, assets, browser-client, chrome-pdf, docx, html-to-xlsx, pptx, scripts, static-pdf, studio, xlsx
+2022-02-24T19:33:04.183Z - info: 2 worker threads initialized in 273ms
+2022-02-24T19:33:04.184Z - info: Starting temp files cleanup with 180000ms threshold
+2022-02-24T19:33:04.185Z - info: reporter initialized
+2022-02-24T19:36:24.362Z - info: Starting rendering request 1 (user: null) rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.363Z - info: Rendering template { name: PatientsHospital, recipe: html, engine: handlebars, preview: false } rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.364Z - debug: Inline data specified. rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.415Z - debug: Base url not specified, skipping its injection. rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.416Z - debug: Rendering engine handlebars rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.824Z - debug: Executing recipe html rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.825Z - debug: Skipping storing report. rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:24.826Z - info: Rendering request 1 finished in 470 ms rootId=5j465561tit2070, id=5j465561tit2070
+2022-02-24T19:36:35.464Z - info: Starting rendering request 2 (user: null) rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:35.465Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:35.465Z - debug: Inline data specified. rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:35.471Z - debug: Base url not specified, skipping its injection. rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:35.471Z - debug: Rendering engine handlebars rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:35.623Z - debug: Executing recipe chrome-pdf rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.160Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.370Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/7ac7fdc2-a2a3-4621-9c04-eab9a3f84d73-chrome-pdf.html rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.472Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/7ac7fdc2-a2a3-4621-9c04-eab9a3f84d73-chrome-pdf.html rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.475Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.477Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.477Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.478Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.480Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:36.481Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:38.903Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:38.904Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.013Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.014Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.226Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.339Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.340Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.340Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.341Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.448Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.449Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.615Z - debug: Skipping storing report. rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:39.615Z - info: Rendering request 2 finished in 4153 ms rootId=pr5wyucxxuh1raf, id=pr5wyucxxuh1raf
+2022-02-24T19:36:45.412Z - info: Starting rendering request 3 (user: null) rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.412Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.413Z - debug: Inline data specified. rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.413Z - debug: Base url not specified, skipping its injection. rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.413Z - debug: Rendering engine handlebars rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.449Z - debug: Executing recipe chrome-pdf rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.550Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.550Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/f8f23881-8aa8-4b2d-a31b-ad2008b3b3bd-chrome-pdf.html rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.576Z - info: Starting rendering request 1 (user: null) rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:45.577Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:45.577Z - debug: Inline data specified. rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:45.578Z - debug: Base url not specified, skipping its injection. rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:45.578Z - debug: Rendering engine handlebars rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:45.665Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/f8f23881-8aa8-4b2d-a31b-ad2008b3b3bd-chrome-pdf.html rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.666Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.667Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.669Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.673Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.674Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.677Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.679Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.682Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.683Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.685Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.688Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.776Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.777Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.777Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.778Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:45.778Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:46.067Z - debug: Skipping storing report. rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:46.068Z - info: Rendering request 3 finished in 659 ms rootId=fqx9l7w0ge7b90u, id=fqx9l7w0ge7b90u
+2022-02-24T19:36:46.088Z - info: Starting rendering request 4 (user: null) rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.088Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.089Z - debug: Inline data specified. rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.089Z - debug: Base url not specified, skipping its injection. rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.096Z - debug: Rendering engine handlebars rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.319Z - debug: Executing recipe chrome-pdf rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.320Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.444Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/778b3d16-24b4-45e1-8e34-384dec087cb2-chrome-pdf.html rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.530Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/778b3d16-24b4-45e1-8e34-384dec087cb2-chrome-pdf.html rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.532Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.536Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.537Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.543Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.544Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.551Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.554Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.558Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.561Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.567Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.577Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.581Z - debug: Executing recipe chrome-pdf rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:46.637Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.640Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.642Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.745Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.747Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.864Z - debug: Skipping storing report. rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.865Z - info: Rendering request 4 finished in 780 ms rootId=fx9cxnuypw5bdjg, id=fx9cxnuypw5bdjg
+2022-02-24T19:36:46.891Z - info: Starting rendering request 5 (user: null) rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:46.892Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:46.893Z - debug: Inline data specified. rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:46.893Z - debug: Base url not specified, skipping its injection. rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:46.902Z - debug: Rendering engine handlebars rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.085Z - debug: Executing recipe chrome-pdf rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.086Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.186Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/5a92a3a3-6307-46ea-b0d4-6db087bd4b31-chrome-pdf.html rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.196Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/5a92a3a3-6307-46ea-b0d4-6db087bd4b31-chrome-pdf.html rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.199Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.203Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.204Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.208Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.210Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.212Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.221Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.223Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.224Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.225Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.286Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.288Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.292Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.294Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.305Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.391Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.393Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.407Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/0a397219-e8b6-4ac4-9ec0-7b117d3651f2-chrome-pdf.html rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.410Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/0a397219-e8b6-4ac4-9ec0-7b117d3651f2-chrome-pdf.html rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.411Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.412Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.413Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.414Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.415Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.416Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.512Z - debug: Skipping storing report. rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.513Z - info: Rendering request 5 finished in 627 ms rootId=h6vk99f8hnsp4og, id=h6vk99f8hnsp4og
+2022-02-24T19:36:47.604Z - info: Starting rendering request 6 (user: null) rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.615Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.644Z - debug: Inline data specified. rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.648Z - debug: Base url not specified, skipping its injection. rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.653Z - debug: Rendering engine handlebars rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.702Z - debug: Executing recipe chrome-pdf rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.704Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.734Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.734Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.735Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.735Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:47.907Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/82684626-d64e-438f-b1fb-026c7bb52a00-chrome-pdf.html rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.908Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/82684626-d64e-438f-b1fb-026c7bb52a00-chrome-pdf.html rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.910Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.911Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.912Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.913Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.914Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.916Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.918Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.922Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.924Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.924Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.925Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:47.968Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.015Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.017Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.018Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.019Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.019Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.062Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.063Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.064Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.064Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.172Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.173Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.176Z - debug: Skipping storing report. rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.177Z - info: Rendering request 6 finished in 592 ms rootId=rb9wsrxlcz6je0u, id=rb9wsrxlcz6je0u
+2022-02-24T19:36:48.447Z - debug: Skipping storing report. rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:36:48.448Z - info: Rendering request 1 finished in 2888 ms rootId=bthg77ap8xnuejz, id=bthg77ap8xnuejz
+2022-02-24T19:37:33.237Z - info: Starting rendering request 7 (user: null) rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.237Z - info: Rendering template { name: ParametersCount, recipe: html, engine: handlebars, preview: false } rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.237Z - debug: Inline data specified. rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.238Z - debug: Base url not specified, skipping its injection. rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.238Z - debug: Rendering engine handlebars rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.267Z - debug: Executing recipe html rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.268Z - debug: Skipping storing report. rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:37:33.268Z - info: Rendering request 7 finished in 35 ms rootId=mn1csgincf1kbgi, id=mn1csgincf1kbgi
+2022-02-24T19:46:43.918Z - info: Starting rendering request 8 (user: null) rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:43.918Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:43.919Z - debug: Inline data specified. rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:43.919Z - debug: Base url not specified, skipping its injection. rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:43.919Z - debug: Rendering engine handlebars rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:44.044Z - debug: Executing recipe html rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:44.045Z - debug: Skipping storing report. rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:44.045Z - info: Rendering request 8 finished in 131 ms rootId=pmdjcal45gnk0t9, id=pmdjcal45gnk0t9
+2022-02-24T19:46:48.050Z - info: Starting rendering request 9 (user: null) rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.051Z - info: Rendering template { name: MyPatients(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.051Z - debug: Inline data specified. rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.051Z - debug: Base url not specified, skipping its injection. rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.051Z - debug: Rendering engine handlebars rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.108Z - debug: Executing recipe chrome-pdf rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.108Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.208Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/689a4769-695f-4231-ab84-b91ef97d7ab1-chrome-pdf.html rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.210Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/689a4769-695f-4231-ab84-b91ef97d7ab1-chrome-pdf.html rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.211Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.211Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.212Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.212Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.213Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.213Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.214Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.214Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.215Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.216Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.323Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.325Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.326Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.326Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.327Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.327Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.489Z - debug: Skipping storing report. rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:46:48.490Z - info: Rendering request 9 finished in 443 ms rootId=h2naboy9asm4uki, id=h2naboy9asm4uki
+2022-02-24T19:47:09.933Z - info: Starting rendering request 10 (user: null) rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.933Z - info: Rendering template { name: DoctorFollowups, recipe: html, engine: handlebars, preview: false } rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.933Z - debug: Inline data specified. rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.934Z - debug: Base url not specified, skipping its injection. rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.934Z - debug: Rendering engine handlebars rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.955Z - debug: Executing recipe html rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.955Z - debug: Skipping storing report. rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:09.956Z - info: Rendering request 10 finished in 26 ms rootId=bi8czu9nwbyjb50, id=bi8czu9nwbyjb50
+2022-02-24T19:47:32.813Z - debug: OData query on templates
+2022-02-24T19:47:32.823Z - debug: OData query on folders
+2022-02-24T19:47:32.827Z - debug: OData query on components
+2022-02-24T19:47:32.829Z - debug: OData query on data
+2022-02-24T19:47:32.835Z - debug: OData query on tags
+2022-02-24T19:47:32.838Z - debug: OData query on assets
+2022-02-24T19:47:32.841Z - debug: OData query on scripts
+2022-02-24T19:47:32.843Z - debug: OData query on schedules
+2022-02-24T19:47:32.851Z - debug: OData query on settings
+2022-02-24T19:47:32.984Z - debug: OData query on templates
+2022-02-24T19:47:33.031Z - debug: OData query on profiles
+2022-02-24T19:47:33.049Z - debug: OData query on monitoring
+2022-02-24T19:47:41.863Z - debug: OData query on templates
+2022-02-24T19:47:55.792Z - debug: OData update on templates
+2022-02-24T19:47:55.824Z - debug: OData query on templates
+2022-02-24T19:47:58.412Z - info: Starting rendering request 11 (user: null) rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.413Z - info: Rendering template { name: DoctorFollowups, recipe: html, engine: handlebars, preview: false } rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.413Z - debug: Inline data specified. rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.414Z - debug: Base url not specified, skipping its injection. rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.414Z - debug: Rendering engine handlebars rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.436Z - debug: Executing recipe html rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.437Z - debug: Skipping storing report. rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:47:58.437Z - info: Rendering request 11 finished in 29 ms rootId=gexauvf87nb7pf6, id=gexauvf87nb7pf6
+2022-02-24T19:48:01.494Z - info: Starting rendering request 12 (user: null) rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.495Z - info: Rendering template { name: DoctorFollowups(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.495Z - debug: Inline data specified. rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.498Z - debug: Base url not specified, skipping its injection. rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.499Z - debug: Rendering engine handlebars rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.607Z - debug: Executing recipe chrome-pdf rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.607Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.709Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/cd8c1a69-c7de-464f-bb62-90938929eb0e-chrome-pdf.html rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.709Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/cd8c1a69-c7de-464f-bb62-90938929eb0e-chrome-pdf.html rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.710Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.711Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.711Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.711Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.712Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.713Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.713Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.714Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.714Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.715Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.716Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.716Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.717Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.812Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.814Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.815Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.963Z - debug: Skipping storing report. rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:01.964Z - info: Rendering request 12 finished in 471 ms rootId=41cii0cdmxpff8y, id=41cii0cdmxpff8y
+2022-02-24T19:48:08.848Z - debug: OData query on templates
+2022-02-24T19:48:13.063Z - debug: OData update on templates
+2022-02-24T19:48:13.084Z - debug: OData query on templates
+2022-02-24T19:48:17.971Z - info: Starting rendering request 13 (user: null) rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:17.972Z - info: Rendering template { name: DoctorFollowups(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:17.972Z - debug: Inline data specified. rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:17.973Z - debug: Base url not specified, skipping its injection. rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:17.973Z - debug: Rendering engine handlebars rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.104Z - debug: Executing recipe chrome-pdf rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.105Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.105Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/bbca2c15-7320-4818-b267-a2746b420ded-chrome-pdf.html rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.207Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/bbca2c15-7320-4818-b267-a2746b420ded-chrome-pdf.html rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.209Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.211Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.212Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.213Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.214Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.215Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.216Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.217Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.217Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.218Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.218Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.219Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.219Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.220Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.310Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.311Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.418Z - debug: Skipping storing report. rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:18.419Z - info: Rendering request 13 finished in 451 ms rootId=4v7l523c842wv67, id=4v7l523c842wv67
+2022-02-24T19:48:30.681Z - info: Starting rendering request 14 (user: null) rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.682Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.682Z - debug: Inline data specified. rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.686Z - debug: Base url not specified, skipping its injection. rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.686Z - debug: Rendering engine handlebars rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.720Z - debug: Executing recipe html rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.721Z - debug: Skipping storing report. rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:30.721Z - info: Rendering request 14 finished in 40 ms rootId=fyvpl00lvh31cth, id=fyvpl00lvh31cth
+2022-02-24T19:48:33.312Z - info: Starting rendering request 15 (user: null) rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.313Z - info: Rendering template { name: MyPatients(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.313Z - debug: Inline data specified. rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.314Z - debug: Base url not specified, skipping its injection. rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.314Z - debug: Rendering engine handlebars rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.392Z - debug: Executing recipe chrome-pdf rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.392Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.492Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/31f4e068-ebea-4073-a9b6-b0c70c369f76-chrome-pdf.html rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.493Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/31f4e068-ebea-4073-a9b6-b0c70c369f76-chrome-pdf.html rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.494Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.495Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.496Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.496Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.497Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.497Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.498Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.498Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.499Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.499Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.500Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.598Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.598Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.599Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.599Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.600Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.726Z - debug: Skipping storing report. rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:33.727Z - info: Rendering request 15 finished in 417 ms rootId=pebap49wrjweefl, id=pebap49wrjweefl
+2022-02-24T19:48:38.988Z - info: Starting rendering request 16 (user: null) rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:38.989Z - info: Rendering template { name: ParametersCount, recipe: html, engine: handlebars, preview: false } rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:38.989Z - debug: Inline data specified. rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:38.990Z - debug: Base url not specified, skipping its injection. rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:38.990Z - debug: Rendering engine handlebars rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:39.018Z - debug: Executing recipe html rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:39.018Z - debug: Skipping storing report. rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:39.018Z - info: Rendering request 16 finished in 33 ms rootId=f9ogtmx29jrp1fh, id=f9ogtmx29jrp1fh
+2022-02-24T19:48:47.490Z - info: Starting rendering request 17 (user: null) rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.491Z - info: Rendering template { name: ParametersCount(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.491Z - debug: Inline data specified. rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.491Z - debug: Base url not specified, skipping its injection. rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.492Z - debug: Rendering engine handlebars rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.538Z - debug: Executing recipe chrome-pdf rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.538Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.650Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/a6d0d1f4-0c00-4b53-bfab-7fb6b08e61aa-chrome-pdf.html rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.651Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/a6d0d1f4-0c00-4b53-bfab-7fb6b08e61aa-chrome-pdf.html rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.652Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.653Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.653Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.653Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.654Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.655Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.655Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.656Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.656Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.657Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.762Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.762Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.763Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.764Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.764Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.764Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.925Z - debug: Skipping storing report. rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:47.926Z - info: Rendering request 17 finished in 437 ms rootId=6f5l6c58yct7547, id=6f5l6c58yct7547
+2022-02-24T19:48:58.812Z - info: Starting rendering request 18 (user: null) rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.812Z - info: Rendering template { name: PatientsHospital, recipe: html, engine: handlebars, preview: false } rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.813Z - debug: Inline data specified. rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.813Z - debug: Base url not specified, skipping its injection. rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.813Z - debug: Rendering engine handlebars rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.833Z - debug: Executing recipe html rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.834Z - debug: Skipping storing report. rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:48:58.834Z - info: Rendering request 18 finished in 25 ms rootId=fd9heij7tp7orb4, id=fd9heij7tp7orb4
+2022-02-24T19:49:02.681Z - info: Starting rendering request 19 (user: null) rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.681Z - info: Rendering template { name: PatientsHospital(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.682Z - debug: Inline data specified. rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.682Z - debug: Base url not specified, skipping its injection. rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.682Z - debug: Rendering engine handlebars rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.799Z - debug: Executing recipe chrome-pdf rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.799Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.799Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/a78d3413-139a-4fd5-a8df-83586961a43b-chrome-pdf.html rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.909Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/a78d3413-139a-4fd5-a8df-83586961a43b-chrome-pdf.html rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.910Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.912Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.915Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.915Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.916Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.918Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.918Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.918Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.919Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.920Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:02.920Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.018Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.019Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.019Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.020Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.020Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.118Z - debug: Skipping storing report. rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-02-24T19:49:03.119Z - info: Rendering request 19 finished in 440 ms rootId=9en64c3w18r6055, id=9en64c3w18r6055

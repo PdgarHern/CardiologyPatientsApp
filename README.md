@@ -615,8 +615,7 @@ For planning the project I used Trello:<br/>
 [ - Trello](https://trello.com/b/fn7WvOIc/cardiologyproject)
 
 # Conclusion and opinion
-Unfortunatley, I didn't have all the time I would have wanted to develop the project.<br/>
-However, it's looking good.<br/>
+The project is not finished yet, but it's looking good.<br/>
 <br/>
 I'm looking forward to continue expanding this project and working and learning with these technologies.
 

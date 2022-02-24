@@ -63,6 +63,7 @@
           <li><a href="#first-of-all">First of all</a></li>
           <li><a href="#backend">Backend</a></li>
           <li><a href="#frontend">Frontend</a></li>
+          <li><a href="#reports-and-app-help-system">Reports and App Help System</a></li>
           <li><a href="#starting-the-app">Starting the app</a></li>
         </ul>
         <li><a href="#use-guide">Use guide</a></li>
@@ -543,7 +544,13 @@ Now, the number of things you can do depends on your role:<br/>
     Patient: if you are a patient, you can access a list with all your follow-ups. You can visualize them if you click on them.<br/>
     Here you can select a parameter and create an 'answer' with the requested data.
   </li>
-  <li>Both kind of users can edit their profiles, too.
+  <li>
+    Both kind of users can edit their profiles, too.
+  </li>
+  <li>
+    The app also has a chat. This is created by a doctor in order to comunicate with one patient.<br/>
+    The doctor can create and enter each chat from its Patient Visualizer page. The patient will find another button, next to the one they use to watch all their follow-ups, where they can see and access to all their chats.
+  </li>
 </ol>
 
 # Technologies comparison

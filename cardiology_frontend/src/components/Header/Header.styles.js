@@ -44,3 +44,14 @@ export const UserImg = styled.img`
   }
 
 `
+
+export const LogoutImg = styled.img`
+  padding-right: 10px;
+  width: 60px;
+  cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    width: 50px;
+  }
+
+`

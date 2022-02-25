@@ -94,15 +94,18 @@ const Chat = () => {
                 </>
               ))}
             </div>
-            <div className="sendMessage">
-              <input
-                type='text'
-                name='message'
-                value={message}
-                onChange={handleInput}
-              />
-              <ButtonDark text="Send" callback={handleSubmit} />
+            <div className="bottomLine">
+              <div className="sendMessage">
+                <input
+                  type='text'
+                  name='message'
+                  value={message}
+                  onChange={handleInput}
+                />
+                <ButtonDark text="Send" callback={handleSubmit} />
+              </div>
             </div>
+
             {error && <div className="error">Something went wrong...</div>}
           </Wrapper>
         </>

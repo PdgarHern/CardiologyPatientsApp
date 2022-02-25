@@ -16,6 +16,7 @@ const RegisterGoogle = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [role, setRole] = useState('null');
   const [hospital, setHospital] = useState('null');
 
@@ -49,13 +50,17 @@ const RegisterGoogle = () => {
             setLoading(true);
 
             const formData = new FormData();
+            const loginForm = new FormData();
 
             formData.append('user[email]', email);
-            formData.append('user[password]', 'google');
+            formData.append('user[password]', password);
             formData.append('user[rol]', role);
 
+            loginForm.append('user[email]', email);
+            loginForm.append('user[password]', password);
+
             await API.createUser(formData);
-            await API.login(formData);
+            await API.login(loginForm);
 
             if (localStorage.userRol === 'doctor') {
               const formData = new FormData();
@@ -137,6 +142,7 @@ const RegisterGoogle = () => {
         setTokenValid(true);
         setEmail(google.email);
         setName(response.profileObj.givenName);
+        setPassword(response.profileObj.googleId);
 
       }
 

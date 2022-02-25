@@ -97,7 +97,7 @@ const Login = () => {
         const formData = new FormData();
 
         formData.append('user[email]', google.email);
-        formData.append('user[password]', 'google');
+        formData.append('user[password]', response.profileObj.googleId);
 
         await API.login(formData);
 

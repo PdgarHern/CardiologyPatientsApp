@@ -2,15 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 // API
 import API from "../../API";
+// Hook
+import { useDoctorFetch } from "../../hooks/useDoctorFetch";
 // Images
 import AppLogo from "../../images/appLogo.png";
 import Login from "../../images/login.png";
 import Logout from "../../images/logout.png";
 // Styles
-import { Wrapper, Content, LogoImg, UserImg } from "./Header.styles";
+import { Wrapper, Content, LogoImg, UserImg, LogoutImg } from "./Header.styles";
 
 
 const Header = () => {
+  const { state: doctorInfo, loading, error } = useDoctorFetch(localStorage.userId);
+
   const navigate = useNavigate();
 
   const handleHome = () => {
@@ -56,7 +60,7 @@ const Header = () => {
         <div>
           <UserImg src={Login} alt='login' onClick={handleLogIn} />
           {localStorage.userId && (
-            <UserImg src={Logout} alt='logout' onClick={handleLogOut} />
+            <LogoutImg src={Logout} alt='logout' onClick={handleLogOut} />
           )}
         </div>
       </Content>

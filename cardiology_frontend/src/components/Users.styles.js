@@ -69,6 +69,17 @@ export const Wrapper = styled.div`
 
   }
 
+  .bottomLine {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+
   .sendMessage {
     width: 50%;
     position: fixed;
@@ -79,7 +90,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
     margin: 0;
     flex: 1;
-    background-color: white;
+    
 
     :first-child {
       margin-left: 0;
@@ -121,6 +132,7 @@ export const Wrapper = styled.div`
 
   .chatMessages {
     width: 100%;
+    max-width: 600px;
     margin-bottom: 80px;
   }
 
@@ -131,13 +143,13 @@ export const Content = styled.div`
   max-width: var(--maxWidth);
   width: 100%;
   margin: 0 auto;
+  padding: 0;
 
   .column {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* background: var(--medGrey); */
     border-radius: 20px;
     margin: 0;
     flex: 1;
@@ -205,6 +217,37 @@ export const Content = styled.div`
         padding-bottom: 20px;
       }
 
+  }
+
+  .tables {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    border-radius: 20px;
+    margin: 0;
+    padding-bottom: 200px;
+    flex: 1;
+
+    :first-child {
+      margin-left: 0;
+    }
+
+    :last-child {
+      margin-right: 0;
+    }
+
+    h1 {
+      color: var(--darkGrey);
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+
+      .column {
+        margin: 20px 0;
+      }
+    }
   }
 
   @media screen and (max-width: 768px) {

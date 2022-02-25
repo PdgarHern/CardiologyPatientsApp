@@ -107,10 +107,10 @@ const PutTemplate = () => {
               <ButtonDark text='Delete' callback={handleDelete} />
             </div>
             <Content>
-              <div className="column">
+              <div className="tables">
                 <TemplateParametersTable templateId={templateId} />
               </div>
-              <div className="column">
+              <div className="tables">
                 <ParametersTable updatable={false} templateId={templateId} />
               </div>
             </Content>

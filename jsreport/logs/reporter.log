@@ -4353,3 +4353,135 @@ Cannot read properties of undefined (reading 'length')
 2022-02-24T19:49:03.020Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=9en64c3w18r6055, id=9en64c3w18r6055
 2022-02-24T19:49:03.118Z - debug: Skipping storing report. rootId=9en64c3w18r6055, id=9en64c3w18r6055
 2022-02-24T19:49:03.119Z - info: Rendering request 19 finished in 440 ms rootId=9en64c3w18r6055, id=9en64c3w18r6055
+2022-03-02T16:56:46.117Z - info: Initializing jsreport (version: 3.4.1, configuration file: jsreport.config.json, nodejs: 16.13.0)
+2022-03-02T16:56:46.121Z - info: Searching for available extensions in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-03-02T16:56:46.134Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-03-02T16:56:46.213Z - info: Found 35 extension(s)
+2022-03-02T16:56:46.349Z - debug: Writing extension locations cache to C:\Users\PDGHPR~1\AppData\Local\Temp\jsreport\core\locations.json
+2022-03-02T16:56:46.352Z - debug: Discovered 35 extensions
+2022-03-02T16:56:46.400Z - debug: Extension authentication@3.2.0 is disabled, skipping
+2022-03-02T16:56:46.402Z - info: Using extension base@3.0.0
+2022-03-02T16:56:46.412Z - info: Using extension child-templates@3.0.1
+2022-03-02T16:56:46.418Z - info: Using extension cli@3.1.0
+2022-03-02T16:56:46.425Z - info: Using extension components@3.2.0
+2022-03-02T16:56:46.428Z - info: Using extension data@3.0.1
+2022-03-02T16:56:46.431Z - info: Using extension express@3.3.1
+2022-03-02T16:56:47.031Z - info: Using extension freeze@3.0.1
+2022-03-02T16:56:47.034Z - info: Using extension fs-store@3.1.0
+2022-03-02T16:56:47.218Z - info: Using extension handlebars@3.0.0
+2022-03-02T16:56:47.221Z - info: Using extension import-export@3.1.1
+2022-03-02T16:56:47.245Z - info: Using extension jsrender@3.0.0
+2022-03-02T16:56:47.247Z - info: Using extension licensing@3.0.2
+2022-03-02T16:56:47.295Z - info: Using extension localization@3.2.0
+2022-03-02T16:56:47.297Z - info: Using extension npm@3.1.1
+2022-03-02T16:56:47.303Z - info: Using extension pdf-utils@3.3.0
+2022-03-02T16:56:47.307Z - info: Using extension reports@3.0.3
+2022-03-02T16:56:47.311Z - info: Using extension tags@3.1.0
+2022-03-02T16:56:47.315Z - info: Using extension text@3.0.0
+2022-03-02T16:56:47.318Z - info: Using extension version-control@3.1.0
+2022-03-02T16:56:47.340Z - info: Using extension assets@3.3.0
+2022-03-02T16:56:47.359Z - info: Using extension authorization@3.2.0
+2022-03-02T16:56:47.365Z - debug: Extension authorization@3.2.0 was disabled
+2022-03-02T16:56:47.366Z - info: Using extension browser-client@3.1.0
+2022-03-02T16:56:47.382Z - info: Using extension chrome-pdf@3.1.0
+2022-03-02T16:56:47.401Z - debug: Chrome strategy is chrome-pool, numberOfWorkers: 1
+2022-03-02T16:56:47.402Z - info: Using extension docx@3.2.0
+2022-03-02T16:56:47.406Z - info: Using extension html-to-xlsx@3.2.0
+2022-03-02T16:56:47.521Z - info: html-to-xlsx detected chrome as available html engine
+2022-03-02T16:56:47.522Z - info: Using extension pptx@3.1.0
+2022-03-02T16:56:47.526Z - info: Using extension scheduling@3.0.1
+2022-03-02T16:56:47.583Z - info: Using extension scripts@3.2.0
+2022-03-02T16:56:47.586Z - info: Using extension static-pdf@3.0.0
+2022-03-02T16:56:47.588Z - info: Using extension studio@3.4.0
+2022-03-02T16:56:47.780Z - info: Using extension xlsx@3.1.0
+2022-03-02T16:56:47.824Z - info: Using extension public-templates@3.0.0
+2022-03-02T16:56:47.827Z - debug: Extension public-templates@3.0.0 was disabled
+2022-03-02T16:56:47.828Z - info: Using extension sample-template@3.1.0
+2022-03-02T16:56:47.831Z - info: Using extension studio-theme-dark@3.0.1
+2022-03-02T16:56:47.834Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2022-03-02T16:56:47.834Z - info: Using fs provider for template store.
+2022-03-02T16:56:47.841Z - info: fs store is persisting using fs for C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\data
+2022-03-02T16:56:47.846Z - info: fs store is loading data
+2022-03-02T16:56:47.893Z - info: fs store is initialized successfully
+2022-03-02T16:56:47.901Z - debug: studio default theme is: light
+2022-03-02T16:56:47.915Z - info: Creating default express app.
+2022-03-02T16:56:47.959Z - info: jsreport server successfully started on http port: 5488
+2022-03-02T16:56:47.962Z - info: Verifying license key free
+2022-03-02T16:56:48.357Z - info: Using enterprise trial license
+2022-03-02T16:56:48.362Z - info: Initializing worker threads
+2022-03-02T16:56:48.362Z - debug: Extensions in workers: base, child-templates, components, data, express, handlebars, jsrender, localization, npm, pdf-utils, reports, text, version-control, assets, browser-client, chrome-pdf, docx, html-to-xlsx, pptx, scripts, static-pdf, studio, xlsx
+2022-03-02T16:56:48.709Z - info: 2 worker threads initialized in 347ms
+2022-03-02T16:56:48.710Z - info: Starting temp files cleanup with 180000ms threshold
+2022-03-02T16:56:48.712Z - info: reporter initialized
+2022-03-02T16:57:33.692Z - info: Starting rendering request 1 (user: null) rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:33.693Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:33.694Z - debug: Inline data specified. rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:33.694Z - debug: Base url not specified, skipping its injection. rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:33.695Z - debug: Rendering engine handlebars rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:34.170Z - debug: Executing recipe html rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:34.171Z - debug: Skipping storing report. rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:34.171Z - info: Rendering request 1 finished in 556 ms rootId=7jaa2icce2ylvdy, id=7jaa2icce2ylvdy
+2022-03-02T16:57:43.909Z - info: Starting rendering request 2 (user: null) rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:43.910Z - info: Rendering template { name: DoctorFollowups, recipe: html, engine: handlebars, preview: false } rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:43.910Z - debug: Inline data specified. rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:43.911Z - debug: Base url not specified, skipping its injection. rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:43.911Z - debug: Rendering engine handlebars rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:44.049Z - debug: Executing recipe html rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:44.050Z - debug: Skipping storing report. rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:57:44.051Z - info: Rendering request 2 finished in 146 ms rootId=5aomlczhormdn41, id=5aomlczhormdn41
+2022-03-02T16:58:05.083Z - info: Starting rendering request 3 (user: null) rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.084Z - info: Rendering template { name: ParametersCount, recipe: html, engine: handlebars, preview: false } rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.084Z - debug: Inline data specified. rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.085Z - debug: Base url not specified, skipping its injection. rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.085Z - debug: Rendering engine handlebars rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.137Z - debug: Executing recipe html rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.137Z - debug: Skipping storing report. rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T16:58:05.137Z - info: Rendering request 3 finished in 76 ms rootId=bdroonm2jqz52oi, id=bdroonm2jqz52oi
+2022-03-02T17:19:00.783Z - info: Starting rendering request 4 (user: null) rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.783Z - info: Rendering template { name: PatientsHospital, recipe: html, engine: handlebars, preview: false } rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.784Z - debug: Inline data specified. rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.785Z - debug: Base url not specified, skipping its injection. rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.786Z - debug: Rendering engine handlebars rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.816Z - debug: Executing recipe html rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.817Z - debug: Skipping storing report. rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:00.817Z - info: Rendering request 4 finished in 39 ms rootId=lnqcnbywd47dmph, id=lnqcnbywd47dmph
+2022-03-02T17:19:54.012Z - info: Starting rendering request 5 (user: null) rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.013Z - info: Rendering template { name: PatientsHospital, recipe: html, engine: handlebars, preview: false } rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.014Z - debug: Inline data specified. rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.014Z - debug: Base url not specified, skipping its injection. rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.014Z - debug: Rendering engine handlebars rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.047Z - debug: Executing recipe html rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.048Z - debug: Skipping storing report. rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T17:19:54.048Z - info: Rendering request 5 finished in 43 ms rootId=pomqhw99i6dj4fe, id=pomqhw99i6dj4fe
+2022-03-02T19:22:37.716Z - info: Starting rendering request 6 (user: null) rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.717Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.718Z - debug: Inline data specified. rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.718Z - debug: Base url not specified, skipping its injection. rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.718Z - debug: Rendering engine handlebars rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.747Z - debug: Executing recipe html rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.747Z - debug: Skipping storing report. rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T19:22:37.748Z - info: Rendering request 6 finished in 34 ms rootId=8vabsyfe35ta3cl, id=8vabsyfe35ta3cl
+2022-03-02T20:02:30.498Z - info: Starting rendering request 7 (user: null) rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.498Z - info: Rendering template { name: PatientsHospital, recipe: html, engine: handlebars, preview: false } rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.498Z - debug: Inline data specified. rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.503Z - debug: Base url not specified, skipping its injection. rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.503Z - debug: Rendering engine handlebars rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.522Z - debug: Executing recipe html rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.522Z - debug: Skipping storing report. rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:02:30.523Z - info: Rendering request 7 finished in 26 ms rootId=zff12c7kmoxm5dj, id=zff12c7kmoxm5dj
+2022-03-02T20:03:18.252Z - info: Starting rendering request 8 (user: null) rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.253Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.253Z - debug: Inline data specified. rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.253Z - debug: Base url not specified, skipping its injection. rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.254Z - debug: Rendering engine handlebars rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.274Z - debug: Executing recipe html rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.274Z - debug: Skipping storing report. rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:18.274Z - info: Rendering request 8 finished in 25 ms rootId=926c7r95k3b3il1, id=926c7r95k3b3il1
+2022-03-02T20:03:59.994Z - info: Starting rendering request 9 (user: null) rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:03:59.994Z - info: Rendering template { name: ParametersCount, recipe: html, engine: handlebars, preview: false } rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:03:59.995Z - debug: Inline data specified. rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:03:59.995Z - debug: Base url not specified, skipping its injection. rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:03:59.995Z - debug: Rendering engine handlebars rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:04:00.014Z - debug: Executing recipe html rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:04:00.015Z - debug: Skipping storing report. rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-02T20:04:00.015Z - info: Rendering request 9 finished in 25 ms rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk

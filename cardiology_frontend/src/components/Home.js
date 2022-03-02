@@ -9,6 +9,8 @@ import Box from "@mui/material/Box";
 import { useHospitalsFetch } from "../hooks/useHospitalsFetch";
 // Styles
 import { Wrapper } from "./Users.styles";
+// Images
+import Gif from "../images/logo.gif";
 
 const style = {
   position: 'absolute',
@@ -101,7 +103,7 @@ const Home = () => {
 
     window.emailjs.send(
       'service_eilqyzm', templateId,
-      {message: 'The report has not been sent... but hey... at least you received the email...', from_name: 'Pepe', reply_to: 'Pepe@tuhmuertoh'}
+      {message: report, from_name: 'Pepe', reply_to: 'Pepe@tuhmuertoh'}
     ).then(res => {
       console.log(res)
     }).catch(err => console.error(err));
@@ -117,6 +119,7 @@ const Home = () => {
 
   return (
     <Wrapper>
+      <img src={Gif} alt="GIF" />
       <ButtonDark text="Login" callback={handleLogin} />
       <ButtonDark text="Register" callback={handleRegister} />
       {localStorage.userId && (
@@ -135,8 +138,8 @@ const Home = () => {
                 <ButtonDark text="PDF" callback={handleNumberPatientsPDF} />
               </div>
             </Box>
-            {/* <ButtonDark text="Email" callback={handleSubmit} /> */}
           </Modal>
+          <ButtonDark text="Email" callback={handleSubmit} />
         </>
       )}
       <h1><a href="http://localhost:5500/Welcome.html">App Help</a></h1>

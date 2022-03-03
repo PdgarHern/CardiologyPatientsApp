@@ -4485,3 +4485,127 @@ Cannot read properties of undefined (reading 'length')
 2022-03-02T20:04:00.014Z - debug: Executing recipe html rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
 2022-03-02T20:04:00.015Z - debug: Skipping storing report. rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
 2022-03-02T20:04:00.015Z - info: Rendering request 9 finished in 25 ms rootId=pzqy9ryvg4e4dsk, id=pzqy9ryvg4e4dsk
+2022-03-03T17:10:29.731Z - info: Initializing jsreport (version: 3.4.1, configuration file: jsreport.config.json, nodejs: 16.13.0)
+2022-03-03T17:10:29.734Z - info: Searching for available extensions in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-03-03T17:10:29.746Z - info: Extensions location cache contains up to date information, skipping crawling in C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\
+2022-03-03T17:10:29.807Z - info: Found 35 extension(s)
+2022-03-03T17:10:29.873Z - debug: Writing extension locations cache to C:\Users\PDGHPR~1\AppData\Local\Temp\jsreport\core\locations.json
+2022-03-03T17:10:29.876Z - debug: Discovered 35 extensions
+2022-03-03T17:10:29.922Z - debug: Extension authentication@3.2.0 is disabled, skipping
+2022-03-03T17:10:29.924Z - info: Using extension base@3.0.0
+2022-03-03T17:10:29.930Z - info: Using extension child-templates@3.0.1
+2022-03-03T17:10:29.935Z - info: Using extension cli@3.1.0
+2022-03-03T17:10:29.941Z - info: Using extension components@3.2.0
+2022-03-03T17:10:29.944Z - info: Using extension data@3.0.1
+2022-03-03T17:10:29.948Z - info: Using extension express@3.3.1
+2022-03-03T17:10:30.545Z - info: Using extension freeze@3.0.1
+2022-03-03T17:10:30.549Z - info: Using extension fs-store@3.1.0
+2022-03-03T17:10:30.735Z - info: Using extension handlebars@3.0.0
+2022-03-03T17:10:30.740Z - info: Using extension import-export@3.1.1
+2022-03-03T17:10:30.763Z - info: Using extension jsrender@3.0.0
+2022-03-03T17:10:30.765Z - info: Using extension licensing@3.0.2
+2022-03-03T17:10:30.813Z - info: Using extension localization@3.2.0
+2022-03-03T17:10:30.815Z - info: Using extension npm@3.1.1
+2022-03-03T17:10:30.818Z - info: Using extension pdf-utils@3.3.0
+2022-03-03T17:10:30.821Z - info: Using extension reports@3.0.3
+2022-03-03T17:10:30.825Z - info: Using extension tags@3.1.0
+2022-03-03T17:10:30.829Z - info: Using extension text@3.0.0
+2022-03-03T17:10:30.831Z - info: Using extension version-control@3.1.0
+2022-03-03T17:10:30.853Z - info: Using extension assets@3.3.0
+2022-03-03T17:10:30.873Z - info: Using extension authorization@3.2.0
+2022-03-03T17:10:30.879Z - debug: Extension authorization@3.2.0 was disabled
+2022-03-03T17:10:30.880Z - info: Using extension browser-client@3.1.0
+2022-03-03T17:10:30.885Z - info: Using extension chrome-pdf@3.1.0
+2022-03-03T17:10:30.889Z - debug: Chrome strategy is chrome-pool, numberOfWorkers: 1
+2022-03-03T17:10:30.889Z - info: Using extension docx@3.2.0
+2022-03-03T17:10:30.893Z - info: Using extension html-to-xlsx@3.2.0
+2022-03-03T17:10:31.021Z - info: html-to-xlsx detected chrome as available html engine
+2022-03-03T17:10:31.022Z - info: Using extension pptx@3.1.0
+2022-03-03T17:10:31.025Z - info: Using extension scheduling@3.0.1
+2022-03-03T17:10:31.080Z - info: Using extension scripts@3.2.0
+2022-03-03T17:10:31.082Z - info: Using extension static-pdf@3.0.0
+2022-03-03T17:10:31.084Z - info: Using extension studio@3.4.0
+2022-03-03T17:10:31.297Z - info: Using extension xlsx@3.1.0
+2022-03-03T17:10:31.340Z - info: Using extension public-templates@3.0.0
+2022-03-03T17:10:31.342Z - debug: Extension public-templates@3.0.0 was disabled
+2022-03-03T17:10:31.343Z - info: Using extension sample-template@3.1.0
+2022-03-03T17:10:31.346Z - info: Using extension studio-theme-dark@3.0.1
+2022-03-03T17:10:31.349Z - info: Using general timeout for rendering (reportTimeout: 60000)
+2022-03-03T17:10:31.349Z - info: Using fs provider for template store.
+2022-03-03T17:10:31.355Z - info: fs store is persisting using fs for C:\Users\PdghProyectos\Desktop\PROYECTO\Usabi\jsreport\data
+2022-03-03T17:10:31.360Z - info: fs store is loading data
+2022-03-03T17:10:31.424Z - info: fs store is initialized successfully
+2022-03-03T17:10:31.433Z - debug: studio default theme is: light
+2022-03-03T17:10:31.446Z - info: Creating default express app.
+2022-03-03T17:10:31.493Z - info: jsreport server successfully started on http port: 5488
+2022-03-03T17:10:31.494Z - info: Verifying license key free
+2022-03-03T17:10:31.885Z - info: Using enterprise trial license
+2022-03-03T17:10:31.889Z - info: Initializing worker threads
+2022-03-03T17:10:31.889Z - debug: Extensions in workers: base, child-templates, components, data, express, handlebars, jsrender, localization, npm, pdf-utils, reports, text, version-control, assets, browser-client, chrome-pdf, docx, html-to-xlsx, pptx, scripts, static-pdf, studio, xlsx
+2022-03-03T17:10:32.259Z - info: 2 worker threads initialized in 370ms
+2022-03-03T17:10:32.260Z - info: Starting temp files cleanup with 180000ms threshold
+2022-03-03T17:10:32.261Z - info: reporter initialized
+2022-03-03T17:15:58.600Z - info: Starting rendering request 1 (user: null) rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:58.601Z - info: Rendering template { name: ParametersCount, recipe: html, engine: handlebars, preview: false } rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:58.601Z - debug: Inline data specified. rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:58.602Z - debug: Base url not specified, skipping its injection. rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:58.603Z - debug: Rendering engine handlebars rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:59.051Z - debug: Executing recipe html rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:59.052Z - debug: Skipping storing report. rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:15:59.052Z - info: Rendering request 1 finished in 532 ms rootId=jmflqw03q9jh39v, id=jmflqw03q9jh39v
+2022-03-03T17:16:13.574Z - info: Starting rendering request 2 (user: null) rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:13.575Z - info: Rendering template { name: ParametersCount(pdf), recipe: chrome-pdf, engine: handlebars, preview: false } rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:13.575Z - debug: Inline data specified. rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:13.576Z - debug: Base url not specified, skipping its injection. rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:13.576Z - debug: Rendering engine handlebars rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:13.744Z - debug: Executing recipe chrome-pdf rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.392Z - debug: Converting with chrome HeadlessChrome/98.0.4758.0 using chrome-pool strategy rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.828Z - debug: Page request: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/00f27a41-0cff-43a6-a818-4546c2725092-chrome-pdf.html rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.829Z - debug: Page request finished: GET (document) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/00f27a41-0cff-43a6-a818-4546c2725092-chrome-pdf.html rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.830Z - debug: Page request: GET (stylesheet) https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.831Z - debug: Page request: GET (stylesheet) https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.831Z - debug: Page request: GET (script) https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.832Z - debug: Page request: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.833Z - warn: Page request failed: GET (script) file:///C:/Users/PDGHPR~1/AppData/Local/Temp/jsreport/autocleanup/path/to/chartjs/dist/chart.js, failure: net::ERR_ACCESS_DENIED rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:14.833Z - debug: Failed to load resource: net::ERR_ACCESS_DENIED rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.350Z - debug: Page request finished: GET (script) 200 https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.351Z - debug: Page request finished: GET (stylesheet) 200 https://fonts.googleapis.com/css2?family=Abel&display=swap rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.465Z - warn: Page request failed: GET (stylesheet) 301 https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css (redirect to: https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css) rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.465Z - debug: Page request: GET (stylesheet) https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css (redirect from: https://cdn.rawgit.com/olton/Metro-UI-CSS/master/build/css/metro.min.css) rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.670Z - debug: Page request finished: GET (stylesheet) 200 https://cdn.jsdelivr.net/gh/olton/Metro-UI-CSS@master/build/css/metro.min.css rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.671Z - debug: Page request: GET (image) data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.672Z - debug: Page request finished: GET (image) 200 data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABloAAAPBCAYAAACWVHdcAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT... rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.782Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.782Z - debug: Page request: GET (font) https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.896Z - debug: Page request finished: GET (font) 200 https://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BPQ.woff2 rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:17.897Z - debug: Running chrome with params {"printBackground":true,"timeout":60000,"margin":{}} rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:18.096Z - debug: Skipping storing report. rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:16:18.098Z - info: Rendering request 2 finished in 4528 ms rootId=eppzv97uoxj3wcq, id=eppzv97uoxj3wcq
+2022-03-03T17:17:57.770Z - debug: OData query on templates
+2022-03-03T17:17:57.776Z - debug: OData query on folders
+2022-03-03T17:17:57.782Z - debug: OData query on components
+2022-03-03T17:17:57.784Z - debug: OData query on data
+2022-03-03T17:17:57.788Z - debug: OData query on tags
+2022-03-03T17:17:57.790Z - debug: OData query on assets
+2022-03-03T17:17:57.793Z - debug: OData query on scripts
+2022-03-03T17:17:57.796Z - debug: OData query on schedules
+2022-03-03T17:17:57.808Z - debug: OData query on settings
+2022-03-03T17:17:57.940Z - debug: OData query on templates
+2022-03-03T17:17:57.991Z - debug: OData query on profiles
+2022-03-03T17:17:58.022Z - debug: OData query on monitoring
+2022-03-03T17:20:57.969Z - info: Starting rendering request 3 (user: null) rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:57.969Z - info: Rendering template { name: MyPatients, recipe: html, engine: handlebars, preview: false } rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:57.970Z - debug: Inline data specified. rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:57.970Z - debug: Base url not specified, skipping its injection. rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:57.970Z - debug: Rendering engine handlebars rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:58.096Z - debug: Executing recipe html rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:58.096Z - debug: Skipping storing report. rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:20:58.097Z - info: Rendering request 3 finished in 131 ms rootId=ooito0a3oirvmme, id=ooito0a3oirvmme
+2022-03-03T17:21:05.498Z - info: Starting rendering request 4 (user: null) rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.498Z - info: Rendering template { name: DoctorFollowups, recipe: html, engine: handlebars, preview: false } rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.499Z - debug: Inline data specified. rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.499Z - debug: Base url not specified, skipping its injection. rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.499Z - debug: Rendering engine handlebars rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.534Z - debug: Executing recipe html rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.535Z - debug: Skipping storing report. rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf
+2022-03-03T17:21:05.535Z - info: Rendering request 4 finished in 45 ms rootId=ii7s3phiidkj4wf, id=ii7s3phiidkj4wf

@@ -7,7 +7,7 @@ class ChatsControllerTest < ActionDispatch::IntegrationTest
 
   # test "should get index" do
   #   get chats_url, as: :json
-  #   assert_response :success
+  #   assert_response 200
   # end
 
   # test "should create chat" do

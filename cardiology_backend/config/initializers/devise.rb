@@ -285,8 +285,7 @@ Devise.setup do |config|
 
 
   
-  # config.omniauth :google_oauth2, "627745415175-d1977cs12k0vl4iqqv5g496peda58i32.apps.googleusercontent.com", "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"
-
+  
 
 
 

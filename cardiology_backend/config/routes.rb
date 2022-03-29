@@ -16,7 +16,7 @@ Rails.application.routes.draw do
              controllers: {
                sessions: 'users/sessions',
                registrations: 'users/registrations',
-               omniauth_callbacks: 'user/omniauth_callbacks'
+              #  omniauth_callbacks: 'user/omniauth_callbacks'
              }
 
   get '/followuptemplate-last', to: 'followuptemplates#last'

@@ -17,7 +17,6 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 gem 'ransack'
-gem 'rack-timeout'
 gem 'dotenv-rails'
 
 gem 'bootsnap', '>= 1.4.4', require: false

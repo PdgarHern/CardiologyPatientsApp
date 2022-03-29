@@ -2,12 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   
-  host: ec2-63-35-156-160.eu-west-1.compute.amazonaws.com
-  port: "5432"
-  database: d6mqkaaq6jsvis
-  username: opyzqabfatgqzo
-  password: a7832ec475f86c51f98ee5e3bfc67b60cdb3cb916ca038717e2e537a3ec79217
-
+  
   # host: <%= ENV['host_postgres'] %>
   # port: <%= ENV['port_postgres'] %>
   # username: <%= ENV['username_postgres'] %>

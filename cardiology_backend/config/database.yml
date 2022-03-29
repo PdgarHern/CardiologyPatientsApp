@@ -2,16 +2,27 @@ default: &default
   adapter: postgresql
   encoding: unicode
   
-  host: <%= ENV['host_postgres'] %>
-  port: <%= ENV['port_postgres'] %>
-  username: <%= ENV['username_postgres'] %>
-  password: <%= ENV['password_postgres'] %>
+  host: ec2-63-35-156-160.eu-west-1.compute.amazonaws.com
+  port: "5432"
+  database: d6mqkaaq6jsvis
+  username: opyzqabfatgqzo
+  password: a7832ec475f86c51f98ee5e3bfc67b60cdb3cb916ca038717e2e537a3ec79217
+
+  # host: <%= ENV['host_postgres'] %>
+  # port: <%= ENV['port_postgres'] %>
+  # username: <%= ENV['username_postgres'] %>
+  # password: <%= ENV['password_postgres'] %>
 
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
   database: cardiology_backend_development
+
+  host: <%= ENV['host_postgres'] %>
+  port: <%= ENV['port_postgres'] %>
+  username: <%= ENV['username_postgres'] %>
+  password: <%= ENV['password_postgres'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -69,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: cardiology_backend_production
-  username: cardiology_backend
-  password: <%= ENV['CARDIOLOGY_BACKEND_DATABASE_PASSWORD'] %>
+  # database: cardiology_backend_production
+  # username: cardiology_backend
+  # password: <%= ENV['CARDIOLOGY_BACKEND_DATABASE_PASSWORD'] %>

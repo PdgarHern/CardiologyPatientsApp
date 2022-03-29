@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   devise_for :users,
              controllers: {
                sessions: 'users/sessions',
-               registrations: 'users/registrations'
+               registrations: 'users/registrations',
+               omniauth_callbacks: 'user/omniauth_callbacks'
              }
 
   get '/followuptemplate-last', to: 'followuptemplates#last'

@@ -10,10 +10,15 @@ gem 'puma', '~> 5.0'
 gem 'figaro'
 gem 'rack-cors'
 gem 'active_model_serializers'
+
 gem 'devise'
 gem 'devise-jwt'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
 gem 'ransack'
 gem 'rack-timeout'
+gem 'dotenv-rails'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

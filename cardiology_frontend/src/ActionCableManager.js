@@ -2,7 +2,8 @@ import { createConsumer } from "@rails/actioncable";
 
 export default class ActionCableManager {
   constructor () {
-    this.consumer = createConsumer("ws://localhost:3000/chat");
+    this.consumer = createConsumer("ws://cardiology-patients-backend.herokuapp.com/chat");
+    //this.consumer = createConsumer("ws://localhost:3000/chat");
     this.connection = null;
   }
 

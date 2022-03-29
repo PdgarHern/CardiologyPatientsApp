@@ -1,3 +1,4 @@
+// const API_URL = 'https://cardiology-patients-backend.herokuapp.com';
 const API_URL = 'http://localhost:3000';
 
 const USERS = `${API_URL}/users`;

@@ -146,8 +146,8 @@ const Login = () => {
             <GoogleLogin
               clientId="627745415175-d1977cs12k0vl4iqqv5g496peda58i32.apps.googleusercontent.com"
               buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onSuccess={() => responseGoogle()}
+              onFailure={err => console.log('fail', err)}
               cookiePolicy={'single_host_origin'}
             />
           </>

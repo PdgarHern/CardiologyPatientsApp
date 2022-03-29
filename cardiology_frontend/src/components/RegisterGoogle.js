@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
+import axios from "axios";
+import { API_URL } from "../config";
 // API
 import API from "../API";
 // Components
@@ -150,12 +152,17 @@ const RegisterGoogle = () => {
 
     } catch (error) {
       setError(true);
+      console.log(error);
       setTimeout(() => {
         setError(false);
         setLoading(false);
       }, 2000);
     }
 
+  }
+
+  const handleGoogleRegister = () => {
+    axios.post(`${API_URL}/users/auth/google_oauth2`);
   }
 
   return (
@@ -167,10 +174,11 @@ const RegisterGoogle = () => {
           <GoogleLogin
             clientId="627745415175-d1977cs12k0vl4iqqv5g496peda58i32.apps.googleusercontent.com"
             buttonText="Email"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onSuccess={() => {responseGoogle()}}
+            onFailure={() => {responseGoogle()}}
             cookiePolicy={'single_host_origin'}
           />
+          <ButtonDark text="Google Register" callback={handleGoogleRegister} />
           {tokenValid && <p>{email}</p>}
           {emailError && <div className="formError">*Please log in</div>}
           <br/>

@@ -15,22 +15,24 @@ const TemplateParametersTable = ({ templateId }) => {
   const { state: templatesParams } = useTemplateParamsFetch(templateId);
 
   const [parameterId, setParameterId] = useState('');
-  const [templateParamId, setTemplateParamId] = useState('');
 
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const handleClick = (e, t) => {
     setParameterId(e.currentTarget.dataset.value);
+
+    // console.log(document.getElementById(`${e.currentTarget.dataset.value}`).checked);
 
   }
 
   const handleDelete = async () => {
     try {
-      console.log(parameterId);
+      // console.log(parameterId);
       templatesParams.results.map(async (templateParam) => {
-        if (templateParam.parameter_id == parameterId) {
+        if (document.getElementById(`${templateParam.parameter_id}`).checked) {
 
           await API.deleteTemplateParam(templateParam.id);
+          // console.log(templateParam.parameter_id);
 
         }
       })
@@ -56,14 +58,20 @@ const TemplateParametersTable = ({ templateId }) => {
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Name</th>
                   <th>Kind</th>
                   <th>Frequency</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tbody">
                 {template.parameters.map(parameter => (
                   <tr onClick={handleClick} data-value={parameter.id}>
+                    <td>
+                      <input id={parameter.id} className="checkbox"
+                        type='checkbox'
+                      />
+                    </td>
                     <td>{parameter.name}</td>
                     <td>{parameter.kind}</td>
                     <td>{parameter.frequency}</td>

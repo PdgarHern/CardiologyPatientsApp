@@ -136,7 +136,7 @@ const PostParameter = () => {
             {frequencyError && <div className="formError">*Write a frequency</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
             <br />
-            <ParametersTable updatable={true} report={true} />
+            <ParametersTable updatable={true} />
           </>
         ) : (
           <Spinner />

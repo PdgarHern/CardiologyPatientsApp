@@ -31,6 +31,11 @@ export const Wrapper = styled.div`
     
   }
 
+  .checkbox {
+    width: 20px;
+    margin: 0;
+  }
+
   #id {
     display: none;
   }

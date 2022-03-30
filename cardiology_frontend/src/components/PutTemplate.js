@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import 'reactjs-popup/dist/index.css';
 // API
 import API from "../API";
 // Components
@@ -9,6 +10,7 @@ import ParametersTable from "./ParametersTable";
 import TemplateParametersTable from "./TemplateParametersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
+import Popup from 'reactjs-popup';
 // Hook
 import { useTemplateFetch } from "../hooks/useTemplateFetch";
 // Styles
@@ -104,14 +106,30 @@ const PutTemplate = () => {
             </Content>
             <div className="actionButtons">
               <ButtonDark text='Update' callback={handleSubmit} />
-              <ButtonDark text='Delete' callback={handleDelete} />
+              <Popup trigger={<button className="triggerPopup">Delete</button>} modal nested>
+                {close => (
+                  <div className="modal">
+                    <button className="close" onClick={close}>
+                      &times;
+                    </button>
+                    <div className="header">Are you sure?</div>
+                    <div className="content">
+                      Do you want to delete the template?
+                    </div>
+                    <div className="actions">
+                      <ButtonDark text="Confirm" callback={handleDelete} />
+                      <ButtonDark text="Cancel" callback={() => close()} />
+                    </div>
+                  </div>
+                )}
+              </Popup>
             </div>
             <Content>
               <div className="tables">
                 <TemplateParametersTable templateId={templateId} />
               </div>
               <div className="tables">
-                <ParametersTable updatable={false} templateId={templateId} />
+                <ParametersTable template={true} updatable={false} templateId={templateId} />
               </div>
             </Content>
           </>

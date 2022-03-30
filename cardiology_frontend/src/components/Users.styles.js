@@ -80,6 +80,31 @@ export const Wrapper = styled.div`
     background-color: white;
   }
 
+  .triggerPopup {
+    display: block;
+    background: var(--darkGreen);
+    width: 25%;
+    min-width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    color: var(--white);
+    border: 0;
+    font-size: var(--fontBig);
+    margin: 20px auto;
+    transition: all 0.3s;
+    outline: none;
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      min-width: 120px;
+      font-size: var(--fontMed);
+    }
+  }
+
   .sendMessage {
     width: 50%;
     position: fixed;

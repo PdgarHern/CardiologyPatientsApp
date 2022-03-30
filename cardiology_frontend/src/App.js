@@ -11,6 +11,7 @@ import UpdateDoctorProfile from "./components/UpdateDoctorProfile";
 import Patient from "./components/Patient";
 import UpdatePatientProfile from "./components/UpdatePatientProfile";
 import PatientVisualizer from "./components/PatientVisualizer";
+import PatientsList from "./components/PatientsList";
 import PostParameter from "./components/PostParameter";
 import PutParameter from "./components/PutParameter";
 import PostTemplate from "./components/PostTemplate";
@@ -43,6 +44,7 @@ function App() {
             <Route path='/patient-profile/:patientId' element={<Patient />} />
             <Route path='/update-patient/:patientId' element={<UpdatePatientProfile />} />
             <Route path='/patient/:patientId' element={<PatientVisualizer />} />
+            <Route path='/patients-list' element={<PatientsList />} />
             <Route path='/post-parameter' element={<PostParameter />} />
             <Route path='/put-parameter/:parameterId' element={<PutParameter />} />
             <Route path='/post-template' element={<PostTemplate />} />

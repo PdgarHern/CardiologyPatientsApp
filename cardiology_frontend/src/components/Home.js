@@ -25,13 +25,13 @@ const Home = () => {
         <ContentImages>
           {localStorage.userId ? (
             <>
-              <Link to="/patient-list">
+              <Link to="/patients-list">
                 <div className="homeElement">
                   <Image src={PatientList} alt="Not-Found" />
                   <h3>Patients</h3>
                 </div>
               </Link>
-              <Link to="/template-list">
+              <Link to="/templates-list">
                 <div className="homeElement">
                   <Image src={TemplateIcon} alt="Not-Found" />
                   <h3>Templates</h3>

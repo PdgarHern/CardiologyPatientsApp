@@ -18,37 +18,16 @@ import { Wrapper, Content } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
 
-const style = {
-  position: 'absolute',
-  display: 'flex',
-  justifyContent: 'center',
-  flexDirection: 'column',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  bgcolor: 'background.paper',
-  border: '1px solid #000',
-  borderRadius: '50px',
-  boxShadow: 24,
-  p: 4,
-  h1: { color: '#1c1c1c', marginLeft: '30%' },
-  '.modalButtons': {
-    display: 'flex',
-    flexDirection: 'row',
-  }
-};
-
 const Doctor = () => {
   const { state: doctorInfo, loading, error } = useDoctorFetch(localStorage.userId);
   const { state: patients } = usePatientsFetch();
-  const { state: doctors } = useDoctorsFetch();
   const { state: hospital } = useHospitalFetch(localStorage.userHosp);
 
-  const [openPatients, setOpenPatients] = useState(false);
-  const [openFollowUps, setOpenFollowUps] = useState(false);
-
   const navigate = useNavigate();
+
+  const handlePatients = () => {
+    navigate('/patients-list');
+  }
 
   const handleParameter = () => {
     navigate('/post-parameter');
@@ -56,86 +35,6 @@ const Doctor = () => {
 
   const handleTemplate = () => {
     navigate('/post-template');
-  }
-
-  const handlePatientsReport = async () => {
-    jsreport.serverUrl = 'http://localhost:5488';
-
-    const report = await jsreport.render({
-      template: {
-        name: 'MyPatients'
-      },
-      data: {
-        data: { hospital: localStorage.userHosp, patients: patients.results }
-      }
-
-    })
-
-    report.openInWindow({ title: 'My Patients Report' });
-  }
-
-  const handlePatientsReportPDF = async () => {
-    jsreport.serverUrl = 'http://localhost:5488';
-
-    const report = await jsreport.render({
-      template: {
-        name: 'MyPatients(pdf)'
-      },
-      data: {
-        data: { hospital: localStorage.userHosp, patients: patients.results }
-      }
-
-    })
-
-    report.openInWindow({ title: 'My Patients Report' });
-  }
-
-  const handleDoctorFollowups = async () => {
-    jsreport.serverUrl = 'http://localhost:5488';
-
-    const report = await jsreport.render({
-      template: {
-        name: 'DoctorFollowups'
-      },
-      data: {
-        data: doctors.results
-      }
-
-    })
-
-    report.openInWindow({ title: 'My Patients Report' });
-  }
-
-  const handleDoctorFollowupsPDF = async () => {
-    jsreport.serverUrl = 'http://localhost:5488';
-
-    const report = await jsreport.render({
-      template: {
-        name: 'DoctorFollowups(pdf)'
-      },
-      data: {
-        data: doctors.results
-      }
-
-    })
-
-    report.openInWindow({ title: 'My Patients Report' });
-  }
-
-  const handleOpenPatients = () => {
-    setOpenPatients(true);
-  }
-
-  const handleOpenFollowUps = () => {
-    setOpenFollowUps(true);
-  }
-
-  const handleClosePatients = () => {
-    setOpenPatients(false);
-  }
-
-  const handleCloseFollowUps = () => {
-    setOpenFollowUps(false);
   }
 
   const handleAuth = () => {
@@ -174,11 +73,12 @@ const Doctor = () => {
           </Content>
           <Wrapper>
             <div className="actionButtons">
+              <ButtonDark text="Patients" callback={handlePatients} />
               <ButtonDark text="Parameters" callback={handleParameter} />
               <ButtonDark text="Templates" callback={handleTemplate} />
             </div>
           </Wrapper>
-          <Grid header='Patients'>
+          {/* <Grid header='Patients'>
             {patients.results.map(patient => (
               <>
                 {patient.hospital_id == localStorage.userHosp ? (
@@ -197,41 +97,7 @@ const Doctor = () => {
                 ) : null}
               </>
             ))}
-          </Grid>
-          <Wrapper>
-            <div className="actionButtons">
-              <ButtonDark text="My Patients" callback={handleOpenPatients} />
-              <Modal
-                open={openPatients}
-                onClose={handleClosePatients}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <h1>Choose an option</h1>
-                  <div className="modalButtons">
-                    <ButtonDark text="Online" callback={handlePatientsReport} />
-                    <ButtonDark text="PDF" callback={handlePatientsReportPDF} />
-                  </div>
-                </Box>
-              </Modal>
-              <ButtonDark text="Number of Follow-ups" callback={handleOpenFollowUps} />
-              <Modal
-                open={openFollowUps}
-                onClose={handleCloseFollowUps}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <Box sx={style}>
-                  <h1>Choose an option</h1>
-                  <div className="modalButtons">
-                    <ButtonDark text="Online" callback={handleDoctorFollowups} />
-                    <ButtonDark text="PDF" callback={handleDoctorFollowupsPDF} />
-                  </div>
-                </Box>
-              </Modal>
-            </div>
-          </Wrapper>
+          </Grid> */}
         </>
       ) : null}
     </>

@@ -8,6 +8,7 @@ import { useDoctorFetch } from "../../hooks/useDoctorFetch";
 import AppLogo from "../../images/appLogo.png";
 import Login from "../../images/login.png";
 import Logout from "../../images/logout.png";
+import Logout2 from "../../images/logout2.png";
 // Styles
 import { Wrapper, Content, LogoImg, UserImg, LogoutImg } from "./Header.styles";
 
@@ -49,6 +50,7 @@ const Header = () => {
       sessionStorage.removeItem('doctorId');
 
       navigate('/');
+      window.location.reload();
     } catch (error) {}
 
   }
@@ -60,7 +62,7 @@ const Header = () => {
         <div>
           <UserImg src={Login} alt='login' onClick={handleLogIn} />
           {localStorage.userId && (
-            <LogoutImg src={Logout} alt='logout' onClick={handleLogOut} />
+            <LogoutImg src={Logout2} alt='logout' onClick={handleLogOut} />
           )}
         </div>
       </Content>

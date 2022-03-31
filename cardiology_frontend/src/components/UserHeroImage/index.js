@@ -5,15 +5,15 @@ import Button from "../Button";
 // Styles
 import { Wrapper, Content, Text, Image } from "./UserHeroImage.styles";
 
-const UserHeroImage = ({ userPic, name }) => {
+const UserHeroImage = ({ userPic, name, userId }) => {
   const navigate = useNavigate();
 
   const handleEditButton = () => {
     if (localStorage.userRol === 'doctor') {
-      navigate(`/update-doctor/${localStorage.userId}`);
+      navigate(`/update-doctor/${userId}`);
 
     } else if (localStorage.userRol === 'patient') {
-      navigate(`/update-patient/${localStorage.userId}`);
+      navigate(`/update-patient/${userId}`);
 
     }
   }

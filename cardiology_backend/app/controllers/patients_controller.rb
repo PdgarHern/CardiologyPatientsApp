@@ -4,11 +4,12 @@ class PatientsController < ApplicationController
 
   # GET /patients
   def index
-    @q = Patient.ransack(user_id_eq: params[:id]);
+    @q = Patient.ransack(user_id_eq: params[:id], name_cont: params[:search])
+    @patients = @q.result(distinct: true).all.page params[:page]
 
-    @patients = @q.result(distinct: true).all
+    @patientsSerialized = ActiveModel::SerializableResource.new(@patients).serializable_hash
 
-    render json: @patients
+    render json: {page: Integer(params[:page]), results: @patientsSerialized, total_pages: @patients.total_pages}
   end
 
   # GET /patients/1

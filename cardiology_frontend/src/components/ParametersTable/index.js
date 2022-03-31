@@ -5,15 +5,14 @@ import jsreport from "@jsreport/browser-client";
 import API from "../../API";
 // Components
 import ButtonDark from "../ButtonDark";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
+import SearchBar from "../SearchBar";
 // Hook
 import { useParametersFetch } from "../../hooks/useParametersFetch";
 // Styles 
 import { Wrapper } from "./ParametersTable.styles";
 
 const ParametersTable = ({ template, updatable, templateId }) => {
-  const { state: parameters } = useParametersFetch();
+  const { state: parameters, searchTerm, setSearchTerm, setIsLoadingMore } = useParametersFetch();
 
   const [parameterId, setParameterId] = useState('');
 
@@ -55,12 +54,15 @@ const ParametersTable = ({ template, updatable, templateId }) => {
     }
   }
 
+  console.log(parameters.results)
+
   return (
     <>
       {parameters && (
         <>
           <Wrapper>
             <h1>Parameters</h1>
+            <SearchBar setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
@@ -75,6 +77,7 @@ const ParametersTable = ({ template, updatable, templateId }) => {
               <tbody>
                 {parameters.results.map(parameter => (
                   <>
+                    {console.log(parameter)}
                     {parameter.hospital_id == localStorage.userHosp ? (
                       <tr onClick={handleClick} data-value={parameter.id}>
                         {template && (
@@ -93,6 +96,9 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                 ))}
               </tbody>
             </table>
+            {parameters.page < parameters.total_pages && (
+              <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+            )}
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Add Parameter" callback={handleAdd} />

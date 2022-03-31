@@ -14,6 +14,8 @@ const TemplateParametersTable = ({ templateId }) => {
   const { state: template } = useTemplateFetch(templateId);
   const { state: templatesParams } = useTemplateParamsFetch(templateId);
 
+  console.log(templatesParams.results);
+
   const [parameterId, setParameterId] = useState('');
 
   const navigate = useNavigate();
@@ -65,16 +67,16 @@ const TemplateParametersTable = ({ templateId }) => {
                 </tr>
               </thead>
               <tbody id="tbody">
-                {template.parameters.map(parameter => (
+                {templatesParams.results.map(parameter => (
                   <tr onClick={handleClick} data-value={parameter.id}>
                     <td>
-                      <input id={parameter.id} className="checkbox"
+                      <input id={parameter.parameter.id} className="checkbox"
                         type='checkbox'
                       />
                     </td>
-                    <td>{parameter.name}</td>
-                    <td>{parameter.kind}</td>
-                    <td>{parameter.frequency}</td>
+                    <td>{parameter.parameter.name}</td>
+                    <td>{parameter.parameter.kind}</td>
+                    <td>{parameter.parameter.frequency}</td>
                   </tr>
                 ))}
               </tbody>

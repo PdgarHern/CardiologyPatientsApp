@@ -14,7 +14,7 @@ import { usePatientsFetch } from "../hooks/usePatientsFetch";
 import { useDoctorsFetch } from "../hooks/useDoctorsFetch";
 import { useHospitalFetch } from "../hooks/useHospitalFetch";
 // Styles
-import { Wrapper, Content } from "./Users.styles";
+import { Wrapper, ActionButtons, Content } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
 
@@ -71,13 +71,17 @@ const Doctor = () => {
               <h1>Phone Number: {doctorInfo[0].phoneNumber}</h1>
             </div>
           </Content>
-          <Wrapper>
-            <div className="actionButtons">
+          <ActionButtons>
+            <div className="button">
               <ButtonDark text="Patients" callback={handlePatients} />
+            </div>
+            <div className="button">
               <ButtonDark text="Parameters" callback={handleParameter} />
+            </div>
+            <div className="button">
               <ButtonDark text="Templates" callback={handleTemplate} />
             </div>
-          </Wrapper>
+          </ActionButtons>
           {/* <Grid header='Patients'>
             {patients.results.map(patient => (
               <>

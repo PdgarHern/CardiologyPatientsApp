@@ -29,7 +29,23 @@ export const Wrapper = styled.div`
     tbody tr:hover {
       background-color: rgba(0, 0, 0, .075)
     }
+
+    @media screen and (max-width: 500px) {
+      font-size: 0.8rem;
+    }
     
+  }
+
+  .addPatientButton {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .loadMoreButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
 `

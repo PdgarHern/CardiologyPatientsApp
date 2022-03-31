@@ -14,7 +14,7 @@ import Popup from 'reactjs-popup';
 // Hook
 import { useTemplateFetch } from "../hooks/useTemplateFetch";
 // Styles
-import { Wrapper, Content } from "./Users.styles";
+import { Wrapper, ActionButtons, Content } from "./Users.styles";
 
 const PutTemplate = () => {
   const { templateId } = useParams();
@@ -87,26 +87,30 @@ const PutTemplate = () => {
       {template ? (
         <BreadCrumb text={template.name} linkPath={'/post-template'} />
       ) : null}
-      <Wrapper>
+      <>
         {error && <div className="error">There was an error...</div>}
         {!loading && template ? (
           <>
-            <Content>
-              <div className="column">
-                <label>Name</label>
-                <input
-                  type='text'
-                  value={name}
-                  placeholder={template.name}
-                  name='name'
-                  onClick={handleValue}
-                  onChange={handleInput}
-                />
+            <Wrapper>
+              <Content>
+                <div className="column">
+                  <label>Name</label>
+                  <input
+                    type='text'
+                    value={name}
+                    placeholder={template.name}
+                    name='name'
+                    onClick={handleValue}
+                    onChange={handleInput}
+                  />
+                </div>
+              </Content>
+            </Wrapper>
+            <ActionButtons>
+              <div className="button">
+                <ButtonDark text='Update' callback={handleSubmit} />
               </div>
-            </Content>
-            <div className="actionButtons">
-              <ButtonDark text='Update' callback={handleSubmit} />
-              <Popup trigger={<button className="triggerPopup">Delete</button>} modal nested>
+              <Popup trigger={<div className="button"><button className="triggerPopup">Delete</button></div>} modal nested>
                 {close => (
                   <div className="modal">
                     <button className="close" onClick={close}>
@@ -123,15 +127,17 @@ const PutTemplate = () => {
                   </div>
                 )}
               </Popup>
-            </div>
-            <Content>
-              <div className="tables">
-                <TemplateParametersTable templateId={templateId} />
-              </div>
-              <div className="tables">
-                <ParametersTable template={true} updatable={false} templateId={templateId} />
-              </div>
-            </Content>
+            </ActionButtons>
+            <Wrapper>
+              <Content>
+                <div className="tables">
+                  <TemplateParametersTable templateId={templateId} />
+                </div>
+                <div className="tables">
+                  <ParametersTable template={true} updatable={false} templateId={templateId} />
+                </div>
+              </Content>
+            </Wrapper>
           </>
         ) : (
           <>
@@ -139,7 +145,7 @@ const PutTemplate = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </Wrapper>
+      </>
     </>
   )
 }

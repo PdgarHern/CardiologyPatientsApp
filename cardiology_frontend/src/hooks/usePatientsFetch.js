@@ -2,25 +2,32 @@ import { useState, useEffect } from "react";
 // API
 import API from "../API";
 
-const initialState = { results: [] }
+const initialState = { 
+  page: 0,
+  results: [],
+  total_pages: 0
+}
 
 export const usePatientsFetch = () => {
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const fetchPatients = async () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  const fetchPatients = async (page, searchTerm = '') => {
     try {
       setError(false);
       setLoading(true);
 
-      const patients = await API.getPatients();
+      const patients = await API.getPatients(null, searchTerm, page);
 
       if (patients) {
         setState(prev => ({
           ...patients,
           results:
-            [...patients]
+            page > 1 ? [...prev.results, ...patients.results] : [...patients.results]
         }))
       }
 
@@ -33,8 +40,15 @@ export const usePatientsFetch = () => {
 
   useEffect(() => {
     setState(initialState);
-    fetchPatients();
-  }, []);
+    fetchPatients(1, searchTerm);
+  }, [searchTerm]);
 
-  return { state, loading, error };
+  useEffect(() => {
+    if (!isLoadingMore) return;
+
+    fetchPatients(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 }

@@ -10,7 +10,7 @@ import Spinner from "./Spinner";
 // Hook
 import { useParameterFetch } from "../hooks/useParameterFetch";
 // Styles
-import { Wrapper, Content } from "./Users.styles";
+import { Wrapper, ActionButtons, Content } from "./Users.styles";
 
 const PutParameter = () => {
   const { parameterId } = useParams();
@@ -50,8 +50,8 @@ const PutParameter = () => {
     const value = e.currentTarget.value;
 
     if (name === 'name') setName(value);
-    if (kind === 'kind') setKind(value);
-    if (frequency === 'frequency') setFrequency(value);
+    if (name === 'kind') setKind(value);
+    if (name === 'frequency') setFrequency(value);
 
   }
 
@@ -108,46 +108,51 @@ const PutParameter = () => {
       {parameter ? (
         <BreadCrumb text={parameter.name} linkPath={'/post-parameter'} />
       ) : null}
-      <Wrapper>
+      <>
         {error && <div className="error">There was an error...</div>}
         {!loading && parameter ? (
           <>
-            <Content>
-              <div className="column">
-                <label>Name</label>
-                <input
-                  type='text'
-                  value={name}
-                  placeholder={parameter.name}
-                  name='name'
-                  onClick={handleValue}
-                  onChange={handleInput}
-                />
-                <label>Kind</label>
-                <input
-                  type='text'
-                  value={kind}
-                  placeholder={parameter.kind}
-                  name='kind'
-                  onClick={handleValue}
-                  onChange={handleInput}
-                />
-                <label>Frequency</label>
-                <input
-                  type='text'
-                  value={frequency}
-                  placeholder={parameter.frequency}
-                  name='frequency'
-                  onClick={handleValue}
-                  onChange={handleInput}
-                />
+            <Wrapper>
+              <Content>
+                <div className="column">
+                  <label>Name</label>
+                  <input
+                    type='text'
+                    value={name}
+                    placeholder={parameter.name}
+                    name='name'
+                    onClick={handleValue}
+                    onChange={handleInput}
+                  />
+                  <label>Kind</label>
+                  <input
+                    type='text'
+                    value={kind}
+                    placeholder={parameter.kind}
+                    name='kind'
+                    onClick={handleValue}
+                    onChange={handleInput}
+                  />
+                  <label>Frequency</label>
+                  <input
+                    type='text'
+                    value={frequency}
+                    placeholder={parameter.frequency}
+                    name='frequency'
+                    onClick={handleValue}
+                    onChange={handleInput}
+                  />
+                </div>
+              </Content>
+            </Wrapper>
+            <ActionButtons>
+              <div className="button">
+                <ButtonDark text='Update' callback={handleSubmit} />
               </div>
-
-            </Content>
-            <div className="actionButtons">
-              <ButtonDark text='Update' callback={handleSubmit} />
-              <ButtonDark text='Delete' callback={handleDelete} />
-            </div>
+              <div className="button">
+                <ButtonDark text='Delete' callback={handleDelete} />
+              </div>
+            </ActionButtons>
           </>
         ) : (
           <>
@@ -155,7 +160,7 @@ const PutParameter = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </Wrapper>
+      </>
     </>
   )
 }

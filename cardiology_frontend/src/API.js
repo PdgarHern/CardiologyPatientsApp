@@ -72,10 +72,10 @@ const apiSettings = {
   },
 
   // Patient
-  getPatients: async patientId => {
+  getPatients: async (patientId, searchTerm, page) => {
     const endpoint = patientId == null
-      ? `${PATIENTS}`
-      : `${PATIENTS}?id=${patientId}`;
+      ? searchTerm ? `${PATIENTS}?search=${searchTerm}&page=${page}` : `${PATIENTS}?page=${page}`
+      : `${PATIENTS}?id=${patientId}&page=${page}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getPatient: async patientId => {
@@ -142,8 +142,10 @@ const apiSettings = {
   },
 
   // Parameter
-  getParameters: async () => {
-    const endpoint = `${PARAMETERS}`;
+  getParameters: async (searchTerm, page) => {
+    const endpoint = searchTerm 
+      ? `${PARAMETERS}?search=${searchTerm}&page=${page}&hosp=${localStorage.userHosp}`
+      : `${PARAMETERS}?page=${page}&hosp=${localStorage.userHosp}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getParameter: async parameterId => {

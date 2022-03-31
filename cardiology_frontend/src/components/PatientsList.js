@@ -2,13 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 // Components
 import BreadCrumb from "./BreadCrumb";
+import SearchBar from "./SearchBar";
+import ButtonDark from "./ButtonDark";
 // Hooks
 import { usePatientsFetch } from "../hooks/usePatientsFetch";
 // Styles
 import { Wrapper } from "./Lists.styles";
 
 const PatientsList = () => {
-  const { state: patients } = usePatientsFetch();
+  const { state: patients, loading, error, searchTerm, setSearchTerm, setIsLoadingMore } = usePatientsFetch();
 
   const navigate = useNavigate();
 
@@ -17,38 +19,56 @@ const PatientsList = () => {
     navigate(`/patient/${e.currentTarget.dataset.value}`);
   }
 
+  const handleAuth = () => {
+    navigate("/");
+  }
+
   return (
     <>
-    <BreadCrumb text="Patients List" linkPath={"/"} />
-    <Wrapper>
-      <h1>Patients</h1>
-      {patients && (
-        <table className="table">
-          <thead>
-            <th>Clinic Record</th>
-            <th>Birth Date</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Phone Number</th>
-          </thead>
-          <tbody>
-            {patients.results.map(patient => (
-              <>
-                {patient.hospital_id == localStorage.userHosp && (
-                  <tr onClick={handleClick} data-value={patient.id}>
-                    <td>{patient.clinicRecord}</td>
-                    <td>{patient.birthDate}</td>
-                    <td>{patient.name}</td>
-                    <td>{patient.gender}</td>
-                    <td>{patient.phoneNumber}</td>
-                  </tr>
-                )}
-              </>
-            ))}
-          </tbody>
-        </table>
+      {localStorage.userRol != "doctor" && (
+        handleAuth()
       )}
-    </Wrapper>
+      <BreadCrumb text="Patients List" linkPath={"/"} />
+      <Wrapper>
+        <h1>Patients</h1>
+        <div className="addPatientButton">
+          <ButtonDark text="Add patient" callback={() => navigate("/register-patient")} />
+        </div>
+        {patients && (
+          <>
+            <SearchBar setSearchTerm={setSearchTerm} />
+            <table className="table">
+              <thead>
+                <th>Clinic Record</th>
+                <th>Name</th>
+                <th>Birth Date</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+              </thead>
+              <tbody>
+                {patients.results.map(patient => (
+                  <>
+                    {patient.hospital_id == localStorage.userHosp && (
+                      <tr onClick={handleClick} data-value={patient.id}>
+                        <td>{patient.clinicRecord}</td>
+                        <td>{patient.name}</td>
+                        <td>{patient.birthDate}</td>
+                        <td>{patient.gender}</td>
+                        <td>{patient.phoneNumber}</td>
+                      </tr>
+                    )}
+                  </>
+                ))}
+              </tbody>
+            </table>
+            {patients.page < patients.total_pages && !loading && (
+              <div className="loadMoreButton">
+                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+              </div>
+            )}
+          </>
+        )}
+      </Wrapper>
     </>
   )
 }

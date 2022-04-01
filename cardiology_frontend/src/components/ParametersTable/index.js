@@ -54,7 +54,7 @@ const ParametersTable = ({ template, updatable, templateId }) => {
     }
   }
 
-  console.log(parameters.results)
+  console.log(parameters)
 
   return (
     <>
@@ -62,7 +62,12 @@ const ParametersTable = ({ template, updatable, templateId }) => {
         <>
           <Wrapper>
             <h1>Parameters</h1>
-            <SearchBar setSearchTerm={setSearchTerm} />
+            {!template && (
+              <div className="addPatientButton">
+                <ButtonDark text="Add parameter" callback={() => navigate("/post-parameter")} />
+              </div>
+            )}
+            <SearchBar placeholder={"Search Parameter"} setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
@@ -77,7 +82,6 @@ const ParametersTable = ({ template, updatable, templateId }) => {
               <tbody>
                 {parameters.results.map(parameter => (
                   <>
-                    {console.log(parameter)}
                     {parameter.hospital_id == localStorage.userHosp ? (
                       <tr onClick={handleClick} data-value={parameter.id}>
                         {template && (
@@ -97,7 +101,9 @@ const ParametersTable = ({ template, updatable, templateId }) => {
               </tbody>
             </table>
             {parameters.page < parameters.total_pages && (
-              <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+              <div className="loadMoreButton">
+                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+              </div>
             )}
           </Wrapper>
           {parameterId != '' && (

@@ -4,11 +4,13 @@ class FollowuptemplatesParametersController < ApplicationController
 
   # GET /followuptemplates_parameters
   def index
-    @q = FollowuptemplatesParameter.ransack(followuptemplate_id_eq: params[:id]);
+    @q = FollowuptemplatesParameter.ransack(followuptemplate_id_eq: params[:id], parameter_name_cont: params[:search])
 
-    @followuptemplates_parameters = @q.result(distinct: true).all
+    @followuptemplates_parameters = @q.result(distinct: true).all.page params[:page]
 
-    render json: @followuptemplates_parameters
+    @followuptemplatesParametersSerialized = ActiveModel::SerializableResource.new(@followuptemplates_parameters).serializable_hash
+
+    render json: {page: Integer(params[:page]), results: @followuptemplatesParametersSerialized, total_pages: @followuptemplates_parameters.total_pages}
   end
 
   # GET /followuptemplates_parameters/1

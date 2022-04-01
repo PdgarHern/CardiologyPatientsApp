@@ -9,18 +9,21 @@ export const useTemplatesFetch = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const fetchTemplates = async () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  const fetchTemplates = async (page, searchTerm = '') => {
     try {
       setError(false);
       setLoading(true);
 
-      const templates = await API.getTemplates();
+      const templates = await API.getTemplates(searchTerm, page);
 
       if (templates) {
         setState(prev => ({
           ...templates,
           results:
-            [...templates]
+          page > 1 ? [...prev.results, ...templates.results] : [...templates.results]
         }))
       }
 
@@ -33,8 +36,15 @@ export const useTemplatesFetch = () => {
 
   useEffect(() => {
     setState(initialState);
-    fetchTemplates();
-  }, []);
+    fetchTemplates(1, searchTerm);
+  }, [searchTerm]);
 
-  return { state, loading, error };
+  useEffect(() => {
+    if (!isLoadingMore) return;
+
+    fetchTemplates(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 }

@@ -115,6 +115,14 @@ export const Wrapper = styled.div`
 
 `;
 
+export const ButtonsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
+
 export const ActionButtons = styled.div`
   width: 100%;
   display: flex;

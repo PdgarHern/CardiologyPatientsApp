@@ -48,4 +48,4 @@ export const Wrapper = styled.div`
     justify-content: center;
   }
 
-`
+`;

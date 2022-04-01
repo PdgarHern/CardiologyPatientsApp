@@ -14,7 +14,7 @@ import Popup from 'reactjs-popup';
 // Hook
 import { useTemplateFetch } from "../hooks/useTemplateFetch";
 // Styles
-import { Wrapper, ActionButtons, Content } from "./Users.styles";
+import { Wrapper, ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
 
 const PutTemplate = () => {
   const { templateId } = useParams();
@@ -51,7 +51,7 @@ const PutTemplate = () => {
 
       setLoading(false);
 
-      navigate('/post-template');
+      navigate('/templates');
 
     } catch (error) {
       setError(true);
@@ -65,7 +65,7 @@ const PutTemplate = () => {
 
       await API.deleteTemplate(template.id);
 
-      navigate('/post-template');
+      navigate('/templates');
 
     } catch (error) {
       setError(true);
@@ -85,7 +85,7 @@ const PutTemplate = () => {
         handleAuth()
       )}
       {template ? (
-        <BreadCrumb text={template.name} linkPath={'/post-template'} />
+        <BreadCrumb text={template.name} linkPath={'/templates'} />
       ) : null}
       <>
         {error && <div className="error">There was an error...</div>}
@@ -106,28 +106,36 @@ const PutTemplate = () => {
                 </div>
               </Content>
             </Wrapper>
-            <ActionButtons>
-              <div className="button">
-                <ButtonDark text='Update' callback={handleSubmit} />
-              </div>
-              <Popup trigger={<div className="button"><button className="triggerPopup">Delete</button></div>} modal nested>
-                {close => (
-                  <div className="modal">
-                    <button className="close" onClick={close}>
-                      &times;
-                    </button>
-                    <div className="header">Are you sure?</div>
-                    <div className="content">
-                      Do you want to delete the template?
+            <ButtonsWrapper>
+              <ActionButtons>
+                <div className="button">
+                  <ButtonDark text='Update' callback={handleSubmit} />
+                </div>
+                <Popup trigger={<div className="button"><button className="triggerPopup">Delete</button></div>} modal nested>
+                  {close => (
+                    <div className="modal">
+                      <button className="close" onClick={close}>
+                        &times;
+                      </button>
+                      <div className="header">Are you sure?</div>
+                      <div className="content">
+                        Do you want to delete the template?
+                      </div>
+                      <ButtonsWrapper>
+                        <ActionButtons>
+                          <div className="actions">
+                            <ButtonDark text="Confirm" callback={handleDelete} />
+                          </div>
+                          <div className="actions">
+                            <ButtonDark text="Cancel" callback={() => close()} />
+                          </div>
+                        </ActionButtons>
+                      </ButtonsWrapper>
                     </div>
-                    <div className="actions">
-                      <ButtonDark text="Confirm" callback={handleDelete} />
-                      <ButtonDark text="Cancel" callback={() => close()} />
-                    </div>
-                  </div>
-                )}
-              </Popup>
-            </ActionButtons>
+                  )}
+                </Popup>
+              </ActionButtons>
+            </ButtonsWrapper>
             <Wrapper>
               <Content>
                 <div className="tables">

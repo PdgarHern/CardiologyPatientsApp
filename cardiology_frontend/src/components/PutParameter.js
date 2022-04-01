@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // API
@@ -10,7 +10,7 @@ import Spinner from "./Spinner";
 // Hook
 import { useParameterFetch } from "../hooks/useParameterFetch";
 // Styles
-import { Wrapper, ActionButtons, Content } from "./Users.styles";
+import { Wrapper, ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
 
 const PutParameter = () => {
   const { parameterId } = useParams();
@@ -25,25 +25,33 @@ const PutParameter = () => {
 
   const navigate = useNavigate();
 
-  const handleValue = (e) => {
-    const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
-    const placeholder = e.currentTarget.placeholder;
+  useEffect(() => {
+    if (parameter != null) {
+      setName(parameter.name);
+      setKind(parameter.kind);
+      setFrequency(parameter.frequency);
+    }
+  }, [parameter])
 
-    if (name === 'name' && value === '') {
-      setName(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-    if (name === 'kind' && value === '') {
-      setKind(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-    if (name === 'frequency' && value === '') {
-      setFrequency(placeholder);
-      e.currentTarget.placeholder = '';
-    };
+  // const handleValue = (e) => {
+  //   const name = e.currentTarget.name;
+  //   const value = e.currentTarget.value;
+  //   const placeholder = e.currentTarget.placeholder;
 
-  }
+  //   if (name === 'name' && value === '') {
+  //     setName(placeholder);
+  //     e.currentTarget.placeholder = '';
+  //   };
+  //   if (name === 'kind' && value === '') {
+  //     setKind(placeholder);
+  //     e.currentTarget.placeholder = '';
+  //   };
+  //   if (name === 'frequency' && value === '') {
+  //     setFrequency(placeholder);
+  //     e.currentTarget.placeholder = '';
+  //   };
+
+  // }
 
   const handleInput = (e) => {
     const name = e.currentTarget.name;
@@ -70,7 +78,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate(`/post-parameter`);
+      navigate(`/parameters`);
 
     } catch (error) {
       setError(true);
@@ -86,7 +94,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate('/post-parameter');
+      navigate('/parameters');
 
     } catch (error) {
       setError(true);
@@ -99,14 +107,11 @@ const PutParameter = () => {
 
   return (
     <>
-      {!localStorage.userId && (
-        handleAuth()
-      )}
       {localStorage.userRol != 'doctor' && (
         handleAuth()
       )}
       {parameter ? (
-        <BreadCrumb text={parameter.name} linkPath={'/post-parameter'} />
+        <BreadCrumb text={parameter.name} linkPath={'/parameters'} />
       ) : null}
       <>
         {error && <div className="error">There was an error...</div>}
@@ -119,40 +124,36 @@ const PutParameter = () => {
                   <input
                     type='text'
                     value={name}
-                    placeholder={parameter.name}
                     name='name'
-                    onClick={handleValue}
                     onChange={handleInput}
                   />
                   <label>Kind</label>
                   <input
                     type='text'
                     value={kind}
-                    placeholder={parameter.kind}
                     name='kind'
-                    onClick={handleValue}
                     onChange={handleInput}
                   />
                   <label>Frequency</label>
                   <input
                     type='text'
                     value={frequency}
-                    placeholder={parameter.frequency}
                     name='frequency'
-                    onClick={handleValue}
                     onChange={handleInput}
                   />
                 </div>
               </Content>
             </Wrapper>
-            <ActionButtons>
-              <div className="button">
-                <ButtonDark text='Update' callback={handleSubmit} />
-              </div>
-              <div className="button">
-                <ButtonDark text='Delete' callback={handleDelete} />
-              </div>
-            </ActionButtons>
+            <ButtonsWrapper>
+              <ActionButtons>
+                <div className="button">
+                  <ButtonDark text='Update' callback={handleSubmit} />
+                </div>
+                <div className="button">
+                  <ButtonDark text='Delete' callback={handleDelete} />
+                </div>
+              </ActionButtons>
+            </ButtonsWrapper>
           </>
         ) : (
           <>

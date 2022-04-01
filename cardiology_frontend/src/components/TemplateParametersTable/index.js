@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom";
 import API from "../../API";
 // Components
 import ButtonDark from "../ButtonDark";
+import SearchBar from "../SearchBar";
 // Hook
-import { useTemplateFetch } from "../../hooks/useTemplateFetch";
 import { useTemplateParamsFetch } from "../../hooks/useTemplateParamsFetch";
 // Styles 
 import { Wrapper } from "./TemplateParametersTable.styles";
 
 const TemplateParametersTable = ({ templateId }) => {
-  const { state: template } = useTemplateFetch(templateId);
-  const { state: templatesParams } = useTemplateParamsFetch(templateId);
+  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplateParamsFetch(templateId);
 
   console.log(templatesParams.results);
 
@@ -23,18 +22,14 @@ const TemplateParametersTable = ({ templateId }) => {
   const handleClick = (e, t) => {
     setParameterId(e.currentTarget.dataset.value);
 
-    // console.log(document.getElementById(`${e.currentTarget.dataset.value}`).checked);
-
   }
 
   const handleDelete = async () => {
     try {
-      // console.log(parameterId);
       templatesParams.results.map(async (templateParam) => {
-        if (document.getElementById(`${templateParam.parameter_id}`).checked) {
+        if (document.getElementById(`${templateParam.parameter.id}`).checked) {
 
           await API.deleteTemplateParam(templateParam.id);
-          // console.log(templateParam.parameter_id);
 
         }
       })
@@ -53,10 +48,11 @@ const TemplateParametersTable = ({ templateId }) => {
 
   return (
     <>
-      {template.parameters && (
+      {templatesParams && (
         <>
           <Wrapper>
             <h1>Template Parameters</h1>
+            <SearchBar placeholder={"Search Parameter"} setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
@@ -81,6 +77,11 @@ const TemplateParametersTable = ({ templateId }) => {
                 ))}
               </tbody>
             </table>
+            {templatesParams.page < templatesParams.total_pages && (
+              <div className="loadMoreButton">
+                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+              </div>
+            )}
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Delete Parameter" callback={handleDelete} />

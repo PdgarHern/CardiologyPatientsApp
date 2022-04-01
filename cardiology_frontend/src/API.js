@@ -118,10 +118,12 @@ const apiSettings = {
   },
 
   // Followup
-  getFollowUps: async patientId => {
+  getFollowUps: async (patientId, searchTerm, page) => {
     const endpoint = patientId == null
       ? `${FOLLOWUPS}`
-      : `${FOLLOWUPS}?id=${patientId}`
+      : searchTerm
+        ? `${FOLLOWUPS}?id=${patientId}&search=${searchTerm}&page=${page}`
+        : `${FOLLOWUPS}?id=${patientId}&page=${page}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getFollowUp: async followUpId => {
@@ -166,8 +168,10 @@ const apiSettings = {
   },
 
   // Followuptemplate
-  getTemplates: async () => {
-    const endpoint = `${TEMPLATES}`;
+  getTemplates: async (searchTerm, page) => {
+    const endpoint = searchTerm
+      ? `${TEMPLATES}?hosp=${localStorage.userHosp}&search=${searchTerm}&page=${page}`
+      : `${TEMPLATES}?hosp=${localStorage.userHosp}&page=${page}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getTemplate: async templateId => {
@@ -188,10 +192,12 @@ const apiSettings = {
   },
 
   // Followuptemplate-Parameter
-  getTemplatesParams: async templateId => {
+  getTemplatesParams: async (templateId, searchTerm, page) => {
     const endpoint = templateId == null
       ? `${TEMPLATES_PARAMS}`
-      : `${TEMPLATES_PARAMS}?id=${templateId}`;
+      : searchTerm 
+        ? `${TEMPLATES_PARAMS}?id=${templateId}&search=${searchTerm}&page=${page}`
+        : `${TEMPLATES_PARAMS}?id=${templateId}&page=${page}`;
     return await (await fetch(endpoint, {headers: {'Authorization': localStorage.userToken}})).json();
   },
   getTemplateParam: async templateParamId => {
@@ -236,10 +242,12 @@ const apiSettings = {
   },
 
   // Chat
-  getChats: async (doctorId, patientId) => {
+  getChats: async (doctorId, patientId, searchTerm, page) => {
     const endpoint = doctorId == null
-      ? `${CHATS}?patientId=${patientId}`
-      : `${CHATS}?doctorId=${doctorId}&patientId=${patientId}`;
+      ? searchTerm
+        ? `${CHATS}?patientId=${patientId}&search=${searchTerm}&page=${page}`
+        : `${CHATS}?patientId=${patientId}&page=${page}`
+      : `${CHATS}?doctorId=${doctorId}&patientId=${patientId}&page=${page}`;
     return await (await fetch(endpoint)).json();
   },
   getChat: async chatId => {

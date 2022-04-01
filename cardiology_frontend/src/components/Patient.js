@@ -6,7 +6,7 @@ import ButtonDark from "./ButtonDark";
 // Hook
 import { usePatientFetch } from "../hooks/usePatientFetch";
 // Styles
-import { Content } from "./Users.styles";
+import { ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
 // Images
 import UserPic from "../images/userpic.png";
 
@@ -62,8 +62,16 @@ const Patient = () => {
               <h1>Phone Number: {patientInfo.results[0].phoneNumber}</h1>
             </div>
           </Content>
-          <ButtonDark text='Follow-Ups' callback={handleFollowUps} />
-          <ButtonDark text='Chats' callback={handleChats} />
+          <ButtonsWrapper>
+            <ActionButtons>
+              <div className="button">
+                <ButtonDark text='Follow-Ups' callback={handleFollowUps} />
+              </div>
+              <div className="button">
+                <ButtonDark text='Chats' callback={handleChats} />
+              </div>
+            </ActionButtons>
+          </ButtonsWrapper>
         </>
       ) : null}
     </>

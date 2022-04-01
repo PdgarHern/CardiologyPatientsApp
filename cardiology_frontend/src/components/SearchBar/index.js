@@ -5,7 +5,7 @@ import CleanInput from "../../images/cleanInputIcon.png";
 // Styles
 import { Wrapper, SearchInput, CleanButton, SearchImage, CleanIcon } from "./SearchBar.styles";
 
-const SearchBar = ({ setSearchTerm }) => {
+const SearchBar = ({ placeholder, setSearchTerm }) => {
   const [state, setState] = useState('');
   const initial = useRef(true);
 
@@ -26,7 +26,7 @@ const SearchBar = ({ setSearchTerm }) => {
     <Wrapper>
       <SearchInput
         type="text"
-        placeholder="Search Pacient"
+        placeholder={placeholder}
         onChange={event => setState(event.currentTarget.value)}
         value={state}
       />

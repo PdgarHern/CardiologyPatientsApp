@@ -2,25 +2,32 @@ import { useState, useEffect } from "react";
 // API
 import API from "../API";
 
-const initialState = { results: [] }
+const initialState = {
+  page: 0,
+  results: [],
+  total_pages: 0
+}
 
 export const useTemplateParamsFetch = templateId => {
   const [state, setState] = useState(initialState);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const fetchTemplatesParams = async () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+  const fetchTemplatesParams = async (page, searchTerm = '') => {
     try {
       setError(false);
       setLoading(true);
 
-      const templatesParams = await API.getTemplatesParams(templateId);
+      const templatesParams = await API.getTemplatesParams(templateId, searchTerm, page);
 
       if (templatesParams) {
         setState(prev => ({
           ...templatesParams,
           results:
-            [...templatesParams]
+            page > 1 ? [...prev.results, ...templatesParams.results] : [...templatesParams.results]
         }))
       }
       
@@ -33,8 +40,15 @@ export const useTemplateParamsFetch = templateId => {
 
   useEffect(() => {
     setState(initialState);
-    fetchTemplatesParams();
-  }, []);
+    fetchTemplatesParams(1, searchTerm);
+  }, [searchTerm]);
 
-  return { state, loading, error };
+  useEffect(() => {
+    if (!isLoadingMore) return;
+
+    fetchTemplatesParams(state.page + 1, searchTerm);
+    setIsLoadingMore(false);
+  }, [isLoadingMore, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
 }

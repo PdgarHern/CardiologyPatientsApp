@@ -6,7 +6,7 @@ class ParametersController < ApplicationController
   def index
     @q = Parameter.ransack(name_cont: params[:search], hospital_id_eq: params[:hosp])
 
-    @parameters = @q.result(distinc: true).all.page params[:page]
+    @parameters = @q.result(distinct: true).all.page params[:page]
 
     @parametersSerialized = ActiveModel::SerializableResource.new(@parameters).serializable_hash
 

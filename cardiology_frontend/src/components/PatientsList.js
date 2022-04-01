@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useTable, useSortBy } from "react-table";
 // Components
 import BreadCrumb from "./BreadCrumb";
 import SearchBar from "./SearchBar";
@@ -28,7 +30,7 @@ const PatientsList = () => {
       {localStorage.userRol != "doctor" && (
         handleAuth()
       )}
-      <BreadCrumb text="Patients List" linkPath={"/"} />
+      <BreadCrumb text="Patients List" linkPath={`/doctor-profile/${localStorage.userId}`} />
       <Wrapper>
         <h1>Patients</h1>
         <div className="addPatientButton">
@@ -36,7 +38,7 @@ const PatientsList = () => {
         </div>
         {patients && (
           <>
-            <SearchBar setSearchTerm={setSearchTerm} />
+            <SearchBar placeholder={"Search Patient"} setSearchTerm={setSearchTerm} />
             <table className="table">
               <thead>
                 <th>Clinic Record</th>

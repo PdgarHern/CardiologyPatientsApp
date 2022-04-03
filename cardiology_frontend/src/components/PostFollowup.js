@@ -18,12 +18,24 @@ const PostFollowup = () => {
   var today = new Date();
 
   var date = null;
+ 
   
-  if (today.getMonth() > 9) {
+  if (today.getMonth() > 9 && today.getDate() > 9) {
     date = today.getFullYear() + '-' + (today.getMonth() +1) + '-' + today.getDate();
-  } else {
-    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-' + today.getDate();
+    console.log(date);
+  } 
+  else if(today.getMonth()>9 && today.getDate()<9){
+    date = today.getFullYear() + '-' + (today.getMonth() +1) + '-0' + today.getDate();
+    console.log(date)
+
   }
+  else if(today.getMonth()<9 && today.getDate()<9){
+    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-0' + today.getDate();
+    console.log(date)
+
+  }
+  
+  
   
   const { state: templates } = useTemplatesFetch();
 
@@ -172,7 +184,7 @@ const PostFollowup = () => {
             {endDateInvalid && <div className="formError">*Select a valid date</div>}
             <label>Template</label>
             <select id="selectTemplate" name='template' value={template} onChange={handleInput}>
-              <option value='null'></option>
+              <option value='null'>Select</option>
               {templates.results.map(template => (
                 <>
                   {template.hospital_id == localStorage.userHosp ? (

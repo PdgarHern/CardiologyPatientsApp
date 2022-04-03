@@ -36,11 +36,11 @@ const PostParameter = () => {
 
   const handleSubmit = async () => {
     try {
-      if (name != '') {
+      if (name !== '') {
 
-        if (kind != '') {
+        if (kind !== '') {
 
-          if (frequency != '') {
+          if (frequency !== '') {
 
             setLoading(true);
 
@@ -102,7 +102,7 @@ const PostParameter = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
-      {localStorage.userRol != 'doctor' && (
+      {localStorage.userRol !== 'doctor' && (
         handleAuth()
       )}
       <BreadCrumb text="Create Parameter" linkPath={`/doctor-profile/${localStorage.userId}`} />
@@ -119,13 +119,15 @@ const PostParameter = () => {
             />
             {nameError && <div className="formError">*Write a name</div>}
             <label>Kind</label>
-            <input
-              type='text'
-              value={kind}
-              name='kind'
-              onChange={handleInput}
-            />
-            {kindError && <div className="formError">*Write a kind</div>}
+            <select name='kind' value={kind} onChange={handleInput}>
+
+              <option>Select</option>
+              <option>Numeric</option>
+              <option>Numeric with two values</option>
+              <option>Yes or No</option>
+
+            </select>
+            {kindError && <div className="formError">*Select a kind</div>}
             <label>Frequency</label>
             <input
               type='text'

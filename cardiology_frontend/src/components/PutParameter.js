@@ -50,8 +50,8 @@ const PutParameter = () => {
     const value = e.currentTarget.value;
 
     if (name === 'name') setName(value);
-    if (kind === 'kind') setKind(value);
-    if (frequency === 'frequency') setFrequency(value);
+    if (name === 'kind') setKind(value);
+    if (name === 'frequency') setFrequency(value);
 
   }
 
@@ -62,9 +62,9 @@ const PutParameter = () => {
 
       const formData = new FormData();
 
-      if (name != '') formData.append('parameter[name]', name);
-      if (kind != '') formData.append('parameter[kind]', kind);
-      if (frequency != '') formData.append('parameter[frequency]', frequency);
+      if (name !== '') formData.append('parameter[name]', name);
+      if (kind !== '') formData.append('parameter[kind]', kind);
+      if (frequency !== '') formData.append('parameter[frequency]', frequency);
 
       await API.updateParameter(parameter.id, formData);
 
@@ -102,7 +102,7 @@ const PutParameter = () => {
       {!localStorage.userId && (
         handleAuth()
       )}
-      {localStorage.userRol != 'doctor' && (
+      {localStorage.userRol !== 'doctor' && (
         handleAuth()
       )}
       {parameter ? (
@@ -124,16 +124,15 @@ const PutParameter = () => {
                   onChange={handleInput}
                 />
                 <label>Kind</label>
-                <input
-                  type='text'
-                  value={kind}
-                  placeholder={parameter.kind}
-                  name='kind'
-                  onClick={handleValue}
-                  onChange={handleInput}
-                />
+                <select name='kind' onChange={handleInput} onClick={handleValue}>
+                  <option>{parameter.kind}</option>
+                  <option>Numeric</option>
+                  <option>Numeric with two values</option>
+                  <option>Yes or No</option> 
+                </select>
                 <label>Frequency</label>
                 <input
+                  key={parameter.frequency}
                   type='text'
                   value={frequency}
                   placeholder={parameter.frequency}

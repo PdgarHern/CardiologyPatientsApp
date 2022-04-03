@@ -4,9 +4,13 @@ class ParametersController < ApplicationController
 
   # GET /parameters
   def index
-    @parameters = Parameter.all
+    @q = Parameter.ransack(name_cont: params[:search], hospital_id_eq: params[:hosp])
 
-    render json: @parameters
+    @parameters = @q.result(distinct: true).all.page params[:page]
+
+    @parametersSerialized = ActiveModel::SerializableResource.new(@parameters).serializable_hash
+
+    render json: {page: Integer(params[:page]), results: @parametersSerialized, total_pages: @parameters.total_pages}
   end
 
   # GET /parameters/1

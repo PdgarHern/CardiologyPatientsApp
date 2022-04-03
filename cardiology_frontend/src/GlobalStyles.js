@@ -93,4 +93,60 @@ export const GlobalStyle = createGlobalStyle`
 
   }
 
+  .popup-content {
+    width: 30% !important;
+    border-radius: 20px;
+
+    @media screen and (max-width: 1000px) {
+      width: 60% !important;
+    }
+
+    @media screen and (max-width: 500px) {
+      width: 80% !important;
+    }
+  }
+
+  .modal {
+    font-size: var(--fontMed);
+  }
+
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: var(--fontBig);
+    text-align: center;
+    padding: 5px;
+  }
+
+  .modal > .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 5px;
+  }
+
+  .modal > .actions {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+
 `;

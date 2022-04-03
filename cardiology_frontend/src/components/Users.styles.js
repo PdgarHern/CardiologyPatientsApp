@@ -46,29 +46,6 @@ export const Wrapper = styled.div`
     border-radius: 10px;
   }
 
-  .actionButtons {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: row;
-    margin: 0;
-    flex: 1;
-
-    :first-child {
-      margin-left: 0;
-    }
-
-    :last-child {
-      margin-right: 0;
-    }
-
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-  }
-
   .bottomLine {
     width: 100%;
     height: 80px;
@@ -137,6 +114,60 @@ export const Wrapper = styled.div`
   }
 
 `;
+
+export const ButtonsWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+`
+
+export const ActionButtons = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0;
+  max-width: var(--maxWidth);
+
+  .button {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+  }
+
+  .triggerPopup {
+    display: block;
+    background: var(--darkGreen);
+    width: 25%;
+    min-width: 200px;
+    height: 60px;
+    border-radius: 30px;
+    color: var(--white);
+    border: 0;
+    font-size: var(--fontBig);
+    margin: 0px;
+    transition: all 0.3s;
+    outline: none;
+    cursor: pointer;
+
+    :hover {
+      opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      min-width: 120px;
+      font-size: var(--fontMed);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+
+`
 
 export const Content = styled.div`
   display: flex;
@@ -226,7 +257,6 @@ export const Content = styled.div`
     flex-direction: column;
     border-radius: 20px;
     margin: 0;
-    padding-bottom: 200px;
     flex: 1;
 
     :first-child {

@@ -16,7 +16,7 @@ export const usePatientFetch = (patientId, option) => {
         var patient = null;
 
         if (option == 'profile') {
-          patient = await API.getPatients(patientId);
+          patient = await API.getPatients(patientId, null, 1);
 
         } else {
           patient = await API.getPatient(patientId);

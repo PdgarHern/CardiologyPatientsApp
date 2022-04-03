@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -8,6 +9,12 @@ export const Wrapper = styled.div`
   max-width: var(--maxWidth);
   padding: 20px;
   color: var(--darkGrey);
+
+  .loadMoreButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   .table {
     width: 100%;
@@ -29,6 +36,11 @@ export const Wrapper = styled.div`
       background-color: rgba(0, 0, 0, .075)
     }
     
+  }
+
+  .checkbox {
+    width: 20px;
+    margin: 0;
   }
 
   #id {

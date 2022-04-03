@@ -4,9 +4,13 @@ class FollowuptemplatesController < ApplicationController
 
   # GET /followuptemplates
   def index
-    @followuptemplates = Followuptemplate.all
+    @q = Followuptemplate.ransack(name_cont: params[:search], hospital_id_eq: params[:hosp])
 
-    render json: @followuptemplates
+    @followuptemplates = @q.result(distinct: true).all.page params[:page]
+
+    @followuptemplatesSerialized = ActiveModel::SerializableResource.new(@followuptemplates).serializable_hash
+
+    render json: {page: Integer(params[:page]), results: @followuptemplatesSerialized, total_pages: @followuptemplates.total_pages}
   end
 
   # GET /followuptemplate-last

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -17,9 +18,13 @@ export const Wrapper = styled.div`
     border: 1px solid var(--lightGrey);
 
     td, th {
-    padding: .75rem;
-    vertical-align: top;
+      padding: .75rem;
+      vertical-align: top;
     }
+
+    /* td:active {
+      background: red;
+    } */
 
     tbody tr:nth-of-type(odd) {
       background-color: rgba(0, 0, 0, .05)
@@ -29,6 +34,11 @@ export const Wrapper = styled.div`
       background-color: rgba(0, 0, 0, .075)
     }
     
+  }
+
+  .checkbox {
+    width: 20px;
+    margin: 0;
   }
 
   #id {

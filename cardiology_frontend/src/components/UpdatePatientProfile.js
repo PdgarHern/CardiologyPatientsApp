@@ -16,7 +16,8 @@ import { Wrapper, Content } from "./Users.styles";
 import UserPic from "../images/userpic.png";
 
 const UpdatePatientProfile = () => {
-  const { state: info } = usePatientFetch(localStorage.userId, 'profile');
+  const userId = useParams();
+  const { state: info } = usePatientFetch(userId.patientId);
   const { state: hospitals } = useHospitalsFetch();
 
   const [name, setName] = useState('');
@@ -85,6 +86,8 @@ const UpdatePatientProfile = () => {
       setError(false);
       setLoading(true);
 
+      console.log("hola");
+
       const formData = new FormData();
 
       if (name != '') formData.append('patient[name]', name);
@@ -99,7 +102,7 @@ const UpdatePatientProfile = () => {
       }
       if (img != null) formData.append('patient[img]', img);
 
-      await API.updatePatient(info[0].id, formData);
+      await API.updatePatient(info.id, formData);
 
       setLoading(false);
 
@@ -127,14 +130,14 @@ const UpdatePatientProfile = () => {
       ) : null}
       <Wrapper>
         {error && <div className="error">There was an error...</div>}
-        {!loading && info[0] ? (
+        {!loading && info ? (
           <Content>
             <div className="column">
               <label>Name</label>
               <input
                 type='text'
                 value={name}
-                placeholder={info[0].name}
+                placeholder={info.name}
                 name='name'
                 onClick={handleValue}
                 onChange={handleInput}
@@ -143,7 +146,7 @@ const UpdatePatientProfile = () => {
               <input
                 type='text'
                 value={clinicRecord}
-                placeholder={info[0].clinicRecord}
+                placeholder={info.clinicRecord}
                 name='clinicRecord'
                 onClick={handleValue}
                 onChange={handleInput}
@@ -152,7 +155,7 @@ const UpdatePatientProfile = () => {
               <input
                 type='text'
                 value={gender}
-                placeholder={info[0].gender}
+                placeholder={info.gender}
                 name='gender'
                 onClick={handleValue}
                 onChange={handleInput}
@@ -161,7 +164,7 @@ const UpdatePatientProfile = () => {
               <input
                 type='date'
                 value={birthDate}
-                placeholder={info[0].birthDate}
+                placeholder={info.birthDate}
                 name='birthDate'
                 onClick={handleValue}
                 onChange={handleInput}
@@ -170,7 +173,7 @@ const UpdatePatientProfile = () => {
               <input
                 type='text'
                 value={phoneNumber}
-                placeholder={info[0].phoneNumber}
+                placeholder={info.phoneNumber}
                 name='phoneNumber'
                 onClick={handleValue}
                 onChange={handleInput}
@@ -179,7 +182,7 @@ const UpdatePatientProfile = () => {
               <input
                 type='text'
                 value={consentRGPD}
-                placeholder={info[0].consentRGPD}
+                placeholder={info.consentRGPD}
                 name='consentRGPD'
                 onClick={handleValue}
                 onChange={handleInput}

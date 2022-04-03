@@ -4,11 +4,13 @@ class FollowupsController < ApplicationController
 
   # GET /followups
   def index
-    @q = Followup.ransack(patient_id_eq: params[:id]);
+    @q = Followup.ransack(patient_id_eq: params[:id], startDate_cont: params[:search]);
 
-    @followups = @q.result(distinct: true).all
+    @followups = @q.result(distinct: true).all.page params[:page]
 
-    render json: @followups
+    @followupsSearialized = ActiveModel::SerializableResource.new(@followups).serializable_hash
+
+    render json: {page: Integer(params[:page]), results: @followupsSearialized, total_pages: @followups.total_pages}
   end
 
   # GET /followups/1

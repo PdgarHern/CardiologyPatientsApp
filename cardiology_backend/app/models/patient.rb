@@ -4,4 +4,6 @@ class Patient < ApplicationRecord
     has_many :chats, dependent: :delete_all
     has_many :messages
     has_one_attached :img
+
+    paginates_per 20
 end

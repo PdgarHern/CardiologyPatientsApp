@@ -4,31 +4,30 @@ import { useNavigate } from "react-router-dom";
 import API from "../../API";
 // Components
 import ButtonDark from "../ButtonDark";
+import SearchBar from "../SearchBar";
 // Hook
-import { useTemplateFetch } from "../../hooks/useTemplateFetch";
 import { useTemplateParamsFetch } from "../../hooks/useTemplateParamsFetch";
 // Styles 
 import { Wrapper } from "./TemplateParametersTable.styles";
 
 const TemplateParametersTable = ({ templateId }) => {
-  const { state: template } = useTemplateFetch(templateId);
-  const { state: templatesParams } = useTemplateParamsFetch(templateId);
+  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplateParamsFetch(templateId);
+
+  console.log(templatesParams.results);
 
   const [parameterId, setParameterId] = useState('');
-  const [templateParamId, setTemplateParamId] = useState('');
 
   const navigate = useNavigate();
 
-  const handleClick = (e) => {
+  const handleClick = (e, t) => {
     setParameterId(e.currentTarget.dataset.value);
 
   }
 
   const handleDelete = async () => {
     try {
-      console.log(parameterId);
       templatesParams.results.map(async (templateParam) => {
-        if (templateParam.parameter_id == parameterId) {
+        if (document.getElementById(`${templateParam.parameter.id}`).checked) {
 
           await API.deleteTemplateParam(templateParam.id);
 
@@ -49,28 +48,40 @@ const TemplateParametersTable = ({ templateId }) => {
 
   return (
     <>
-      {template.parameters && (
+      {templatesParams && (
         <>
           <Wrapper>
             <h1>Template Parameters</h1>
+            <SearchBar placeholder={"Search Parameter"} setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Name</th>
                   <th>Kind</th>
                   <th>Frequency</th>
                 </tr>
               </thead>
-              <tbody>
-                {template.parameters.map(parameter => (
+              <tbody id="tbody">
+                {templatesParams.results.map(parameter => (
                   <tr onClick={handleClick} data-value={parameter.id}>
-                    <td>{parameter.name}</td>
-                    <td>{parameter.kind}</td>
-                    <td>{parameter.frequency}</td>
+                    <td>
+                      <input id={parameter.parameter.id} className="checkbox"
+                        type='checkbox'
+                      />
+                    </td>
+                    <td>{parameter.parameter.name}</td>
+                    <td>{parameter.parameter.kind}</td>
+                    <td>{parameter.parameter.frequency}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            {templatesParams.page < templatesParams.total_pages && (
+              <div className="loadMoreButton">
+                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
+              </div>
+            )}
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Delete Parameter" callback={handleDelete} />

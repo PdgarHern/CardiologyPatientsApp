@@ -119,6 +119,10 @@ const Login = () => {
     }
   }
 
+  const handleRegister = () => {
+    navigate('/register');
+  }
+
   return (
     <>
       <Wrapper>
@@ -143,13 +147,15 @@ const Login = () => {
             {passError && <div className="formError">*Write your password</div>}
             <ButtonDark text='Sign In' callback={handleSubmit} />
             <br /><br />
-            <GoogleLogin
+            <h3>You don't have an account?</h3>
+            <ButtonDark text='Register' callback={handleRegister} />
+            {/* <GoogleLogin
               clientId="627745415175-d1977cs12k0vl4iqqv5g496peda58i32.apps.googleusercontent.com"
               buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onSuccess={() => responseGoogle()}
+              onFailure={err => console.log('fail', err)}
               cookiePolicy={'single_host_origin'}
-            />
+            /> */}
           </>
         )}
       </Wrapper>

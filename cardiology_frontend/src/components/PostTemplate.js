@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import API from "../API";
 // Components
 import BreadCrumb from "./BreadCrumb";
-import TemplatesTable from "./TemplatesTable";
+import TemplateParametersTable from "./TemplateParametersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
 // Styles
-import { Wrapper } from "./Users.styles";
+import { Wrapper, Content } from "./Users.styles";
 
 const PostTemplate = () => {
   const [name, setName] = useState('');
@@ -39,7 +39,7 @@ const PostTemplate = () => {
 
         setLoading(false);
 
-        window.location.reload();
+        navigate('/templates');
 
       } else {
         setNameError(true);
@@ -71,7 +71,7 @@ const PostTemplate = () => {
       {localStorage.userRol != 'doctor' && (
         handleAuth()
       )}
-      <BreadCrumb text="Create Template" linkPath={`/doctor-profile/${localStorage.userId}`} />
+      <BreadCrumb text="Create Template" linkPath={`/templates`} />
       <Wrapper>
         {error && <div className="error">Something went wrong...</div>}
         {!loading && !error ? (
@@ -86,7 +86,16 @@ const PostTemplate = () => {
             {nameError && <div className="formError">*Write a name</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
             <br />
-            <TemplatesTable />
+            {/* <Wrapper>
+              <Content>
+                <div className="tables">
+                  <TemplateParametersTable templateId={templateId} />
+                </div>
+                <div className="tables">
+                  <ParametersTable template={true} updatable={false} templateId={templateId} />
+                </div>
+              </Content>
+            </Wrapper> */}
           </>
         ) : (
           <Spinner />

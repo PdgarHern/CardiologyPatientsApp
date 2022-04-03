@@ -11,8 +11,11 @@ import UpdateDoctorProfile from "./components/UpdateDoctorProfile";
 import Patient from "./components/Patient";
 import UpdatePatientProfile from "./components/UpdatePatientProfile";
 import PatientVisualizer from "./components/PatientVisualizer";
+import PatientsList from "./components/PatientsList";
+import Parameters from "./components/Parameters";
 import PostParameter from "./components/PostParameter";
 import PutParameter from "./components/PutParameter";
+import Templates from "./components/Templates";
 import PostTemplate from "./components/PostTemplate";
 import PutTemplate from "./components/PutTemplate";
 import PostFollowup from "./components/PostFollowup";
@@ -43,8 +46,11 @@ function App() {
             <Route path='/patient-profile/:patientId' element={<Patient />} />
             <Route path='/update-patient/:patientId' element={<UpdatePatientProfile />} />
             <Route path='/patient/:patientId' element={<PatientVisualizer />} />
+            <Route path='/patients-list' element={<PatientsList />} />
+            <Route path='/parameters' element={<Parameters />} />
             <Route path='/post-parameter' element={<PostParameter />} />
             <Route path='/put-parameter/:parameterId' element={<PutParameter />} />
+            <Route path="/templates" element={<Templates />} />
             <Route path='/post-template' element={<PostTemplate />} />
             <Route path='/put-template/:templateId' element={<PutTemplate />} />
             <Route path='/post-followup' element={<PostFollowup />} />

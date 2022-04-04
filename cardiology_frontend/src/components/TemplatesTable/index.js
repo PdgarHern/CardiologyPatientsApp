@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Components
 import ButtonDark from "../ButtonDark";
@@ -12,8 +12,41 @@ const TemplatesTable = ({ select }) => {
   const { state: templates, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplatesFetch();
 
   const [selected, setSelected] = useState(false);
+  const [sortedField, setSortedField] = useState('');
+  const [sortDirection, setSortDirection] = useState('');
+  const [sortedTableRows, setSortedTableRows] = useState([]);
 
   const navigate = useNavigate();
+
+  let sortedTemplates = [...templates.results];
+
+  useEffect(() => {
+    if (templates !== null) {
+      sortedTemplates = [...templates.results];
+      setSortedTableRows(sortedTemplates);
+    }
+  }, [templates]);
+
+  useEffect(() => {
+    if (sortedField !== '') {
+      sortedTemplates.sort((a, b) => {
+        if (a[sortedField] < b[sortedField]) {
+          setSortedTableRows(sortedTemplates);
+          return sortDirection === 'asc' ? -1 : 1;
+
+        }
+        if (a[sortedField] > b[sortedField]) {
+          setSortedTableRows(sortedTemplates);
+          return sortDirection === 'asc' ? 1 : -1;
+
+        }
+        setSortedTableRows(sortedTemplates);
+        return 0;
+
+      });
+
+    }
+  }, [sortedField, sortDirection]);
 
   const handleClick = (e) => {
     if (select) {
@@ -41,11 +74,23 @@ const TemplatesTable = ({ select }) => {
             <SearchBar placeholder={"Search Template"} setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
-                <th>Name</th>
+                <th onClick={() => {
+                  setSortedField('name');
+                  if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'name') {
+                    setSortDirection('asc');
+                  } else {
+                    setSortDirection('desc');
+                  }
+                }}>Name {
+                    sortDirection !== '' && sortedField === 'name'
+                      ? sortDirection === 'desc'
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
                 <th>Parameters</th>
               </thead>
               <tbody>
-                {templates.results.map(template => (
+                {sortedTableRows.map(template => (
                   <>
                     {template.hospital_id == localStorage.userHosp ? (
                       <tr onClick={handleClick} data-value={template.id}>

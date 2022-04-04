@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import jsreport from "@jsreport/browser-client";
 // API
 import API from "../../API";
 // Components
@@ -15,8 +14,53 @@ const ParametersTable = ({ template, updatable, templateId }) => {
   const { state: parameters, searchTerm, setSearchTerm, setIsLoadingMore } = useParametersFetch();
 
   const [parameterId, setParameterId] = useState('');
+  const [sortedField, setSortedField] = useState('');
+  const [sortDirection, setSortDirection] = useState('');
+  const [sortedTableRows, setSortedTableRows] = useState([]);
 
   const navigate = useNavigate();
+
+  let sortedParameters = [...parameters.results];
+
+  useEffect(() => {
+    if (parameters !== null) {
+      sortedParameters = [...parameters.results];
+      setSortedTableRows(sortedParameters);
+    }
+  }, [parameters]);
+
+  useEffect(() => {
+    if (sortedField !== '') {
+      sortedParameters.sort((a, b) => {
+        if (a[sortedField] < b[sortedField]) {
+          setSortedTableRows(sortedParameters);
+          return sortDirection === 'asc' ? -1 : 1;
+
+        }
+        if (a[sortedField] > b[sortedField]) {
+          setSortedTableRows(sortedParameters);
+          return sortDirection === 'asc' ? 1 : -1;
+
+        }
+        setSortedTableRows(sortedParameters);
+        return 0;
+
+      });
+
+    }
+  }, [sortedField, sortDirection]);
+
+  useEffect(() => {
+    handleChecked()
+  }, [sortedField, sortDirection]);
+
+  const handleChecked = () => {
+    parameters.results.map(async (parameter) => {
+      if (document.getElementById(`parameter${parameter.id}`).checked) {
+        document.getElementById(`parameter${parameter.id}`).click()
+      }
+    })
+  }
 
   const handleClick = (e) => {
     if (updatable) {
@@ -33,17 +77,17 @@ const ParametersTable = ({ template, updatable, templateId }) => {
     try {
 
       parameters.results.map(async (parameter) => {
-        if (document.getElementById(`${parameter.id}`).checked) {
+        if (document.getElementById(`parameter${parameter.id}`).checked) {
           const formData = new FormData();
 
           formData.append('followuptemplates_parameter[followuptemplate_id]', templateId);
           formData.append('followuptemplates_parameter[parameter_id]', parameter.id);
-    
+
           await API.createTemplateParam(formData);
 
         }
       })
-      
+
 
       setParameterId('');
 
@@ -53,8 +97,6 @@ const ParametersTable = ({ template, updatable, templateId }) => {
 
     }
   }
-
-  console.log(parameters)
 
   return (
     <>
@@ -74,19 +116,55 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                   {template && (
                     <th></th>
                   )}
-                  <th>Name</th>
-                  <th>Kind</th>
-                  <th>Frequency</th>
+                  <th onClick={() => {
+                    setSortedField('name');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'name') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Name {
+                    sortDirection !== '' && sortedField === 'name'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
+                  <th onClick={() => {
+                    setSortedField('kind');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'kind') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Kind {
+                    sortDirection !== '' && sortedField === 'kind'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
+                  <th onClick={() => {
+                    setSortedField('frequency');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'frequency') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Frequency {
+                    sortDirection !== '' && sortedField === 'frequency'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
                 </tr>
               </thead>
               <tbody>
-                {parameters.results.map(parameter => (
+                {sortedTableRows.map(parameter => (
                   <>
                     {parameter.hospital_id == localStorage.userHosp ? (
                       <tr onClick={handleClick} data-value={parameter.id}>
                         {template && (
                           <td>
-                            <input id={parameter.id} className="checkbox"
+                            <input id={`parameter${parameter.id}`} className="checkbox"
                               type='checkbox'
                             />
                           </td>
@@ -98,6 +176,7 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                     ) : null}
                   </>
                 ))}
+
               </tbody>
             </table>
             {parameters.page < parameters.total_pages && (

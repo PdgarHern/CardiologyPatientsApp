@@ -1,6 +1,6 @@
 class FollowuptemplatesParametersController < ApplicationController
   before_action :set_followuptemplates_parameter, only: [:show, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /followuptemplates_parameters
   def index
@@ -8,7 +8,7 @@ class FollowuptemplatesParametersController < ApplicationController
 
     @followuptemplates_parameters = @q.result(distinct: true).all.page params[:page]
 
-    @followuptemplatesParametersSerialized = ActiveModel::SerializableResource.new(@followuptemplates_parameters).serializable_hash
+    @followuptemplatesParametersSerialized = ActiveModelSerializers::SerializableResource.new(@followuptemplates_parameters).serializable_hash
 
     render json: {page: Integer(params[:page]), results: @followuptemplatesParametersSerialized, total_pages: @followuptemplates_parameters.total_pages}
   end

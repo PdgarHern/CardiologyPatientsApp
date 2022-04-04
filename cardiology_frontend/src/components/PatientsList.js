@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { useTable, useSortBy } from "react-table";
+//import { useParams } from "react-router-dom";
+//import { useTable, useSortBy } from "react-table";
 // Components
 import BreadCrumb from "./BreadCrumb";
 import SearchBar from "./SearchBar";

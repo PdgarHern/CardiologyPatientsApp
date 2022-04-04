@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import 'reactjs-popup/dist/index.css';
 // API
 import API from "../API";
 // Components
@@ -10,11 +9,10 @@ import ParametersTable from "./ParametersTable";
 import TemplateParametersTable from "./TemplateParametersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
-import Popup from 'reactjs-popup';
 // Hook
 import { useTemplateFetch } from "../hooks/useTemplateFetch";
 // Styles
-import { Wrapper, ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
+import { Wrapper, Content } from "./Users.styles";
 
 const PutTemplate = () => {
   const { templateId } = useParams();
@@ -51,7 +49,7 @@ const PutTemplate = () => {
 
       setLoading(false);
 
-      navigate('/templates');
+      navigate('/post-template');
 
     } catch (error) {
       setError(true);
@@ -65,7 +63,7 @@ const PutTemplate = () => {
 
       await API.deleteTemplate(template.id);
 
-      navigate('/templates');
+      navigate('/post-template');
 
     } catch (error) {
       setError(true);
@@ -85,9 +83,9 @@ const PutTemplate = () => {
         handleAuth()
       )}
       {template ? (
-        <BreadCrumb text={template.name} linkPath={'/templates'} />
+        <BreadCrumb text={template.name} linkPath={'/post-template'} />
       ) : null}
-      <>
+      <Wrapper>
         {error && <div className="error">There was an error...</div>}
         {!loading && template ? (
           <>
@@ -151,7 +149,7 @@ const PutTemplate = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </>
+      </Wrapper>
     </>
   )
 }

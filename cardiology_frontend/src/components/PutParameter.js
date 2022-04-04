@@ -58,7 +58,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate(`/post-parameter`);
+      navigate(`/parameters`);
 
     } catch (error) {
       setError(true);
@@ -74,7 +74,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate('/post-parameter');
+      navigate('/parameters');
 
     } catch (error) {
       setError(true);

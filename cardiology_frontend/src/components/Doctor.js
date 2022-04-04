@@ -62,7 +62,9 @@ const Doctor = () => {
               ? UserPic
               : doctorInfo[0].img.url}
             name={doctorInfo[0].name}
+            userId={doctorInfo[0].id}
           />
+          <br/>
           <Content>
             <div className="infoColumn">
               <h1>Hospital: {hospital.name}</h1>

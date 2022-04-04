@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // API
@@ -34,37 +34,19 @@ const UpdatePatientProfile = () => {
 
   const navigate = useNavigate();
 
-  const handleValue = (e) => {
-    const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
-    const placeholder = e.currentTarget.placeholder;
+  console.log(info)
 
-    if (name === 'name' && value === '') {
-      setName(placeholder);
-      e.currentTarget.placeholder = '';
-    }
-    if (name === 'clinicRecord' && value === '') {
-      setClinicRecord(placeholder);
-      e.currentTarget.placeholder = '';
-    }
-    if (name === 'gender' && value === '') {
-      setGender(placeholder);
-      e.currentTarget.placeholder = '';
-    }
-    if (name === 'birthDate' && value === '') {
-      setBirthDate(placeholder);
-      e.currentTarget.placeholder = '';
-    }
-    if (name === 'phoneNumber' && value === '') {
-      setPhoneNumber(placeholder);
-      e.currentTarget.placeholder = '';
-    }
-    if (name === 'consentRGPD' && value === '') {
-      setConsentRGPD(placeholder);
-      e.currentTarget.placeholder = '';
-    }
+  useEffect(() => {
+    if (info !== undefined) {
+      setName(info.name);
+      setClinicRecord(info.clinicRecord);
+      setGender(info.gender);
+      setBirthDate(info.birthDate);
+      setPhoneNumber(info.phoneNumber);
+      setConsentRGPD(info.consentRGPD);
 
-  }
+    }
+  }, [info])
 
   const handleInput = (e) => {
     const name = e.currentTarget.name;
@@ -125,8 +107,8 @@ const UpdatePatientProfile = () => {
       {localStorage.userRol != 'patient' && (
         handleAuth()
       )}
-      {info[0] ? (
-        <BreadCrumb text={info[0].name} linkPath={`/patient-profile/${localStorage.userId}`} />
+      {info ? (
+        <BreadCrumb text={info.name} linkPath={`/patient-profile/${localStorage.userId}`} />
       ) : null}
       <Wrapper>
         {error && <div className="error">There was an error...</div>}
@@ -137,54 +119,42 @@ const UpdatePatientProfile = () => {
               <input
                 type='text'
                 value={name}
-                placeholder={info.name}
                 name='name'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Clinic Record</label>
               <input
                 type='text'
                 value={clinicRecord}
-                placeholder={info.clinicRecord}
                 name='clinicRecord'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Gender</label>
               <input
                 type='text'
                 value={gender}
-                placeholder={info.gender}
                 name='gender'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Birth Date</label>
               <input
                 type='date'
                 value={birthDate}
-                placeholder={info.birthDate}
                 name='birthDate'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Phone Number</label>
               <input
                 type='text'
                 value={phoneNumber}
-                placeholder={info.phoneNumber}
                 name='phoneNumber'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Consent RGPD</label>
               <input
                 type='text'
                 value={consentRGPD}
-                placeholder={info.consentRGPD}
                 name='consentRGPD'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Hospital</label>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import 'reactjs-popup/dist/index.css';
@@ -27,11 +27,11 @@ const PutTemplate = () => {
 
   const navigate = useNavigate();
 
-  const handleValue = (e) => {
-    setName(e.currentTarget.placeholder);
-    e.currentTarget.placeholder = '';
-
-  }
+  useEffect(() => {
+    if (template !== null) {
+      setName(template.name);
+    }
+  }, [template])
 
   const handleInput = (e) => {
     setName(e.currentTarget.value);
@@ -98,9 +98,7 @@ const PutTemplate = () => {
                   <input
                     type='text'
                     value={name}
-                    placeholder={template.name}
                     name='name'
-                    onClick={handleValue}
                     onChange={handleInput}
                   />
                 </div>

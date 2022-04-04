@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // API
@@ -25,25 +25,13 @@ const PutParameter = () => {
 
   const navigate = useNavigate();
 
-  const handleValue = (e) => {
-    const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
-    const placeholder = e.currentTarget.placeholder;
-
-    if (name === 'name' && value === '') {
-      setName(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-    if (name === 'kind' && value === '') {
-      setKind(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-    if (name === 'frequency' && value === '') {
-      setFrequency(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-
-  }
+  useEffect(() => {
+    if (parameter !== null) {
+      setName(parameter.name);
+      setKind(parameter.kind);
+      setFrequency(parameter.frequency);
+    }
+  }, [parameter])
 
   const handleInput = (e) => {
     const name = e.currentTarget.name;
@@ -106,7 +94,7 @@ const PutParameter = () => {
         handleAuth()
       )}
       {parameter ? (
-        <BreadCrumb text={parameter.name} linkPath={'/post-parameter'} />
+        <BreadCrumb text={parameter.name} linkPath={'/parameters'} />
       ) : null}
       <Wrapper>
         {error && <div className="error">There was an error...</div>}
@@ -118,13 +106,11 @@ const PutParameter = () => {
                 <input
                   type='text'
                   value={name}
-                  placeholder={parameter.name}
                   name='name'
-                  onClick={handleValue}
                   onChange={handleInput}
                 />
                 <label>Kind</label>
-                <select name='kind' onChange={handleInput} onClick={handleValue}>
+                <select name='kind' onChange={handleInput}>
                   <option>{parameter.kind}</option>
                   <option>Numeric</option>
                   <option>Numeric with two values</option>
@@ -135,9 +121,7 @@ const PutParameter = () => {
                   key={parameter.frequency}
                   type='text'
                   value={frequency}
-                  placeholder={parameter.frequency}
                   name='frequency'
-                  onClick={handleValue}
                   onChange={handleInput}
                 />
               </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // API
@@ -29,22 +29,13 @@ const UpdateDoctorProfile = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-
-  const handleValue = (e) => {
-    const name = e.currentTarget.name;
-    const value = e.currentTarget.value;
-    const placeholder = e.currentTarget.placeholder;
-
-    if (name === 'name' && value === '') {
-      setName(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-    if (name === 'phoneNumber' && value === '') {
-      setPhoneNumber(placeholder);
-      e.currentTarget.placeholder = '';
-    };
-
-  }
+  
+  useEffect(() => {
+    if (info[0] !== undefined) {
+      setName(info[0].name);
+      setPhoneNumber(info[0].phoneNumber)
+    }
+  }, [info])
 
   const handleInput = (e) => {
     const name = e.currentTarget.name;
@@ -107,18 +98,14 @@ const UpdateDoctorProfile = () => {
               <input
                 type='text'
                 value={name}
-                placeholder={info[0].name}
                 name='name'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Phone Number</label>
               <input
                 type='text'
                 value={phoneNumber}
-                placeholder={info[0].phoneNumber}
                 name='phoneNumber'
-                onClick={handleValue}
                 onChange={handleInput}
               />
               <label>Hospital</label>

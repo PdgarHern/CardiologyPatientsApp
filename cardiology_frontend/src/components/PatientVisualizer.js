@@ -84,7 +84,7 @@ const PatientVisualizer = () => {
       )}
       {patient && (
         <>
-          <BreadCrumb text={patient.name} linkPath={`/doctor-profile/${localStorage.userId}`} />
+          <BreadCrumb text={patient.name} linkPath={`/patients-list`} />
           <HeroImage 
             userPic={patient.img == null
               ? UserPic

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import 'reactjs-popup/dist/index.css';
 // API
 import API from "../API";
 // Components
@@ -10,11 +9,10 @@ import ParametersTable from "./ParametersTable";
 import TemplateParametersTable from "./TemplateParametersTable";
 import ButtonDark from "./ButtonDark";
 import Spinner from "./Spinner";
-import Popup from 'reactjs-popup';
 // Hook
 import { useTemplateFetch } from "../hooks/useTemplateFetch";
 // Styles
-import { Wrapper, ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
+import { Wrapper, Content } from "./Users.styles";
 
 const PutTemplate = () => {
   const { templateId } = useParams();
@@ -51,7 +49,7 @@ const PutTemplate = () => {
 
       setLoading(false);
 
-      navigate('/templates');
+      navigate('/post-template');
 
     } catch (error) {
       setError(true);
@@ -65,7 +63,7 @@ const PutTemplate = () => {
 
       await API.deleteTemplate(template.id);
 
-      navigate('/templates');
+      navigate('/post-template');
 
     } catch (error) {
       setError(true);
@@ -85,67 +83,37 @@ const PutTemplate = () => {
         handleAuth()
       )}
       {template ? (
-        <BreadCrumb text={template.name} linkPath={'/templates'} />
+        <BreadCrumb text={template.name} linkPath={'/post-template'} />
       ) : null}
-      <>
+      <Wrapper>
         {error && <div className="error">There was an error...</div>}
         {!loading && template ? (
           <>
-            <Wrapper>
-              <Content>
-                <div className="column">
-                  <label>Name</label>
-                  <input
-                    type='text'
-                    value={name}
-                    placeholder={template.name}
-                    name='name'
-                    onClick={handleValue}
-                    onChange={handleInput}
-                  />
-                </div>
-              </Content>
-            </Wrapper>
-            <ButtonsWrapper>
-              <ActionButtons>
-                <div className="button">
-                  <ButtonDark text='Update' callback={handleSubmit} />
-                </div>
-                <Popup trigger={<div className="button"><button className="triggerPopup">Delete</button></div>} modal nested>
-                  {close => (
-                    <div className="modal">
-                      <button className="close" onClick={close}>
-                        &times;
-                      </button>
-                      <div className="header">Are you sure?</div>
-                      <div className="content">
-                        Do you want to delete the template?
-                      </div>
-                      <ButtonsWrapper>
-                        <ActionButtons>
-                          <div className="actions">
-                            <ButtonDark text="Confirm" callback={handleDelete} />
-                          </div>
-                          <div className="actions">
-                            <ButtonDark text="Cancel" callback={() => close()} />
-                          </div>
-                        </ActionButtons>
-                      </ButtonsWrapper>
-                    </div>
-                  )}
-                </Popup>
-              </ActionButtons>
-            </ButtonsWrapper>
-            <Wrapper>
-              <Content>
-                <div className="tables">
-                  <TemplateParametersTable templateId={templateId} />
-                </div>
-                <div className="tables">
-                  <ParametersTable template={true} updatable={false} templateId={templateId} />
-                </div>
-              </Content>
-            </Wrapper>
+            <Content>
+              <div className="column">
+                <label>Name</label>
+                <input
+                  type='text'
+                  value={name}
+                  placeholder={template.name}
+                  name='name'
+                  onClick={handleValue}
+                  onChange={handleInput}
+                />
+              </div>
+            </Content>
+            <div className="actionButtons">
+              <ButtonDark text='Update' callback={handleSubmit} />
+              <ButtonDark text='Delete' callback={handleDelete} />
+            </div>
+            <Content>
+              <div className="tables">
+                <TemplateParametersTable templateId={templateId} />
+              </div>
+              <div className="tables">
+                <ParametersTable updatable={false} templateId={templateId} />
+              </div>
+            </Content>
           </>
         ) : (
           <>
@@ -153,7 +121,7 @@ const PutTemplate = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </>
+      </Wrapper>
     </>
   )
 }

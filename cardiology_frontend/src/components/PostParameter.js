@@ -55,7 +55,7 @@ const PostParameter = () => {
 
             setLoading(false);
 
-            navigate("/parameters");
+            window.location.reload();
 
           } else {
             setFrequencyError(true);
@@ -99,10 +99,13 @@ const PostParameter = () => {
 
   return (
     <>
-      {localStorage.userRol != 'doctor' && (
+      {!localStorage.userId && (
         handleAuth()
       )}
-      <BreadCrumb text="Create Parameter" linkPath={`/parameters`} />
+      {localStorage.userRol !== 'doctor' && (
+        handleAuth()
+      )}
+      <BreadCrumb text="Create Parameter" linkPath={`/doctor-profile/${localStorage.userId}`} />
       <Wrapper>
         {error && <div className="error">Something went wrong...</div>}
         {!loading && !error ? (
@@ -116,7 +119,7 @@ const PostParameter = () => {
             />
             {nameError && <div className="formError">*Write a name</div>}
             <label>Kind</label>
-            <select name='kind' value={kind} onChange={handleInput}>
+            <select name='kind' onChange={handleInput}>
 
               <option>Select</option>
               <option>Numeric</option>
@@ -135,6 +138,7 @@ const PostParameter = () => {
             {frequencyError && <div className="formError">*Write a frequency</div>}
             <ButtonDark text="Submit" callback={handleSubmit} />
             <br />
+            <ParametersTable updatable={true} report={true} />
           </>
         ) : (
           <Spinner />

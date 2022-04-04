@@ -83,9 +83,6 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                 {parameters.results.map(parameter => (
                   <>
                     {parameter.hospital_id == localStorage.userHosp ? (
-<<<<<<< HEAD
-                      <tr onClick={handleClick} data-value={parameter.id} >
-=======
                       <tr onClick={handleClick} data-value={parameter.id}>
                         {template && (
                           <td>
@@ -94,7 +91,6 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                             />
                           </td>
                         )}
->>>>>>> e1aef108056a396835644b01b0e99716e986a3dd
                         <td>{parameter.name}</td>
                         <td>{parameter.kind}</td>
                         <td>{parameter.frequency}</td>

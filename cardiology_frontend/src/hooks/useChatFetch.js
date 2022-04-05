@@ -15,6 +15,7 @@ export const useChatFetch = (doctorId, patientId) => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isLoadingPrevious, setIsLoadingPrevious] = useState(false);
 
   const fetchChat = async (page, searchTerm = '') => {
     try {
@@ -26,8 +27,7 @@ export const useChatFetch = (doctorId, patientId) => {
       if (doctorId == null) {
         setState(prev => ({
           ...chat,
-          results:
-          page > 1 ? [...prev.results, ...chat.results] : [...chat.results]
+          results: [...chat.results]
         }))
       } else {
         setState({
@@ -54,5 +54,12 @@ export const useChatFetch = (doctorId, patientId) => {
     setIsLoadingMore(false);
   }, [isLoadingMore, searchTerm, state.page]);
 
-  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
+  useEffect(() => {
+    if (!isLoadingPrevious) return;
+
+    fetchChat(state.page - 1, searchTerm);
+    setIsLoadingPrevious(false);
+  }, [isLoadingPrevious, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious };
 }

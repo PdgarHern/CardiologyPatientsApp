@@ -35,4 +35,14 @@ export const Wrapper = styled.div`
     display: none;
   }
 
-`
+  .loadMoreButton {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn {
+    border: 1px solid #535353;
+  }
+
+`;

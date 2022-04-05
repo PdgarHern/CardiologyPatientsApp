@@ -11,7 +11,7 @@ import { useTemplateParamsFetch } from "../../hooks/useTemplateParamsFetch";
 import { Wrapper } from "./TemplateParametersTable.styles";
 
 const TemplateParametersTable = ({ templateId }) => {
-  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplateParamsFetch(templateId);
+  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useTemplateParamsFetch(templateId);
 
   const [parameterId, setParameterId] = useState('');
   const [sortedField, setSortedField] = useState('');
@@ -157,11 +157,18 @@ const TemplateParametersTable = ({ templateId }) => {
                 ))}
               </tbody>
             </table>
-            {templatesParams.page < templatesParams.total_pages && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+            {templatesParams.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {templatesParams.page === templatesParams.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Delete Parameter" callback={handleDelete} />

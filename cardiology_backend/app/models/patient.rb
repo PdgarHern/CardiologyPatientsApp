@@ -5,5 +5,5 @@ class Patient < ApplicationRecord
     has_many :messages
     has_one_attached :img
 
-    paginates_per 20
+    paginates_per 10
 end

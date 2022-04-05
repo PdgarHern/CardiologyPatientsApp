@@ -3,5 +3,5 @@ class Followuptemplate < ApplicationRecord
     has_many :followups, dependent: :delete_all
     has_and_belongs_to_many :parameters
 
-    paginates_per 20
+    paginates_per 10
 end

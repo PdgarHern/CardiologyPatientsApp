@@ -15,6 +15,7 @@ export const useTemplateParamsFetch = templateId => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isLoadingPrevious, setIsLoadingPrevious] = useState(false);
 
   const fetchTemplatesParams = async (page, searchTerm = '') => {
     try {
@@ -26,8 +27,7 @@ export const useTemplateParamsFetch = templateId => {
       if (templatesParams) {
         setState(prev => ({
           ...templatesParams,
-          results:
-            page > 1 ? [...prev.results, ...templatesParams.results] : [...templatesParams.results]
+          results: [...templatesParams.results]
         }))
       }
       
@@ -50,5 +50,12 @@ export const useTemplateParamsFetch = templateId => {
     setIsLoadingMore(false);
   }, [isLoadingMore, searchTerm, state.page]);
 
-  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
+  useEffect(() => {
+    if (!isLoadingPrevious) return;
+
+    fetchTemplatesParams(state.page - 1, searchTerm);
+    setIsLoadingPrevious(false);
+  }, [isLoadingPrevious, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious };
 }

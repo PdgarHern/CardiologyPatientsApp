@@ -11,7 +11,7 @@ import { useParametersFetch } from "../../hooks/useParametersFetch";
 import { Wrapper } from "./ParametersTable.styles";
 
 const ParametersTable = ({ template, updatable, templateId }) => {
-  const { state: parameters, searchTerm, setSearchTerm, setIsLoadingMore } = useParametersFetch();
+  const { state: parameters, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useParametersFetch();
 
   const [parameterId, setParameterId] = useState('');
   const [sortedField, setSortedField] = useState('');
@@ -124,11 +124,11 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                       setSortDirection('desc');
                     }
                   }}>Name {
-                    sortDirection !== '' && sortedField === 'name'
-                      ? sortDirection === 'desc' 
-                        ? '▼'
-                        : '▲'
-                      : null}</th>
+                      sortDirection !== '' && sortedField === 'name'
+                        ? sortDirection === 'desc'
+                          ? '▼'
+                          : '▲'
+                        : null}</th>
                   <th onClick={() => {
                     setSortedField('kind');
                     if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'kind') {
@@ -137,11 +137,11 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                       setSortDirection('desc');
                     }
                   }}>Kind {
-                    sortDirection !== '' && sortedField === 'kind'
-                      ? sortDirection === 'desc' 
-                        ? '▼'
-                        : '▲'
-                      : null}</th>
+                      sortDirection !== '' && sortedField === 'kind'
+                        ? sortDirection === 'desc'
+                          ? '▼'
+                          : '▲'
+                        : null}</th>
                   <th onClick={() => {
                     setSortedField('frequency');
                     if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'frequency') {
@@ -150,11 +150,11 @@ const ParametersTable = ({ template, updatable, templateId }) => {
                       setSortDirection('desc');
                     }
                   }}>Frequency {
-                    sortDirection !== '' && sortedField === 'frequency'
-                      ? sortDirection === 'desc' 
-                        ? '▼'
-                        : '▲'
-                      : null}</th>
+                      sortDirection !== '' && sortedField === 'frequency'
+                        ? sortDirection === 'desc'
+                          ? '▼'
+                          : '▲'
+                        : null}</th>
                 </tr>
               </thead>
               <tbody>
@@ -179,11 +179,18 @@ const ParametersTable = ({ template, updatable, templateId }) => {
 
               </tbody>
             </table>
-            {parameters.page < parameters.total_pages && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+              {parameters.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {parameters.page === parameters.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Add Parameter" callback={handleAdd} />

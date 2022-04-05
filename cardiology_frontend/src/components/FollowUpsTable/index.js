@@ -9,7 +9,7 @@ import { useFollowUpsFetch } from "../../hooks/useFollowUpsFetch";
 import { Wrapper } from "./FollowUpsTable.styles";
 
 const FollowUpsTable = ({ id, patient }) => {
-  const { state: followUps, searchTerm, setSearchTerm, setIsLoadingMore } = useFollowUpsFetch(id);
+  const { state: followUps, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useFollowUpsFetch(id);
 
   const [sortedField, setSortedField] = useState('');
   const [sortDirection, setSortDirection] = useState('');
@@ -100,11 +100,18 @@ const FollowUpsTable = ({ id, patient }) => {
               ))}
             </tbody>
           </table>
-          {followUps.page < followUps.total_pages && (
-            <div className="loadMoreButton">
-              <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-            </div>
-          )}
+          <div className="loadMoreButton">
+          {followUps.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {followUps.page === followUps.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+          </div>
         </Wrapper>
       )}
     </>

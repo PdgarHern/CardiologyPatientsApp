@@ -15,6 +15,7 @@ export const usePatientsFetch = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isLoadingPrevious, setIsLoadingPrevious] = useState(false);
 
   const fetchPatients = async (page, searchTerm = '') => {
     try {
@@ -26,8 +27,7 @@ export const usePatientsFetch = () => {
       if (patients) {
         setState(prev => ({
           ...patients,
-          results:
-            page > 1 ? [...prev.results, ...patients.results] : [...patients.results]
+          results: [...patients.results]
         }))
       }
 
@@ -50,5 +50,12 @@ export const usePatientsFetch = () => {
     setIsLoadingMore(false);
   }, [isLoadingMore, searchTerm, state.page]);
 
-  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
+  useEffect(() => {
+    if (!isLoadingPrevious) return;
+
+    fetchPatients(state.page - 1, searchTerm);
+    setIsLoadingPrevious(false);
+  }, [isLoadingPrevious, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious };
 }

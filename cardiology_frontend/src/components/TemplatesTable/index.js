@@ -9,7 +9,7 @@ import { useTemplatesFetch } from "../../hooks/useTemplatesFetch";
 import { Wrapper } from "./TemplatesTable.styles";
 
 const TemplatesTable = ({ select }) => {
-  const { state: templates, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplatesFetch();
+  const { state: templates, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useTemplatesFetch();
 
   const [selected, setSelected] = useState(false);
   const [sortedField, setSortedField] = useState('');
@@ -102,11 +102,18 @@ const TemplatesTable = ({ select }) => {
                 ))}
               </tbody>
             </table>
-            {templates.page < templates.total_pages && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+              {templates.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {templates.page === templates.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </Wrapper>
         </>
       )}

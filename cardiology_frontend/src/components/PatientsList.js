@@ -12,7 +12,7 @@ import { usePatientsFetch } from "../hooks/usePatientsFetch";
 import { Wrapper } from "./Lists.styles";
 
 const PatientsList = () => {
-  const { state: patients, loading, error, searchTerm, setSearchTerm, setIsLoadingMore } = usePatientsFetch();
+  const { state: patients, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = usePatientsFetch();
 
   const [sortedField, setSortedField] = useState('');
   const [sortDirection, setSortDirection] = useState('');
@@ -134,11 +134,18 @@ const PatientsList = () => {
                 ))}
               </tbody>
             </table>
-            {patients.page < patients.total_pages && !loading && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+              {patients.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {patients.page === patients.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </>
         )}
       </Wrapper>

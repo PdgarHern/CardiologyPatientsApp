@@ -3,5 +3,5 @@ class Chat < ApplicationRecord
   belongs_to :doctor
   has_many :messages, dependent: :delete_all
 
-  paginates_per 20
+  paginates_per 10
 end

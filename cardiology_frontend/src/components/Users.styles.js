@@ -10,6 +10,10 @@ export const Wrapper = styled.div`
   padding: 20px;
   color: var(--darkGrey);
 
+  #hiden {
+    display: none;
+  }
+
   label {
     font-weight: bold;
   }

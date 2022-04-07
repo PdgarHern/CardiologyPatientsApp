@@ -28,5 +28,11 @@ test:
   <<: *default
   database: cardiology_backend_test
 
+  host: <%= ENV['host_postgres'] %>
+  port: <%= ENV['port_postgres'] %>
+  username: <%= ENV['username_postgres'] %>
+  password: <%= ENV['password_postgres'] %>
+  
+
 production:
   <<: *default

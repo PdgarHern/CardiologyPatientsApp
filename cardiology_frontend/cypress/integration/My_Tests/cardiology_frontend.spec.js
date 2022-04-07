@@ -83,6 +83,152 @@ describe('Cardiology App', () => {
     cy.contains('Add parameter')
   })
 
+  it ('see templates', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Templates').click()
+
+    cy.contains('Add template')
+  })
+
+  it ('create template', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Templates').click()
+
+    cy.contains('Add template').click()
+
+    cy.get('input').type('TestTemplate')
+    cy.contains('Submit').click()
+
+    cy.contains('Add template')
+  })
+
+  it ('update template name', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Templates').click()
+    cy.contains('TestTemplate').click()
+
+    cy.contains('TestTemplate')
+
+    cy.get('input:first').type('Edited')
+
+    cy.contains('Update').click()
+
+    cy.contains('Add template')    
+  })
+
+  it ('update template parameters', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Templates').click()
+    cy.contains('TestTemplateEdited').click()
+
+    cy.contains('TestTemplateEdited')
+
+    cy.get('input[id=parameter8]').click()
+    cy.get('input[id=parameter9]').click()
+    cy.contains('Add Parameter').click()
+
+    cy.contains('TestTemplateEdited')
+
+    cy.get('input[id=8]').click()
+    cy.contains('Delete Parameter').click()
+
+    cy.contains('TestTemplateEdited')
+  })
+
+  it ('see patients', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+
+    cy.contains('Add patient')
+  })
+
+  it ('see one patient', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+
+    cy.contains('Insular1').click()
+
+    cy.contains('Follow-Ups')
+  })
+
+  it ('create follow-up', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+    cy.contains('Insular1').click()
+    cy.contains('Add Follow-Up').click()
+
+    cy.contains('Start Date')
+    cy.get('input[name=startDate]').type('2030-12-15')
+    cy.get('input[name=endDate]').type('2030-12-25')
+    cy.get('select:first').select('TestTemplateEdited')
+
+    cy.contains('Submit').click()
+
+    cy.contains('Follow-Ups')
+  })
+
+  it ('delete follow-up', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+    cy.contains('Insular1').click()
+    cy.contains('Add Follow-Up')
+
+    cy.contains('2030-12-15').click()
+    cy.contains('Follow-Up')
+
+    cy.contains('Delete').click()
+    cy.contains('Follow-Ups')
+  })
+
+  it ('delete template', () => {
+    cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Templates').click()
+    cy.contains('TestTemplateEdited').click()
+
+    cy.contains('TestTemplateEdited')
+
+    cy.contains('Delete').click()
+    cy.contains('Confirm').click()
+
+    cy.contains('Add template')
+  })
+
   it ('update parameter', () => {
     cy.get('img[id=loginIcon]').click()
     cy.get('input:first').type('testing@email.ts')
@@ -91,6 +237,8 @@ describe('Cardiology App', () => {
     cy.contains('Sign In').click()
     cy.contains('Parameters').click()
     cy.contains('TestParameter').click()
+
+    cy.contains('TestParameter')
 
     cy.get('input:first').type('Edited')
     cy.get('select:first').select('Yes or No')

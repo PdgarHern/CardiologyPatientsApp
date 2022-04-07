@@ -16,6 +16,7 @@ Rails.application.routes.draw do
              controllers: {
                sessions: 'users/sessions',
                registrations: 'users/registrations',
+               invitations: 'users/invitations',
               #  omniauth_callbacks: 'user/omniauth_callbacks'
              }
 

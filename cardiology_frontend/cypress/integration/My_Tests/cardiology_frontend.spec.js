@@ -176,7 +176,7 @@ describe('Cardiology App', () => {
   })
 
   it ('create follow-up', () => {
-    cy.get('img[id=loginIcon]').click()
+    cy.visit('http://localhost:3001/login')
     cy.get('input:first').type('testing@email.ts')
     cy.get('input:last').type('123456')
 
@@ -193,6 +193,18 @@ describe('Cardiology App', () => {
     cy.contains('Submit').click()
 
     cy.contains('Follow-Ups')
+  })
+
+  it ('patients follow-ups list', () => {
+    cy.visit('http://localhost:3001/login')
+    cy.get('input:first').type('patient@test.ts')
+    cy.get('input:last').type('123')
+
+    cy.contains('Sign In').click()
+
+    cy.contains('Follow-Ups').click()
+
+    cy.contains('Follow-ups list')
   })
 
   it ('delete follow-up', () => {
@@ -212,8 +224,52 @@ describe('Cardiology App', () => {
     cy.contains('Follow-Ups')
   })
 
-  it ('delete template', () => {
+  it ('create chat', () => {
     cy.get('img[id=loginIcon]').click()
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+    cy.contains('Insular1').click()
+
+    cy.contains('Chat name')
+    cy.get('input[name]').type('TestChat')
+    cy.contains('Start chat').click()
+
+    cy.visit('http://localhost:3001/patients-list')
+    cy.contains('Insular1').click()
+
+    cy.contains('Chat name').should('not.exist')
+
+    cy.contains('Chat').click()
+
+    cy.contains('Send')
+  })
+
+  it ('send message', () => {
+    cy.visit('http://localhost:3001/login')
+    cy.get('input:first').type('testing@email.ts')
+    cy.get('input:last').type('123456')
+
+    cy.contains('Sign In').click()
+    cy.contains('Patients').click()
+    cy.contains('Insular1').click()
+
+    cy.contains('Chat name').should('not.exist')
+
+    cy.contains('Chat').click()
+
+    cy.get('input').type('TestMessage')
+
+    cy.contains('Send').click()
+
+    cy.contains('TestMessage')
+  })
+
+  it ('delete template', () => {
+    cy.visit('http://localhost:3001/login')
+    // cy.get('img[id=loginIcon]').click()
     cy.get('input:first').type('testing@email.ts')
     cy.get('input:last').type('123456')
 

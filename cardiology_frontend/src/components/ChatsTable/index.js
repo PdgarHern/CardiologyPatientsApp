@@ -11,7 +11,7 @@ import { Wrapper, Image } from "./ChatsTable.styles";
 import UserPic from "../../images/userpic.png";
 
 const ChatsTable = ({ id }) => {
-  const { state: chats, searchTerm, setSearchTerm, setIsLoadingMore } = useChatFetch(null, id);
+  const { state: chats, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useChatFetch(null, id);
 
   const navigate = useNavigate();
 
@@ -41,11 +41,18 @@ const ChatsTable = ({ id }) => {
               ))}
             </tbody>
           </table>
-          {chats.page < chats.total_pages && (
-            <div className="loadMoreButton">
-              <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-            </div>
-          )}
+          <div className="loadMoreButton">
+          {chats.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {chats.page === chats.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+          </div>
         </Wrapper>
       )}
     </>

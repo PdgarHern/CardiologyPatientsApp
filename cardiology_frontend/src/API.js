@@ -32,6 +32,10 @@ const apiSettings = {
     const endpoint = `${USERS}`;
     return await (await axios.post(endpoint, body));
   },
+  deleteUser: async () => {
+    const endpoint = `${USERS}`;
+    return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}))
+  },
   login: async body => {
     const endpoint = `${USERS}/sign_in`;
     return await (await axios.post(endpoint, body).then((response) => {

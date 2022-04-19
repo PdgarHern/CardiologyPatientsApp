@@ -119,16 +119,15 @@ const PutTemplate = () => {
                       <div className="content">
                         Do you want to delete the template?
                       </div>
-                      <ButtonsWrapper>
                         <ActionButtons>
-                          <div className="actions">
+                          <div className="button">
                             <ButtonDark text="Confirm" callback={handleDelete} />
                           </div>
-                          <div className="actions">
+                          <div className="button"></div>
+                          <div className="button">
                             <ButtonDark text="Cancel" callback={() => close()} />
                           </div>
                         </ActionButtons>
-                      </ButtonsWrapper>
                     </div>
                   )}
                 </Popup>

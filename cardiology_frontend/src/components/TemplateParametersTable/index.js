@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // API
 import API from "../../API";
@@ -11,13 +11,57 @@ import { useTemplateParamsFetch } from "../../hooks/useTemplateParamsFetch";
 import { Wrapper } from "./TemplateParametersTable.styles";
 
 const TemplateParametersTable = ({ templateId }) => {
-  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplateParamsFetch(templateId);
-
-  console.log(templatesParams.results);
+  const { state: templatesParams, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useTemplateParamsFetch(templateId);
 
   const [parameterId, setParameterId] = useState('');
+  const [sortedField, setSortedField] = useState('');
+  const [sortDirection, setSortDirection] = useState('');
+  const [sortedTableRows, setSortedTableRows] = useState([]);
 
   const navigate = useNavigate();
+
+  let sortedTemplatesParams = [...templatesParams.results];
+
+  useEffect(() => {
+    if (templatesParams !== null) {
+      sortedTemplatesParams = [...templatesParams.results];
+      setSortedTableRows(sortedTemplatesParams);
+    }
+  }, [templatesParams]);
+
+  useEffect(() => {
+    console.log(sortedTableRows);
+    if (sortedField !== '') {
+      sortedTemplatesParams.sort((a, b) => {
+        if (a.parameter[sortedField] < b.parameter[sortedField]) {
+          setSortedTableRows(sortedTemplatesParams);
+          return sortDirection === 'asc' ? -1 : 1;
+
+        }
+        if (a.parameter[sortedField] > b.parameter[sortedField]) {
+          setSortedTableRows(sortedTemplatesParams);
+          return sortDirection === 'asc' ? 1 : -1;
+
+        }
+        setSortedTableRows(sortedTemplatesParams);
+        return 0;
+
+      });
+
+    }
+  }, [sortedField, sortDirection]);
+
+  useEffect(() => {
+    handleCheck()
+  }, [sortedField, sortDirection]);
+
+  const handleCheck = () => {
+    templatesParams.results.map(async (parameter) => {
+      if (document.getElementById(`${parameter.parameter.id}`).checked) {
+        document.getElementById(`${parameter.parameter.id}`).click()
+      }
+    })
+  }
 
   const handleClick = (e, t) => {
     setParameterId(e.currentTarget.dataset.value);
@@ -57,13 +101,49 @@ const TemplateParametersTable = ({ templateId }) => {
               <thead>
                 <tr>
                   <th></th>
-                  <th>Name</th>
-                  <th>Kind</th>
-                  <th>Frequency</th>
+                  <th onClick={() => {
+                    setSortedField('name');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'name') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Name {
+                    sortDirection !== '' && sortedField === 'name'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
+                  <th onClick={() => {
+                    setSortedField('kind');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'kind') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Kind {
+                    sortDirection !== '' && sortedField === 'kind'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
+                  <th onClick={() => {
+                    setSortedField('frequency');
+                    if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'frequency') {
+                      setSortDirection('asc');
+                    } else {
+                      setSortDirection('desc');
+                    }
+                  }}>Frequency {
+                    sortDirection !== '' && sortedField === 'frequency'
+                      ? sortDirection === 'desc' 
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
                 </tr>
               </thead>
               <tbody id="tbody">
-                {templatesParams.results.map(parameter => (
+                {sortedTableRows.map(parameter => (
                   <tr onClick={handleClick} data-value={parameter.id}>
                     <td>
                       <input id={parameter.parameter.id} className="checkbox"
@@ -77,11 +157,18 @@ const TemplateParametersTable = ({ templateId }) => {
                 ))}
               </tbody>
             </table>
-            {templatesParams.page < templatesParams.total_pages && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+            {templatesParams.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {templatesParams.page === templatesParams.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </Wrapper>
           {parameterId != '' && (
             <ButtonDark text="Delete Parameter" callback={handleDelete} />

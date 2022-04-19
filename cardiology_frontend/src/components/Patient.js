@@ -52,6 +52,7 @@ const Patient = () => {
             name={patientInfo.results[0].name}
             userId={patientInfo.results[0].id}
           />
+          <br/>
           <Content>
             <div className="infoColumn">
               <h1>Clinic Record: {patientInfo.results[0].clinicRecord}</h1>

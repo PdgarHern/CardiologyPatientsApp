@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import jsreport from "@jsreport/browser-client";
-// Components
-import ButtonDark from "./ButtonDark";
 // Styles
 import { Wrapper } from "./Users.styles";
 import { HomeContent, ContentImages, Image } from "./Home.styles";
 // Images
 import PatientIcon from "../images/newPatientIcon.png";
-import PatientList from "../images/listIcon.png";
 import TemplateIcon from "../images/templateIcon.png";
 import ProfileIcon from "../images/newProfileIcon.png";
 

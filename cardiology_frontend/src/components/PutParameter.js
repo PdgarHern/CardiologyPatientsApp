@@ -10,7 +10,7 @@ import Spinner from "./Spinner";
 // Hook
 import { useParameterFetch } from "../hooks/useParameterFetch";
 // Styles
-import { Wrapper, Content } from "./Users.styles";
+import { Wrapper, ButtonsWrapper, ActionButtons, Content } from "./Users.styles";
 
 const PutParameter = () => {
   const { parameterId } = useParams();
@@ -58,7 +58,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate(`/post-parameter`);
+      navigate(`/parameters`);
 
     } catch (error) {
       setError(true);
@@ -74,7 +74,7 @@ const PutParameter = () => {
 
       setLoading(false);
 
-      navigate('/post-parameter');
+      navigate('/parameters');
 
     } catch (error) {
       setError(true);
@@ -96,41 +96,49 @@ const PutParameter = () => {
       {parameter ? (
         <BreadCrumb text={parameter.name} linkPath={'/parameters'} />
       ) : null}
-      <Wrapper>
+      <>
         {error && <div className="error">There was an error...</div>}
         {!loading && parameter ? (
           <>
-            <Content>
-              <div className="column">
-                <label>Name</label>
-                <input
-                  type='text'
-                  value={name}
-                  name='name'
-                  onChange={handleInput}
-                />
-                <label>Kind</label>
-                <select name='kind' onChange={handleInput}>
-                  <option>{parameter.kind}</option>
-                  <option>Numeric</option>
-                  <option>Numeric with two values</option>
-                  <option>Yes or No</option> 
-                </select>
-                <label>Frequency</label>
-                <input
-                  key={parameter.frequency}
-                  type='text'
-                  value={frequency}
-                  name='frequency'
-                  onChange={handleInput}
-                />
-              </div>
+            <Wrapper>
+              <Content>
+                <div className="column">
+                  <label>Name</label>
+                  <input
+                    type='text'
+                    value={name}
+                    name='name'
+                    onChange={handleInput}
+                  />
+                  <label>Kind</label>
+                  <select name='kind' onChange={handleInput}>
+                    <option>{parameter.kind}</option>
+                    <option>Numeric</option>
+                    <option>Numeric with two values</option>
+                    <option>Yes or No</option>
+                  </select>
+                  <label>Frequency</label>
+                  <input
+                    key={parameter.frequency}
+                    type='text'
+                    value={frequency}
+                    name='frequency'
+                    onChange={handleInput}
+                  />
+                </div>
 
-            </Content>
-            <div className="actionButtons">
-              <ButtonDark text='Update' callback={handleSubmit} />
-              <ButtonDark text='Delete' callback={handleDelete} />
-            </div>
+              </Content>
+            </Wrapper>
+            <ButtonsWrapper>
+              <ActionButtons>
+                <div className="button">
+                  <ButtonDark text='Update' callback={handleSubmit} />
+                </div>
+                <div className="button">
+                  <ButtonDark text='Delete' callback={handleDelete} />
+                </div>
+              </ActionButtons>
+            </ButtonsWrapper>
           </>
         ) : (
           <>
@@ -138,7 +146,7 @@ const PutParameter = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </Wrapper>
+      </>
     </>
   )
 }

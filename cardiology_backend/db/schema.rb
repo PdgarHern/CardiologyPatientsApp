@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_102749) do
+ActiveRecord::Schema.define(version: 2022_04_05_141706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,24 +92,6 @@ ActiveRecord::Schema.define(version: 2022_03_29_102749) do
     t.index ["patient_id"], name: "index_followups_on_patient_id"
   end
 
-  create_table "followups_parameters", force: :cascade do |t|
-    t.bigint "followup_id", null: false
-    t.bigint "parameter_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_parameters_on_followup_id"
-    t.index ["parameter_id"], name: "index_followups_parameters_on_parameter_id"
-  end
-
-  create_table "followups_patients", force: :cascade do |t|
-    t.bigint "followup_id", null: false
-    t.bigint "patient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["followup_id"], name: "index_followups_patients_on_followup_id"
-    t.index ["patient_id"], name: "index_followups_patients_on_patient_id"
-  end
-
   create_table "followuptemplates", force: :cascade do |t|
     t.bigint "hospital_id"
     t.datetime "created_at", precision: 6, null: false
@@ -187,7 +169,18 @@ ActiveRecord::Schema.define(version: 2022_03_29_102749) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "rol"
     t.string "uid"
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.bigint "invited_by_id"
+    t.integer "invitations_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -204,10 +197,6 @@ ActiveRecord::Schema.define(version: 2022_03_29_102749) do
   add_foreign_key "followups", "followuptemplates"
   add_foreign_key "followups", "hospitals"
   add_foreign_key "followups", "patients"
-  add_foreign_key "followups_parameters", "followups"
-  add_foreign_key "followups_parameters", "parameters"
-  add_foreign_key "followups_patients", "followups"
-  add_foreign_key "followups_patients", "patients"
   add_foreign_key "followuptemplates", "hospitals"
   add_foreign_key "followuptemplates_parameters", "followuptemplates"
   add_foreign_key "followuptemplates_parameters", "parameters"

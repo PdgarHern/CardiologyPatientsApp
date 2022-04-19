@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Components
 import ButtonDark from "../ButtonDark";
@@ -9,11 +9,44 @@ import { useTemplatesFetch } from "../../hooks/useTemplatesFetch";
 import { Wrapper } from "./TemplatesTable.styles";
 
 const TemplatesTable = ({ select }) => {
-  const { state: templates, searchTerm, setSearchTerm, setIsLoadingMore } = useTemplatesFetch();
+  const { state: templates, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious } = useTemplatesFetch();
 
   const [selected, setSelected] = useState(false);
+  const [sortedField, setSortedField] = useState('');
+  const [sortDirection, setSortDirection] = useState('');
+  const [sortedTableRows, setSortedTableRows] = useState([]);
 
   const navigate = useNavigate();
+
+  let sortedTemplates = [...templates.results];
+
+  useEffect(() => {
+    if (templates !== null) {
+      sortedTemplates = [...templates.results];
+      setSortedTableRows(sortedTemplates);
+    }
+  }, [templates]);
+
+  useEffect(() => {
+    if (sortedField !== '') {
+      sortedTemplates.sort((a, b) => {
+        if (a[sortedField] < b[sortedField]) {
+          setSortedTableRows(sortedTemplates);
+          return sortDirection === 'asc' ? -1 : 1;
+
+        }
+        if (a[sortedField] > b[sortedField]) {
+          setSortedTableRows(sortedTemplates);
+          return sortDirection === 'asc' ? 1 : -1;
+
+        }
+        setSortedTableRows(sortedTemplates);
+        return 0;
+
+      });
+
+    }
+  }, [sortedField, sortDirection]);
 
   const handleClick = (e) => {
     if (select) {
@@ -41,11 +74,23 @@ const TemplatesTable = ({ select }) => {
             <SearchBar placeholder={"Search Template"} setSearchTerm={setSearchTerm} />
             <table className="table table-striped table-hover table-border table-bordered">
               <thead>
-                <th>Name</th>
+                <th onClick={() => {
+                  setSortedField('name');
+                  if (sortDirection === '' || sortDirection === 'desc' || sortedField !== 'name') {
+                    setSortDirection('asc');
+                  } else {
+                    setSortDirection('desc');
+                  }
+                }}>Name {
+                    sortDirection !== '' && sortedField === 'name'
+                      ? sortDirection === 'desc'
+                        ? '▼'
+                        : '▲'
+                      : null}</th>
                 <th>Parameters</th>
               </thead>
               <tbody>
-                {templates.results.map(template => (
+                {sortedTableRows.map(template => (
                   <>
                     {template.hospital_id == localStorage.userHosp ? (
                       <tr onClick={handleClick} data-value={template.id}>
@@ -57,11 +102,18 @@ const TemplatesTable = ({ select }) => {
                 ))}
               </tbody>
             </table>
-            {templates.page < templates.total_pages && (
-              <div className="loadMoreButton">
-                <ButtonDark text="Load More" callback={() => setIsLoadingMore(true)} />
-              </div>
-            )}
+            <div className="loadMoreButton">
+              {templates.page === 1 ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingPrevious(true)}>Previous</button>
+              )}
+              {templates.page === templates.total_pages ? (
+                <button type="button" className="btn btn-light" disabled onClick={() => setIsLoadingMore(true)}>Next</button>
+              ) : (
+                <button type="button" className="btn btn-light" onClick={() => setIsLoadingMore(true)}>Next</button>
+              )}
+            </div>
           </Wrapper>
         </>
       )}

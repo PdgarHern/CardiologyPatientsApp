@@ -45,7 +45,11 @@ export const Wrapper = styled.div`
   .loadMoreButton {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+  }
+
+  .btn {
+    border: 1px solid #535353;
   }
 
 `;

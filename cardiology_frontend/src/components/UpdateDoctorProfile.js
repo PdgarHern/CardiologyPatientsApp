@@ -74,6 +74,29 @@ const UpdateDoctorProfile = () => {
     }
   }
 
+  const handleDelete = async () => {
+    try {
+      setError(false);
+      setLoading(true);
+
+      await API.deleteUser();
+
+      sessionStorage.removeItem('doctorId');
+
+      localStorage.removeItem('userToken');
+      localStorage.removeItem('userHosp');
+      localStorage.removeItem('userRol');
+      localStorage.removeItem('userId');
+
+      setLoading(false);
+
+      navigate("/");
+
+    } catch (error) {
+      setError(true);
+    }
+  }
+
   const handleAuth = () => {
     navigate('/login');
   }
@@ -132,7 +155,10 @@ const UpdateDoctorProfile = () => {
           </>
         )}
         {!loading && (
+          <>
           <ButtonDark text='Update' callback={handleSubmit} />
+          <ButtonDark text='Delete account' callback={handleDelete} />
+          </>
         )}
       </Wrapper>
     </>

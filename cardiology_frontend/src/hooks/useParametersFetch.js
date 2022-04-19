@@ -15,6 +15,7 @@ export const useParametersFetch = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isLoadingPrevious, setIsLoadingPrevious] = useState(false);
 
   const fetchParameters = async (page, searchTerm = '') => {
     try {
@@ -26,8 +27,7 @@ export const useParametersFetch = () => {
       if (parameters) {
         setState(prev => ({
           ...parameters,
-          results:
-            page > 1 ? [...prev.results, ...parameters.results] : [...parameters.results]
+          results: [...parameters.results]
         }))
       }
 
@@ -50,5 +50,12 @@ export const useParametersFetch = () => {
     setIsLoadingMore(false);
   }, [isLoadingMore, searchTerm, state.page]);
 
-  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
+  useEffect(() => {
+    if (!isLoadingPrevious) return;
+
+    fetchParameters(state.page - 1, searchTerm);
+    setIsLoadingPrevious(false);
+  }, [isLoadingPrevious, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious };
 }

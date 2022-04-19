@@ -15,6 +15,7 @@ export const useFollowUpsFetch = patientId => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [isLoadingPrevious, setIsLoadingPrevious] = useState(false);
 
   const fetchFollowUps = async (page, searchTerm = '') => {
     try {
@@ -26,8 +27,7 @@ export const useFollowUpsFetch = patientId => {
       if (followUps) {
         setState(prev => ({
           ...followUps,
-          results:
-            page > 1 ? [...prev.results, ...followUps.results] : [...followUps.results]
+          results: [...followUps.results]
         }))
       }
 
@@ -48,7 +48,14 @@ export const useFollowUpsFetch = patientId => {
 
     fetchFollowUps(state.page + 1, searchTerm);
     setIsLoadingMore(false);
-  }, [isLoadingMore, searchTerm, state.page])
+  }, [isLoadingMore, searchTerm, state.page]);
 
-  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore };
+  useEffect(() => {
+    if (!isLoadingPrevious) return;
+
+    fetchFollowUps(state.page - 1, searchTerm);
+    setIsLoadingPrevious(false);
+  }, [isLoadingPrevious, searchTerm, state.page]);
+
+  return { state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore, setIsLoadingPrevious };
 }

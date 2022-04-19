@@ -60,9 +60,9 @@ const Header = () => {
       <Content>
         <LogoImg src={AppLogo} alt='app-logo' onClick={handleHome} />
         <div>
-          <UserImg src={Login} alt='login' onClick={handleLogIn} />
+          <UserImg id="loginIcon" src={Login} alt='login' onClick={handleLogIn} />
           {localStorage.userId && (
-            <LogoutImg src={Logout2} alt='logout' onClick={handleLogOut} />
+            <LogoutImg id="logoutIcon" src={Logout2} alt='logout' onClick={handleLogOut} />
           )}
         </div>
       </Content>

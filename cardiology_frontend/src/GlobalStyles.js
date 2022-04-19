@@ -95,19 +95,49 @@ export const GlobalStyle = createGlobalStyle`
 
   .popup-content {
     width: 30% !important;
+    height: 25% !important;
     border-radius: 20px;
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1350px) {
       width: 60% !important;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
       width: 80% !important;
+      height: 30% !important;
+    }
+
+    @media screen and (max-width: 400px) {
+      height: 40% !important;
     }
   }
 
   .modal {
+    width: 30% !important;
+    height: 20% !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     font-size: var(--fontMed);
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+
+    @media screen and (max-width: 1350px) {
+      width: 60% !important;
+    }
+
+    @media screen and (max-width: 800px) {
+      width: 80% !important;
+      height: 30% !important;
+    }
+
+    @media screen and (max-width: 400px) {
+      height: 40% !important;
+    }
   }
 
   .modal > .header {
@@ -141,9 +171,9 @@ export const GlobalStyle = createGlobalStyle`
     display: block;
     padding: 2px 5px;
     line-height: 20px;
-    right: -10px;
-    top: -10px;
     font-size: 24px;
+    top: 0;
+    right: 0;
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid #cfcece;

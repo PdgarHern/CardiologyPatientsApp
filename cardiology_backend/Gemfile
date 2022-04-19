@@ -20,6 +20,8 @@ gem 'kaminari'
 gem 'ransack'
 gem 'dotenv-rails'
 
+gem 'rspec-rails'
+
 gem 'bootsnap', '>= 1.4.4', require: false
 
 

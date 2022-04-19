@@ -29,14 +29,14 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-  #config.action_mailer.delivery_method = :letter_opener
-  #config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -65,16 +65,16 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            Figaro.env.mailer_email_email,
-    password:             Figaro.env.mailer_email_password,
-    authentication:       'plain',
-    enable_starttls_auto: true,
-    open_timeout:         5,
-    read_timeout:         5 
-  }
+ # config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.smtp_settings = {
+   # address:              'smtp.gmail.com',
+    #port:                 587,
+    #domain:               'gmail.com',
+    #user_name:            Figaro.env.mailer_email_email,
+    #password:             Figaro.env.mailer_email_password,
+    #authentication:       'plain',
+    #enable_starttls_auto: true,
+    #open_timeout:         5,
+    #read_timeout:         5 
+  #}
 end

@@ -87,7 +87,7 @@ const PutTemplate = () => {
       {template ? (
         <BreadCrumb text={template.name} linkPath={'/templates'} />
       ) : null}
-      <Wrapper>
+      <>
         {error && <div className="error">There was an error...</div>}
         {!loading && template ? (
           <>
@@ -150,7 +150,7 @@ const PutTemplate = () => {
             <div>Processing your request...</div>
           </>
         )}
-      </Wrapper>
+      </>
     </>
   )
 }

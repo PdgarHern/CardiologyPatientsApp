@@ -30,6 +30,7 @@ import ChatsVisualizer from "./components/ChatsVisualizer";
 import UserProvider from "./context";
 // Styles
 import { GlobalStyle } from "./GlobalStyles";
+import RegisterPatient from "./components/Register-Patient";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/register-patient' element={<RegisterPatient />} />
             <Route path='/login' element={<Login />} />
             <Route path='/doctor-profile/:doctorId' element={<Doctor />} />
             <Route path='/update-doctor/:doctorId' element={<UpdateDoctorProfile />} />

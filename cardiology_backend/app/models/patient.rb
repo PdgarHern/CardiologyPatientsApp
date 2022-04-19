@@ -4,6 +4,11 @@ class Patient < ApplicationRecord
     has_many :chats, dependent: :destroy
     has_many :messages
     has_one_attached :img
-
-    paginates_per 10
+    attr_accessor :email
+    before_validation :create_user
+    paginates_per 20
+    def create_user
+        user=User.new email: email
+    end
+       
 end

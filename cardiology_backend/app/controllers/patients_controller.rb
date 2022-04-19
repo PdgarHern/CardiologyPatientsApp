@@ -22,6 +22,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     if @patient.save
+      @patient.user.invite!
       render json: @patient, status: :created, location: @patient
     else
       render json: @patient.errors, status: :unprocessable_entity
@@ -50,6 +51,6 @@ class PatientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def patient_params
-      params.require(:patient).permit(:name, :clinicRecord, :gender, :birthDate, :phoneNumber, :consentRGPD, :user_id, :hospital_id, :img)
+      params.require(:patient).permit(:email, :name, :clinicRecord, :gender, :birthDate, :phoneNumber, :consentRGPD, :user_id, :hospital_id, :img)
     end
 end

@@ -10,6 +10,6 @@ class ApplicationController < ActionController::API
 
                devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:rol, :email, :password, :current_password)}
 
-               devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :password, :password_confirmation])
+              # devise_parameter_sanitizer.permit(:accept_invitation, keys: [:name, :password, :password_confirmation])
           end
 end

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable,
          :jwt_authenticatable,
-         :registerable, :confirmable,
+         :registerable, #:confirmable,
         #  :omniauthable,
          jwt_revocation_strategy: JwtDenylist
         #  omniauth_providers: %i[google_oauth2]

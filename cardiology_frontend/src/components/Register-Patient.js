@@ -41,8 +41,8 @@ const RegisterPatient = () => {
 
         if (name === 'name') setName(value);
         if (name === 'email') setEmail(value);
-        if (name === 'password') setPassword(value);
-        if (name === 'passConfirm') setPassConfirm(value);
+       // if (name === 'password') setPassword(value);
+       // if (name === 'passConfirm') setPassConfirm(value);
         if (name === 'role') setRole(value);
         if (name === 'hospital') setHospital(value);
 
@@ -56,12 +56,6 @@ const RegisterPatient = () => {
 
                     if (validator.isEmail(email)) {
 
-                        if (password != '') {
-
-                            if (passConfirm != '') {
-
-                                if (password == passConfirm) {
-
                                     if (role != 'null') {
 
                                         if (hospital != 'null') {
@@ -71,7 +65,7 @@ const RegisterPatient = () => {
                                             const formData = new FormData();
 
                                             formData.append('user[email]', email);
-                                            formData.append('user[password]', password);
+                                           // formData.append('user[password]', password);
                                             formData.append('user[rol]', role);
 
                                             await API.createUser(formData);
@@ -109,29 +103,11 @@ const RegisterPatient = () => {
 
                                     }
 
-                                } else {
-                                    setNotPassConfirm(true);
-                                    setTimeout(() => {
-                                        setNotPassConfirm(false)
-                                    }, 3500);
+                               
 
-                                }
+                           
 
-                            } else {
-                                setPassConfirmError(true);
-                                setTimeout(() => {
-                                    setPassConfirmError(false)
-                                }, 3500);
-
-                            }
-
-                        } else {
-                            setPassError(true);
-                            setTimeout(() => {
-                                setPassError(false)
-                            }, 3500);
-
-                        }
+                        
 
                     } else {
                         setNotEmail(true);
@@ -163,8 +139,8 @@ const RegisterPatient = () => {
                 setLoading(false);
                 setName('');
                 setEmail('');
-                setPassword('');
-                setPassConfirm('');
+                //setPassword('');
+                //setPassConfirm('');
                 setRole('null');
                 window.location.reload();
             }, 2000);
@@ -200,23 +176,8 @@ const RegisterPatient = () => {
                         />
                         {emailError && <div className="formError">*Write your email</div>}
                         {notEmail && <div className="formError">*Invalid email</div>}
-                        <label>Password</label>
-                        <input
-                            type='password'
-                            value={password}
-                            name='password'
-                            onChange={handleInput}
-                        />
-                        {passError && <div className="formError">*Write a password</div>}
-                        <label>Password Confirmation</label>
-                        <input
-                            type='password'
-                            value={passConfirm}
-                            name='passConfirm'
-                            onChange={handleInput}
-                        />
-                        {passConfirmError && <div className="formError">*Confirm your password</div>}
-                        {notPassConfirm && <div className="formError">*Confirmation doesn't match</div>}
+                        
+                        
                         <label>Role</label>
                         <select name='role' onChange={handleInput}>
                             <option value="null"></option>

@@ -32,6 +32,10 @@ const apiSettings = {
     const endpoint = `${USERS}`;
     return await (await axios.post(endpoint, body));
   },
+  inviteUser: async body => {
+    const endpoint = `${API_URL}/invite`;
+    return await (await axios.post(endpoint, body, {headers: {'Authorization': localStorage.userToken}}));
+  },
   deleteUser: async () => {
     const endpoint = `${USERS}`;
     return await (await axios.delete(endpoint, {headers: {'Authorization': localStorage.userToken}}))

@@ -36,6 +36,21 @@ const PostFollowup = () => {
     console.log(date);
 
   }
+<<<<<<< HEAD
+  else if(today.getMonth()<9 && today.getDate()<9){
+    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-0' + today.getDate();
+    console.log(date)
+
+  }
+  else if(today.getMonth()<9 && today.getDate()>9){
+    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-' + today.getDate();
+    console.log(date)
+
+  }
+  
+  
+=======
+>>>>>>> 0c00b480288e120b184ccfd47afc78ff8572f44c
   
   const { state: templates } = useTemplatesFetch();
 

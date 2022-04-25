@@ -3,7 +3,11 @@ class Users::InvitationsController < Devise::InvitationsController
 
           def create
             logger.info("hola caracola")
-            User.invite!(email: params[:email])
+            logger.info(params[:email])
+            @user = User.invite!(email: params[:email], rol:params[:rol])
+            #Patient
+            Patient.create(user: @user)
+
             render json: { message: "Invitation sent." }
            
             #super

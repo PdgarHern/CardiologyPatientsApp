@@ -60,8 +60,6 @@ const TemplatesTable = ({ select }) => {
     }
   }
 
-  console.log(templates.results)
-
   return (
     <>
       {templates && (

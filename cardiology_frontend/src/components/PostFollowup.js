@@ -16,19 +16,27 @@ const PostFollowup = () => {
   const formData = new FormData();
 
   var today = new Date();
-
+  console.log(today.getMonth() + 1)
   var date = null;
  
   
-  if (today.getMonth() > 9 && today.getDate() > 9) {
-    date = today.getFullYear() + '-' + (today.getMonth() +1) + '-' + today.getDate();
+  if (today.getMonth() < 9) {
+    date = today.getFullYear() + '-0' + (today.getMonth() + 1) + '-' + today.getDate();
     console.log(date);
-  } 
-  else if(today.getMonth()>9 && today.getDate()<9){
-    date = today.getFullYear() + '-' + (today.getMonth() +1) + '-0' + today.getDate();
-    console.log(date)
+  } else if (today.getDate() < 9) {
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-0' + today.getDate();
+    console.log(date);
+
+  } else if (today.getMonth() < 9 && today.getDate() < 9) {
+    date = today.getFullYear() + '-0' + (today.getMonth() + 1) + '-0' + today.getDate();
+    console.log(date);
+
+  } else {
+    date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    console.log(date);
 
   }
+<<<<<<< HEAD
   else if(today.getMonth()<9 && today.getDate()<9){
     date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-0' + today.getDate();
     console.log(date)
@@ -41,6 +49,8 @@ const PostFollowup = () => {
   }
   
   
+=======
+>>>>>>> 0c00b480288e120b184ccfd47afc78ff8572f44c
   
   const { state: templates } = useTemplatesFetch();
 
@@ -56,6 +66,9 @@ const PostFollowup = () => {
   const [endDateError, setEndDateError] = useState(false);
   const [endDateInvalid, setEndDateInvalid] = useState(false);
   const [templateError, setTemplateError] = useState(false);
+
+  console.log(startDate)
+  console.log(date)
 
   const navigate = useNavigate();
 

@@ -34,6 +34,11 @@ const PostFollowup = () => {
     console.log(date)
 
   }
+  else if(today.getMonth()<9 && today.getDate()>9){
+    date = today.getFullYear() + '-0' + (today.getMonth() +1) + '-' + today.getDate();
+    console.log(date)
+
+  }
   
   
   
